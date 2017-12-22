@@ -1,6 +1,6 @@
 //
 //  InteractiveTransition.swift
-//  SwipeBackable
+//  BackSwipeable
 //
 //  Created by Tatsuya Tanaka on 20171222.
 //  Copyright © 2017年 tattn. All rights reserved.

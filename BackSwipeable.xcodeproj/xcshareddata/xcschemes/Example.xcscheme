@@ -17,7 +17,7 @@
                BlueprintIdentifier = "241BA6D81FEC480E002E8902"
                BuildableName = "Example.app"
                BlueprintName = "Example"
-               ReferencedContainer = "container:SwipeBackable.xcodeproj">
+               ReferencedContainer = "container:BackSwipeable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
             BlueprintIdentifier = "241BA6D81FEC480E002E8902"
             BuildableName = "Example.app"
             BlueprintName = "Example"
-            ReferencedContainer = "container:SwipeBackable.xcodeproj">
+            ReferencedContainer = "container:BackSwipeable.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -60,7 +60,7 @@
             BlueprintIdentifier = "241BA6D81FEC480E002E8902"
             BuildableName = "Example.app"
             BlueprintName = "Example"
-            ReferencedContainer = "container:SwipeBackable.xcodeproj">
+            ReferencedContainer = "container:BackSwipeable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,7 +79,7 @@
             BlueprintIdentifier = "241BA6D81FEC480E002E8902"
             BuildableName = "Example.app"
             BlueprintName = "Example"
-            ReferencedContainer = "container:SwipeBackable.xcodeproj">
+            ReferencedContainer = "container:BackSwipeable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

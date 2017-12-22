@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		241BA6CB1FEC271B002E8902 /* SwipeBackable.h in Headers */ = {isa = PBXBuildFile; fileRef = 241BA6C91FEC271B002E8902 /* SwipeBackable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		241BA6D21FEC2730002E8902 /* SwipeBackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* SwipeBackController.swift */; };
+		241BA6CB1FEC271B002E8902 /* BackSwipeable.h in Headers */ = {isa = PBXBuildFile; fileRef = 241BA6C91FEC271B002E8902 /* BackSwipeable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* BackSwipeController.swift */; };
 		241BA6D41FEC2778002E8902 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
 		241BA6DC1FEC480E002E8902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6DB1FEC480E002E8902 /* AppDelegate.swift */; };
 		241BA6DE1FEC480E002E8902 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6DD1FEC480E002E8902 /* ViewController.swift */; };
@@ -16,11 +16,11 @@
 		241BA6E31FEC480E002E8902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 241BA6E21FEC480E002E8902 /* Assets.xcassets */; };
 		241BA6E61FEC480E002E8902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 241BA6E41FEC480E002E8902 /* LaunchScreen.storyboard */; };
 		241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */; };
-		241BA6EE1FECCDA8002E8902 /* SwipeBackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6ED1FECCDA8002E8902 /* SwipeBackable.swift */; };
-		241BA6EF1FECDA8A002E8902 /* SwipeBackable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeBackable.framework */; };
-		241BA6F01FECDA8A002E8902 /* SwipeBackable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeBackable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		241BA6F91FECF03D002E8902 /* SwipeBackableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6F81FECF03D002E8902 /* SwipeBackableNavigationController.swift */; };
-		241BA6FB1FED07F1002E8902 /* SwipeBackableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* SwipeBackableConfiguration.swift */; };
+		241BA6EE1FECCDA8002E8902 /* BackSwipeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */; };
+		241BA6EF1FECDA8A002E8902 /* BackSwipeable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* BackSwipeable.framework */; };
+		241BA6F01FECDA8A002E8902 /* BackSwipeable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* BackSwipeable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		241BA6F91FECF03D002E8902 /* BackSwipeableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */; };
+		241BA6FB1FED07F1002E8902 /* BackSwipeableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,7 @@
 			containerPortal = 241BA6BD1FEC271B002E8902 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 241BA6C51FEC271B002E8902;
-			remoteInfo = SwipeBackable;
+			remoteInfo = BackSwipeable;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,7 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				241BA6F01FECDA8A002E8902 /* SwipeBackable.framework in Embed Frameworks */,
+				241BA6F01FECDA8A002E8902 /* BackSwipeable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,10 +48,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		241BA6C61FEC271B002E8902 /* SwipeBackable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeBackable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		241BA6C91FEC271B002E8902 /* SwipeBackable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeBackable.h; sourceTree = "<group>"; };
+		241BA6C61FEC271B002E8902 /* BackSwipeable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BackSwipeable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		241BA6C91FEC271B002E8902 /* BackSwipeable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackSwipeable.h; sourceTree = "<group>"; };
 		241BA6CA1FEC271B002E8902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		241BA6D11FEC2730002E8902 /* SwipeBackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackController.swift; sourceTree = "<group>"; };
+		241BA6D11FEC2730002E8902 /* BackSwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeController.swift; sourceTree = "<group>"; };
 		241BA6D31FEC2778002E8902 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		241BA6D91FEC480E002E8902 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		241BA6DB1FEC480E002E8902 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +61,9 @@
 		241BA6E51FEC480E002E8902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		241BA6E71FEC480E002E8902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
-		241BA6ED1FECCDA8002E8902 /* SwipeBackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackable.swift; sourceTree = "<group>"; };
-		241BA6F81FECF03D002E8902 /* SwipeBackableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackableNavigationController.swift; sourceTree = "<group>"; };
-		241BA6FA1FED07F1002E8902 /* SwipeBackableConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackableConfiguration.swift; sourceTree = "<group>"; };
+		241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeable.swift; sourceTree = "<group>"; };
+		241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeableNavigationController.swift; sourceTree = "<group>"; };
+		241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeableConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				241BA6EF1FECDA8A002E8902 /* SwipeBackable.framework in Frameworks */,
+				241BA6EF1FECDA8A002E8902 /* BackSwipeable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 		241BA6C71FEC271B002E8902 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				241BA6C61FEC271B002E8902 /* SwipeBackable.framework */,
+				241BA6C61FEC271B002E8902 /* BackSwipeable.framework */,
 				241BA6D91FEC480E002E8902 /* Example.app */,
 			);
 			name = Products;
@@ -106,14 +106,14 @@
 		241BA6C81FEC271B002E8902 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				241BA6C91FEC271B002E8902 /* SwipeBackable.h */,
+				241BA6C91FEC271B002E8902 /* BackSwipeable.h */,
 				241BA6CA1FEC271B002E8902 /* Info.plist */,
-				241BA6D11FEC2730002E8902 /* SwipeBackController.swift */,
+				241BA6D11FEC2730002E8902 /* BackSwipeController.swift */,
 				241BA6D31FEC2778002E8902 /* Animator.swift */,
 				241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */,
-				241BA6ED1FECCDA8002E8902 /* SwipeBackable.swift */,
-				241BA6F81FECF03D002E8902 /* SwipeBackableNavigationController.swift */,
-				241BA6FA1FED07F1002E8902 /* SwipeBackableConfiguration.swift */,
+				241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */,
+				241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */,
+				241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -138,16 +138,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				241BA6CB1FEC271B002E8902 /* SwipeBackable.h in Headers */,
+				241BA6CB1FEC271B002E8902 /* BackSwipeable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		241BA6C51FEC271B002E8902 /* SwipeBackable */ = {
+		241BA6C51FEC271B002E8902 /* BackSwipeable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 241BA6CE1FEC271B002E8902 /* Build configuration list for PBXNativeTarget "SwipeBackable" */;
+			buildConfigurationList = 241BA6CE1FEC271B002E8902 /* Build configuration list for PBXNativeTarget "BackSwipeable" */;
 			buildPhases = (
 				241BA6C11FEC271B002E8902 /* Sources */,
 				241BA6C21FEC271B002E8902 /* Frameworks */,
@@ -158,9 +158,9 @@
 			);
 			dependencies = (
 			);
-			name = SwipeBackable;
-			productName = SwipeBackable;
-			productReference = 241BA6C61FEC271B002E8902 /* SwipeBackable.framework */;
+			name = BackSwipeable;
+			productName = BackSwipeable;
+			productReference = 241BA6C61FEC271B002E8902 /* BackSwipeable.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		241BA6D81FEC480E002E8902 /* Example */ = {
@@ -203,7 +203,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 241BA6C01FEC271B002E8902 /* Build configuration list for PBXProject "SwipeBackable" */;
+			buildConfigurationList = 241BA6C01FEC271B002E8902 /* Build configuration list for PBXProject "BackSwipeable" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -216,7 +216,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				241BA6C51FEC271B002E8902 /* SwipeBackable */,
+				241BA6C51FEC271B002E8902 /* BackSwipeable */,
 				241BA6D81FEC480E002E8902 /* Example */,
 			);
 		};
@@ -247,12 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				241BA6FB1FED07F1002E8902 /* SwipeBackableConfiguration.swift in Sources */,
+				241BA6FB1FED07F1002E8902 /* BackSwipeableConfiguration.swift in Sources */,
 				241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */,
 				241BA6D41FEC2778002E8902 /* Animator.swift in Sources */,
-				241BA6F91FECF03D002E8902 /* SwipeBackableNavigationController.swift in Sources */,
-				241BA6EE1FECCDA8002E8902 /* SwipeBackable.swift in Sources */,
-				241BA6D21FEC2730002E8902 /* SwipeBackController.swift in Sources */,
+				241BA6F91FECF03D002E8902 /* BackSwipeableNavigationController.swift in Sources */,
+				241BA6EE1FECCDA8002E8902 /* BackSwipeable.swift in Sources */,
+				241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +270,7 @@
 /* Begin PBXTargetDependency section */
 		241BA6F21FECDA8A002E8902 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 241BA6C51FEC271B002E8902 /* SwipeBackable */;
+			target = 241BA6C51FEC271B002E8902 /* BackSwipeable */;
 			targetProxy = 241BA6F11FECDA8A002E8902 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -421,7 +421,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.SwipeBackable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.BackSwipeable;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -443,7 +443,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.SwipeBackable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.BackSwipeable;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -486,7 +486,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		241BA6C01FEC271B002E8902 /* Build configuration list for PBXProject "SwipeBackable" */ = {
+		241BA6C01FEC271B002E8902 /* Build configuration list for PBXProject "BackSwipeable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				241BA6CC1FEC271B002E8902 /* Debug */,
@@ -495,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		241BA6CE1FEC271B002E8902 /* Build configuration list for PBXNativeTarget "SwipeBackable" */ = {
+		241BA6CE1FEC271B002E8902 /* Build configuration list for PBXNativeTarget "BackSwipeable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				241BA6CF1FEC271B002E8902 /* Debug */,

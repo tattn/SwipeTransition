@@ -1,6 +1,6 @@
 //
-//  SwipeBackController.swift
-//  SwipeBackable
+//  BackSwipeController.swift
+//  BackSwipeable
 //
 //  Created by Tatsuya Tanaka on 20171222.
 //  Copyright © 2017年 tattn. All rights reserved.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-public protocol SwipeBackControllerDelegate: class {
-    func swipeBackControllerStartTransition(context: UIViewControllerContextTransitioning)
-    func swipeBackControllerDidFinishTransition(context: UIViewControllerContextTransitioning)
+public protocol BackSwipeControllerDelegate: class {
+    func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning)
+    func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning)
 }
 
-public extension SwipeBackControllerDelegate {
-    public func swipeBackControllerStartTransition(context: UIViewControllerContextTransitioning) {}
-    public func swipeBackControllerDidFinishTransition(context: UIViewControllerContextTransitioning) {}
+public extension BackSwipeControllerDelegate {
+    public func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning) {}
+    public func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning) {}
 }
 
-public final class SwipeBackController: NSObject {
-    var delegate: SwipeBackControllerDelegate? {
+public final class BackSwipeController: NSObject {
+    var delegate: BackSwipeControllerDelegate? {
         get { return animator.delegate }
         set { animator.delegate = newValue }
     }
@@ -76,13 +76,13 @@ public final class SwipeBackController: NSObject {
     }
 }
 
-extension SwipeBackController: UIGestureRecognizerDelegate {
+extension BackSwipeController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return navigationController.map { $0.viewControllers.count > 1 } ?? false
     }
 }
 
-extension SwipeBackController: UINavigationControllerDelegate {
+extension BackSwipeController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return operation == .pop ? animator : nil
     }

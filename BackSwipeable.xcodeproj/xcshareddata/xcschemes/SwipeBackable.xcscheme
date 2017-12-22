@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "241BA6C51FEC271B002E8902"
-               BuildableName = "SwipeBackable.framework"
-               BlueprintName = "SwipeBackable"
-               ReferencedContainer = "container:SwipeBackable.xcodeproj">
+               BuildableName = "BackSwipeable.framework"
+               BlueprintName = "BackSwipeable"
+               ReferencedContainer = "container:BackSwipeable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "241BA6C51FEC271B002E8902"
-            BuildableName = "SwipeBackable.framework"
-            BlueprintName = "SwipeBackable"
-            ReferencedContainer = "container:SwipeBackable.xcodeproj">
+            BuildableName = "BackSwipeable.framework"
+            BlueprintName = "BackSwipeable"
+            ReferencedContainer = "container:BackSwipeable.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "241BA6C51FEC271B002E8902"
-            BuildableName = "SwipeBackable.framework"
-            BlueprintName = "SwipeBackable"
-            ReferencedContainer = "container:SwipeBackable.xcodeproj">
+            BuildableName = "BackSwipeable.framework"
+            BlueprintName = "BackSwipeable"
+            ReferencedContainer = "container:BackSwipeable.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -1,17 +1,17 @@
-SwipeBackable
+BackSwipeable
 ===
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift Version](https://img.shields.io/badge/Swift-4-F16D39.svg)](https://developer.apple.com/swift)
 
-SwipeBackable allows swipe back anywhere.
+BackSwipeable allows swipe back anywhere.
 
 # Installation
 
 ## Carthage
 
 ```ruby
-github "tattn/SwipeBackable"
+github "tattn/BackSwipeable"
 ```
 
 
@@ -25,4 +25,4 @@ github "tattn/SwipeBackable"
 
 # License
 
-SwipeBackable is released under the MIT license. See LICENSE for details.
+BackSwipeable is released under the MIT license. See LICENSE for details.

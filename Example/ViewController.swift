@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwipeBackable
+import BackSwipeable
 
 class PushableVC: UIViewController {
     override func viewDidLoad() {
@@ -36,16 +36,16 @@ final class PushableHidesBottomBarVC: PushableVC {
 }
 
 final class NoSwipableVC: PushableVC {
-    private var previousIsSwipeBackEnabled: Bool!
+    private var previousIsBackSwipeEnabled: Bool!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        previousIsSwipeBackEnabled = navigationController?.isSwipeBackEnabled ?? false
-        navigationController?.isSwipeBackEnabled = false
+        previousIsBackSwipeEnabled = navigationController?.isBackSwipeEnabled ?? false
+        navigationController?.isBackSwipeEnabled = false
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.isSwipeBackEnabled = previousIsSwipeBackEnabled
+        navigationController?.isBackSwipeEnabled = previousIsBackSwipeEnabled
     }
 
     override func didTapButton() {

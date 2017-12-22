@@ -1,6 +1,6 @@
 //
 //  Animator.swift
-//  SwipeBackable
+//  BackSwipeable
 //
 //  Created by Tatsuya Tanaka on 20171222.
 //  Copyright © 2017年 tattn. All rights reserved.
@@ -9,13 +9,13 @@
 import UIKit
 
 public final class Animator: NSObject {
-    public weak var delegate: SwipeBackControllerDelegate?
+    public weak var delegate: BackSwipeControllerDelegate?
     private weak var toViewController: UIViewController?
 }
 
 extension Animator: UIViewControllerAnimatedTransitioning {
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return SwipeBackableConfiguration.shared.transitionDuration
+        return BackSwipeableConfiguration.shared.transitionDuration
     }
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,14 +25,14 @@ extension Animator: UIViewControllerAnimatedTransitioning {
         to.view.frame = transitionContext.containerView.frame
 
         // parallax effect
-        to.view.transform.tx = -transitionContext.containerView.bounds.width * SwipeBackableConfiguration.shared.parallaxFactor
+        to.view.transform.tx = -transitionContext.containerView.bounds.width * BackSwipeableConfiguration.shared.parallaxFactor
 
         // dim the back view
         let dimmedView = UIView(frame: to.view.bounds)
-        dimmedView.backgroundColor = UIColor(white: 0, alpha: SwipeBackableConfiguration.shared.backViewDimness)
+        dimmedView.backgroundColor = UIColor(white: 0, alpha: BackSwipeableConfiguration.shared.backViewDimness)
         to.view.addSubview(dimmedView)
 
-        delegate?.swipeBackControllerStartTransition(context: transitionContext)
+        delegate?.backSwipeControllerStartTransition(context: transitionContext)
 
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
@@ -45,7 +45,7 @@ extension Animator: UIViewControllerAnimatedTransitioning {
             }, completion: { [weak self] _ in
                 dimmedView.removeFromSuperview()
                 from.view.transform = .identity
-                self?.delegate?.swipeBackControllerDidFinishTransition(context: transitionContext)
+                self?.delegate?.backSwipeControllerDidFinishTransition(context: transitionContext)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )
