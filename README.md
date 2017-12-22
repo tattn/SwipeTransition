@@ -1,12 +1,14 @@
-BackSwipeable
+SwipeTransition
 ===
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift Version](https://img.shields.io/badge/Swift-4-F16D39.svg)](https://developer.apple.com/swift)
 
-BackSwipeable allows swipe back anywhere.
+SwipeTransition allows trendy transitions using swipe gesture such as "swipe back".
 
 # Usage
+
+## Swipe back
 
 Just use BackSwipeableNavigationController instead of UINavigationController. Of course, you can set it with Interface Builder.
 
@@ -22,7 +24,7 @@ let navigationController = BackSwipeableNavigationController(rootViewControlelr:
 ## Carthage
 
 ```ruby
-github "tattn/BackSwipeable"
+github "tattn/SwipeTransition"
 ```
 
 
@@ -36,4 +38,4 @@ github "tattn/BackSwipeable"
 
 # License
 
-BackSwipeable is released under the MIT license. See LICENSE for details.
+SwipeTransition is released under the MIT license. See LICENSE for details.
