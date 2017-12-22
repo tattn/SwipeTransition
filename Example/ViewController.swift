@@ -35,7 +35,7 @@ final class PushableHidesBottomBarVC: PushableVC {
     }
 }
 
-final class NoSwipableVC: PushableVC {
+final class NoSwipeVC: PushableVC {
     private var previousIsBackSwipeEnabled: Bool!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -49,6 +49,6 @@ final class NoSwipableVC: PushableVC {
     }
 
     override func didTapButton() {
-        self.navigationController?.pushViewController(NoSwipableVC(), animated: true)
+        self.navigationController?.pushViewController(NoSwipeVC(), animated: true)
     }
 }

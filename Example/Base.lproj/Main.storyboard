@@ -79,7 +79,7 @@
         <!--Back Swipeable Navigation Controller-->
         <scene sceneID="D6t-OE-Chg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NYA-jF-y1h" customClass="BackSwipeableNavigationController" customModule="BackSwipeable" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NYA-jF-y1h" customClass="BackSwipeableNavigationController" customModule="SwipeTransition" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mac-M8-1h4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -120,7 +120,7 @@
         <!--NC-->
         <scene sceneID="2Mo-Cb-yzb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HkL-xO-nKg" customClass="BackSwipeableNavigationController" customModule="BackSwipeable" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HkL-xO-nKg" customClass="BackSwipeableNavigationController" customModule="SwipeTransition" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="NC" id="hSp-IZ-ymS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B60-gn-jl8">
@@ -139,7 +139,7 @@
         <!--HideBottomBar-->
         <scene sceneID="Vn3-1B-gug">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O8I-ki-res" customClass="BackSwipeableNavigationController" customModule="BackSwipeable" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O8I-ki-res" customClass="BackSwipeableNavigationController" customModule="SwipeTransition" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="HideBottomBar" id="CuP-91-Gne"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FvW-aY-1zI">
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="1227.2" y="717.84107946026995"/>
         </scene>
-        <!--No SwipableVC-->
+        <!--No SwipeVC-->
         <scene sceneID="dye-z7-5Zy">
             <objects>
-                <viewController id="vrI-uq-ZSb" customClass="NoSwipableVC" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vrI-uq-ZSb" customClass="NoSwipeVC" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LN9-bm-xGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,7 +174,7 @@
         <!--DisableSwipe-->
         <scene sceneID="EDs-UV-PyQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T43-0g-HyG" customClass="BackSwipeableNavigationController" customModule="BackSwipeable" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T43-0g-HyG" customClass="BackSwipeableNavigationController" customModule="SwipeTransition" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="DisableSwipe" id="l9t-ir-U4A"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xmF-4o-EO4">
