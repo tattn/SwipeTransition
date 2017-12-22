@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "241BA6D81FEC480E002E8902"
-               BuildableName = "Example.app"
-               BlueprintName = "Example"
-               ReferencedContainer = "container:BackSwipeable.xcodeproj">
+               BlueprintIdentifier = "241BA6C51FEC271B002E8902"
+               BuildableName = "SwipeTransition.framework"
+               BlueprintName = "SwipeTransition"
+               ReferencedContainer = "container:SwipeTransition.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,15 +30,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "241BA6D81FEC480E002E8902"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
-            ReferencedContainer = "container:BackSwipeable.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -53,16 +44,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "241BA6D81FEC480E002E8902"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
-            ReferencedContainer = "container:BackSwipeable.xcodeproj">
+            BlueprintIdentifier = "241BA6C51FEC271B002E8902"
+            BuildableName = "SwipeTransition.framework"
+            BlueprintName = "SwipeTransition"
+            ReferencedContainer = "container:SwipeTransition.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -72,16 +62,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "241BA6D81FEC480E002E8902"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
-            ReferencedContainer = "container:BackSwipeable.xcodeproj">
+            BlueprintIdentifier = "241BA6C51FEC271B002E8902"
+            BuildableName = "SwipeTransition.framework"
+            BlueprintName = "SwipeTransition"
+            ReferencedContainer = "container:SwipeTransition.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

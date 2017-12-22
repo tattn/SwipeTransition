@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BackSwipeable
+import SwipeTransition
 
 class PushableVC: UIViewController {
     override func viewDidLoad() {
