@@ -8,14 +8,14 @@ BackSwipeable allows swipe back anywhere.
 
 # Usage
 
-Just use SwipeBackableNavigationController instead of UINavigationController. Of course, you can set it with Interface Builder.
+Just use BackSwipeableNavigationController instead of UINavigationController. Of course, you can set it with Interface Builder.
 
 ```swift
 let viewController = UIViewController()
-let navigationController = SwipeBackableNavigationController(rootViewControlelr: viewController)
+let navigationController = BackSwipeableNavigationController(rootViewControlelr: viewController)
 ````
 
-`S protocol is also available.
+
 
 # Installation
 
