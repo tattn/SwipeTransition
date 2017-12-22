@@ -17,7 +17,32 @@ let viewController = UIViewController()
 let navigationController = BackSwipeableNavigationController(rootViewControlelr: viewController)
 ````
 
+Another way is to use a `BackSwipeable` protocol.
 
+```swift
+class CustomNavigationController: UINavigationController, BackSwipeable {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        backSwipeController = BackSwipeController(navigationController: self)
+    }
+}
+```
+
+It is possible to disable the feature only for a specific view controller.
+
+```swift
+class NoSwipeVC: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.isBackSwipeEnabled = false
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.isBackSwipeEnabled = true
+    }
+}
+```
 
 # Installation
 
