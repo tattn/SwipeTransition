@@ -28,6 +28,7 @@
 		2467A7A81FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */; };
 		2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A91FEE375E007A7AC9 /* Extensions.swift */; };
 		2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
+		2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissConfiguration.swift; sourceTree = "<group>"; };
 		2467A7A91FEE375E007A7AC9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewDelegateProxy.swift; sourceTree = "<group>"; };
+		2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableToDismissNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */,
 				2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */,
 				2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */,
+				2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */,
 			);
 			path = SwipeToDismiss;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */,
 				241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */,
 				2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
+				2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,7 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";

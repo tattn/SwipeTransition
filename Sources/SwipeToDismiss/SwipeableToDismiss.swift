@@ -36,3 +36,19 @@ public extension SwipeableToDismiss where Self: UIViewController {
         swipeToDismiss?.navigationBar = navigationBar
     }
 }
+//
+//public extension UINavigationController {
+//    public var isBackSwipeEnabled: Bool {
+//        get {
+//            return (self as? BackSwipeable)?.backSwipeController != nil
+//        }
+//        set {
+//            if newValue {
+//                (self as? BackSwipeable)?.backSwipeController = BackSwipeController(navigationController: self)
+//            } else {
+//                (self as? BackSwipeable)?.backSwipeController = nil
+//            }
+//        }
+//    }
+//}
+

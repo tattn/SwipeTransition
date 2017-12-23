@@ -45,7 +45,11 @@ public class SwipeToDismissController: NSObject {
         }
     }
 
-    private weak var scrollView: UIScrollView?
+    public weak var scrollView: UIScrollView? {
+        didSet {
+
+        }
+    }
     private var proxy: ScrollViewDelegateProxy? // strong reference
 
     private var panGestures: [UIPanGestureRecognizer] = []
@@ -62,11 +66,6 @@ public class SwipeToDismissController: NSObject {
         super.init()
         defer { delegate = scrollView.delegate } // to call `didSet`
         self.scrollView = scrollView
-
-        if #available(iOS 11.0, *) {
-            scrollView.contentInsetAdjustmentBehavior = .never
-            scrollView.contentInset.bottom = viewOriginY
-        }
 
         commonInit(viewController: viewController)
     }
