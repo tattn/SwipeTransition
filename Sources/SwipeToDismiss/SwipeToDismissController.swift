@@ -38,37 +38,23 @@ public class SwipeToDismissController: NSObject {
 
     public weak var navigationBar: UIView? {
         didSet {
-            if let old = oldValue, let panGesture = panGestures.first(where: { old == $0.view }) {
-                old.removeGestureRecognizer(panGesture)
+            if let navigationBar = navigationBar {
+                if let old = oldValue, let panGesture = panGestures.first(where: { old == $0.view }) {
+                    old.removeGestureRecognizer(panGesture)
+                }
+                addGesture(to: navigationBar)
             }
-            navigationBar.map { addGesture(to: $0) }
         }
     }
 
     public weak var scrollView: UIScrollView? {
         didSet {
-
+            delegate = scrollView?.delegate
         }
     }
     private var proxy: ScrollViewDelegateProxy? // strong reference
 
     private var panGestures: [UIPanGestureRecognizer] = []
-
-    convenience public init?(scrollView: UIScrollView) {
-        guard let viewController = scrollView.viewController else {
-            assertionFailure("the scroll view doesn't belong to a view controller.")
-            return nil
-        }
-        self.init(scrollView: scrollView, viewController: viewController)
-    }
-
-    public init(scrollView: UIScrollView, viewController: UIViewController) {
-        super.init()
-        defer { delegate = scrollView.delegate } // to call `didSet`
-        self.scrollView = scrollView
-
-        commonInit(viewController: viewController)
-    }
 
     public init?(view: UIView) {
         guard let viewController = view.viewController else {

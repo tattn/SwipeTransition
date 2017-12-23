@@ -28,27 +28,15 @@ public extension SwipeableToDismiss where Self: UIViewController {
     }
 
     public func configureSwipeToDismiss(scrollView: UIScrollView? = nil, navigationBar: UIView? = nil) {
-        if let scrollView = scrollView {
-            swipeToDismiss = SwipeToDismissController(scrollView: scrollView)
-        } else {
-            swipeToDismiss = SwipeToDismissController(view: view)
-        }
+        swipeToDismiss = SwipeToDismissController(view: view)
+        swipeToDismiss?.scrollView = scrollView
         swipeToDismiss?.navigationBar = navigationBar
     }
 }
-//
-//public extension UINavigationController {
-//    public var isBackSwipeEnabled: Bool {
-//        get {
-//            return (self as? BackSwipeable)?.backSwipeController != nil
-//        }
-//        set {
-//            if newValue {
-//                (self as? BackSwipeable)?.backSwipeController = BackSwipeController(navigationController: self)
-//            } else {
-//                (self as? BackSwipeable)?.backSwipeController = nil
-//            }
-//        }
-//    }
-//}
+
+public extension UINavigationController {
+    public var swipeToDismiss: SwipeToDismissController? {
+        return (self as? SwipeableToDismiss)?.swipeToDismiss
+    }
+}
 

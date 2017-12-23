@@ -105,7 +105,6 @@ class DismissTopVC: UIViewController {
 
     @objc func scrollViewInSwipeableNC() {
         let vc = DismissScrollVC2()
-//        vc.view.backgroundColor = .orange
         let nav = SwipeableToDismissNavigationController(rootViewController: vc)
         present(nav, animated: true, completion: nil)
     }
@@ -121,15 +120,17 @@ class DismissSimpleVC: UIViewController, SwipeableToDismiss {
     }
 }
 
-class DismissScrollVC: UIViewController, SwipeableToDismiss {
+class ScrollVC: UIViewController {
+
+    weak var scrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "DismissSimpleVC"
         view.backgroundColor = .orange
 
         let scrollView = UIScrollView(frame: view.bounds)
         view.addSubview(scrollView)
+        self.scrollView = scrollView
 
         let contentView = UIView(frame: view.bounds)
         contentView.frame.size.height = view.frame.height * 2
@@ -139,29 +140,22 @@ class DismissScrollVC: UIViewController, SwipeableToDismiss {
         gradientLayer.frame = contentView.bounds
         contentView.layer.insertSublayer(gradientLayer, at: 0)
         scrollView.addSubview(contentView)
+    }
+}
 
+class DismissScrollVC: ScrollVC, SwipeableToDismiss {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "DismissScrollVC"
         configureSwipeToDismiss(scrollView: scrollView)
     }
 }
 
-class DismissScrollVC2: UIViewController {
-
+class DismissScrollVC2: ScrollVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "DismissSimpleVC"
-        view.backgroundColor = .orange
-
-        let scrollView = UIScrollView(frame: view.bounds)
-        view.addSubview(scrollView)
-
-        let contentView = UIView(frame: view.bounds)
-        contentView.frame.size.height = view.frame.height * 2
-        scrollView.contentSize.height = contentView.frame.height
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(red:0.07, green:0.13, blue:0.26, alpha:1).cgColor, UIColor(red:0.54, green:0.74, blue:0.74, alpha:1).cgColor]
-        gradientLayer.frame = contentView.bounds
-        contentView.layer.insertSublayer(gradientLayer, at: 0)
-        scrollView.addSubview(contentView)
+        title = "DismissScrollVC2"
+        navigationController?.swipeToDismiss?.scrollView = scrollView
     }
 }
 
