@@ -21,6 +21,13 @@
 		241BA6F01FECDA8A002E8902 /* SwipeTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		241BA6F91FECF03D002E8902 /* BackSwipeableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */; };
 		241BA6FB1FED07F1002E8902 /* BackSwipeableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */; };
+		2467A7A11FED4E43007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
+		2467A7A21FED4EA5007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2467A7A41FED5967007A7AC9 /* SwipeableToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */; };
+		2467A7A61FEE1F14007A7AC9 /* SwipeToDismissController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */; };
+		2467A7A81FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */; };
+		2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A91FEE375E007A7AC9 /* Extensions.swift */; };
+		2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +71,13 @@
 		241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeable.swift; sourceTree = "<group>"; };
 		241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeableNavigationController.swift; sourceTree = "<group>"; };
 		241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeableConfiguration.swift; sourceTree = "<group>"; };
+		2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateProxy.h; sourceTree = "<group>"; };
+		2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelegateProxy.m; sourceTree = "<group>"; };
+		2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableToDismiss.swift; sourceTree = "<group>"; };
+		2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissController.swift; sourceTree = "<group>"; };
+		2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissConfiguration.swift; sourceTree = "<group>"; };
+		2467A7A91FEE375E007A7AC9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewDelegateProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,12 +122,12 @@
 			children = (
 				241BA6C91FEC271B002E8902 /* SwipeTransition.h */,
 				241BA6CA1FEC271B002E8902 /* Info.plist */,
-				241BA6D11FEC2730002E8902 /* BackSwipeController.swift */,
-				241BA6D31FEC2778002E8902 /* Animator.swift */,
-				241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */,
-				241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */,
-				241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */,
-				241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */,
+				2467A7AD1FEE52A4007A7AC9 /* SwipeBack */,
+				2467A7AE1FEE52BF007A7AC9 /* SwipeToDismiss */,
+				2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */,
+				2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */,
+				2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */,
+				2467A7A91FEE375E007A7AC9 /* Extensions.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -131,6 +145,29 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		2467A7AD1FEE52A4007A7AC9 /* SwipeBack */ = {
+			isa = PBXGroup;
+			children = (
+				241BA6D11FEC2730002E8902 /* BackSwipeController.swift */,
+				241BA6D31FEC2778002E8902 /* Animator.swift */,
+				241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */,
+				241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */,
+				241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */,
+				241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */,
+			);
+			path = SwipeBack;
+			sourceTree = "<group>";
+		};
+		2467A7AE1FEE52BF007A7AC9 /* SwipeToDismiss */ = {
+			isa = PBXGroup;
+			children = (
+				2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */,
+				2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */,
+				2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */,
+			);
+			path = SwipeToDismiss;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -138,6 +175,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2467A7A21FED4EA5007A7AC9 /* DelegateProxy.h in Headers */,
 				241BA6CB1FEC271B002E8902 /* SwipeTransition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,9 +288,15 @@
 				241BA6FB1FED07F1002E8902 /* BackSwipeableConfiguration.swift in Sources */,
 				241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */,
 				241BA6D41FEC2778002E8902 /* Animator.swift in Sources */,
+				2467A7A11FED4E43007A7AC9 /* DelegateProxy.m in Sources */,
 				241BA6F91FECF03D002E8902 /* BackSwipeableNavigationController.swift in Sources */,
 				241BA6EE1FECCDA8002E8902 /* BackSwipeable.swift in Sources */,
+				2467A7A41FED5967007A7AC9 /* SwipeableToDismiss.swift in Sources */,
+				2467A7A81FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
+				2467A7A61FEE1F14007A7AC9 /* SwipeToDismissController.swift in Sources */,
+				2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */,
 				241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */,
+				2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
