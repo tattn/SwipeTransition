@@ -10,6 +10,7 @@ import UIKit
 
 public class SwipeToDismissController: NSObject {
 
+    public var isEnabled = true
     public private(set) var dragging = false
     private var previousContentOffsetY: CGFloat = 0.0
 
@@ -107,7 +108,7 @@ public class SwipeToDismissController: NSObject {
     }
 
     private func startDragging() {
-        guard let view = target?.view else { return }
+        guard let view = target?.view, isEnabled else { return }
         dragging = true
         view.layer.removeAllAnimations()
         viewPositionY = viewOriginY
@@ -128,7 +129,7 @@ public class SwipeToDismissController: NSObject {
     }
 
     private func finishDragging(withVelocity velocity: CGPoint) {
-        guard let view = target?.view else { return }
+        guard let view = target?.view, isEnabled else { return }
         let originY = view.frame.origin.y
         let heightToDismiss = view.frame.height * SwipeToDismissConfiguration.shared.dismissHeightRatio
         if originY > heightToDismiss || originY > 0 && velocity.y < 0 {
