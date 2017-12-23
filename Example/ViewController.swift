@@ -156,6 +156,19 @@ class DismissScrollVC2: ScrollVC {
         super.viewDidLoad()
         title = "DismissScrollVC2"
         navigationController?.swipeToDismiss?.scrollView = scrollView
+
+        let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
+        button.center = view.center
+        button.addTarget(self, action: #selector(pushVC), for: .touchUpInside)
+        button.setTitle("Push!", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        view.addSubview(button)
+    }
+
+    @objc func pushVC() {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .white
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

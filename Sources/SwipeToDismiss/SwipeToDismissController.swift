@@ -10,16 +10,7 @@ import UIKit
 
 public class SwipeToDismissController: NSObject {
 
-    public weak var delegate: UIScrollViewDelegate? {
-        didSet {
-            var delegates: [UIScrollViewDelegate] = [self]
-            delegate.map { delegates.append($0) }
-            proxy = ScrollViewDelegateProxy(delegates: delegates)
-            scrollView?.delegate = proxy
-        }
-    }
-
-    private var dragging = false
+    public private(set) var dragging = false
     private var previousContentOffsetY: CGFloat = 0.0
 
     private var viewPositionY: CGFloat = 0.0
@@ -38,21 +29,23 @@ public class SwipeToDismissController: NSObject {
 
     public weak var navigationBar: UIView? {
         didSet {
-            if let navigationBar = navigationBar {
-                if let old = oldValue, let panGesture = panGestures.first(where: { old == $0.view }) {
-                    old.removeGestureRecognizer(panGesture)
-                }
-                addGesture(to: navigationBar)
+            guard let navigationBar = navigationBar else { return }
+            if let old = oldValue, let panGesture = panGestures.first(where: { old == $0.view }) {
+                old.removeGestureRecognizer(panGesture)
             }
+            addGesture(to: navigationBar)
         }
     }
 
     public weak var scrollView: UIScrollView? {
         didSet {
-            delegate = scrollView?.delegate
+            scrollView.map { setScrollViews([$0]) }
         }
     }
+    private var scrollViews: [Weak<UIScrollView>] = []
+
     private var proxy: ScrollViewDelegateProxy? // strong reference
+    private var originalDelegates: [Weak<UIScrollViewDelegate>] = []
 
     private var panGestures: [UIPanGestureRecognizer] = []
 
@@ -73,6 +66,18 @@ public class SwipeToDismissController: NSObject {
 
     deinit {
         panGestures.forEach { $0.view?.removeGestureRecognizer($0) }
+    }
+
+    public func setScrollViews(_ scrollViews: [UIScrollView]) {
+        // reset the original delegate
+        zip(originalDelegates, self.scrollViews).forEach { $1.value?.delegate = $0.value }
+
+        let delegates = scrollViews.flatMap { $0.delegate }
+        originalDelegates = delegates.map { Weak(value: $0) }
+        proxy = ScrollViewDelegateProxy(delegates: [self] + delegates)
+
+        scrollViews.forEach { $0.delegate = proxy }
+        self.scrollViews = scrollViews.map { Weak(value: $0) }
     }
 
     private func dismiss() {

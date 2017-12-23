@@ -29,6 +29,7 @@
 		2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A91FEE375E007A7AC9 /* Extensions.swift */; };
 		2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
 		2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */; };
+		2467A7B21FEECE36007A7AC9 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7B11FEECE36007A7AC9 /* Weak.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		2467A7A91FEE375E007A7AC9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewDelegateProxy.swift; sourceTree = "<group>"; };
 		2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableToDismissNavigationController.swift; sourceTree = "<group>"; };
+		2467A7B11FEECE36007A7AC9 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */,
 				2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */,
 				2467A7A91FEE375E007A7AC9 /* Extensions.swift */,
+				2467A7B11FEECE36007A7AC9 /* Weak.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */,
 				2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
 				2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */,
+				2467A7B21FEECE36007A7AC9 /* Weak.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
