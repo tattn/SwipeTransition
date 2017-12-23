@@ -10,7 +10,7 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
 ## Swipe back
 
-Just use BackSwipeableNavigationController instead of UINavigationController. Of course, you can set it with Interface Builder.
+Just use `BackSwipeableNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
 ```swift
 let viewController = UIViewController()
@@ -21,7 +21,7 @@ Another way is to use a `BackSwipeable` protocol.
 
 ```swift
 class CustomNavigationController: UINavigationController, BackSwipeable {
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         backSwipeController = BackSwipeController(navigationController: self)
     }
@@ -43,6 +43,61 @@ class NoSwipeVC: UIViewController {
     }
 }
 ```
+
+## Swipe to dismiss
+
+Just use `SwipeableToDismissNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
+
+```swift
+let viewController = UIViewController()
+let navigationController = SwipeableToDismissNavigationController(rootViewControlelr: viewController)
+````
+
+Another way is to use a `BackSwipeable` protocol.
+
+```swift
+class CustomNavigationController: UINavigationController, SwipeableToDismiss {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        modalPresentationStyle = .overFullScreen
+        configureSwipeToDismiss()
+    }
+}
+```
+
+It is possible to disable the feature only for a specific view controller.
+
+```swift
+class NoSwipeVC: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.swipeToDismiss?.isEnabled = false
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.swipeToDismiss?.isEnabled = true
+    }
+}
+```
+
+It also works on ScrollView.
+
+```swift
+class ScrollVC: UIViewController, UIScrollViewDelegate {
+    @IBOutlet private var scrollView: UIScrollView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scrollView.delegate = self
+        navigationController?.swipeToDismiss?.scrollView = scrollView
+        
+        // in case of multi scroll views
+        // navigationController?.swipeToDismiss?.setScrollViews(scrollViews)
+    }
+}
+```
+
 
 # Installation
 
