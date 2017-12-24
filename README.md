@@ -34,12 +34,12 @@ It is possible to disable the feature only for a specific view controller.
 class NoSwipeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.isBackSwipeEnabled = false
+        navigationController?.swipeBack?.isEnabled = false
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.isBackSwipeEnabled = true
+        navigationController?.swipeBack?.isEnabled = true
     }
 }
 ```
@@ -81,7 +81,7 @@ class NoSwipeVC: UIViewController {
 }
 ```
 
-It also works on ScrollView.
+It also works on scroll view.
 
 ```swift
 class ScrollVC: UIViewController, UIScrollViewDelegate {
@@ -92,10 +92,33 @@ class ScrollVC: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         navigationController?.swipeToDismiss?.scrollView = scrollView
         
-        // in case of multi scroll views
+        // in case of multiple scroll views
         // navigationController?.swipeToDismiss?.setScrollViews(scrollViews)
     }
 }
+```
+
+## Configuration
+
+You can also change the behavior such as animation.
+
+```swift
+BackSwipeableConfiguration.shared.parallaxFactor = 0.6
+
+SwipeToDismissConfiguration.shared.dismissHeightRatio = 0.5
+```
+
+Inheriting the configure class, you can set it with computed property.
+
+```swift
+class CustomBackSwipeableConfiguration: BackSwipeableConfiguration {
+    override var transitionDuration: TimeInterval {
+        get { return 1.5 }
+        set { super.transitionDuration = newValue }
+    }
+}
+
+BackSwipeableConfiguration.shared = CustomBackSwipeableConfiguration()
 ```
 
 
