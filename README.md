@@ -8,6 +8,12 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
 # Usage
 
+## The easiest way to use
+
+Just setting these frameworks in the Embedded Binaries will work.
+
+![Embedded Binaries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/embedded_binaries.png)
+
 ## Swipe back
 
 Just use `BackSwipeableNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
