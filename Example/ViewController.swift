@@ -40,13 +40,13 @@ final class NoSwipeVC: PushableVC {
     private var previousIsBackSwipeEnabled: Bool!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        previousIsBackSwipeEnabled = navigationController?.isBackSwipeEnabled ?? false
-        navigationController?.isBackSwipeEnabled = false
+        previousIsBackSwipeEnabled = navigationController?.swipeBack?.isEnabled ?? false
+        navigationController?.swipeBack?.isEnabled = false
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.isBackSwipeEnabled = previousIsBackSwipeEnabled
+        navigationController?.swipeBack?.isEnabled = previousIsBackSwipeEnabled
     }
 
     override func didTapButton() {

@@ -8,38 +8,28 @@
 
 import UIKit
 
-private struct AssocKey {
-    private init() {}
-    static var backSwipeController: Void?
-}
-
 public protocol BackSwipeable: class {
-    var backSwipeController: BackSwipeController? { get set }
-    var isBackSwipeEnabled: Bool { get set }
+    var swipeBack: BackSwipeController? { get set }
 }
 
 public extension BackSwipeable {
-    public var backSwipeController: BackSwipeController? {
+    public var swipeBack: BackSwipeController? {
         get {
-            return objc_getAssociatedObject(self, &AssocKey.backSwipeController) as? BackSwipeController
+            return objc_getAssociatedObject(self, &AssocKey.swipeBack) as? BackSwipeController
         }
         set {
-            objc_setAssociatedObject(self, &AssocKey.backSwipeController, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssocKey.swipeBack, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }
 
 public extension UINavigationController {
-    public var isBackSwipeEnabled: Bool {
+    public var swipeBack: BackSwipeController? {
         get {
-            return (self as? BackSwipeable)?.backSwipeController != nil
+            return objc_getAssociatedObject(self, &AssocKey.swipeBack) as? BackSwipeController
         }
         set {
-            if newValue {
-                (self as? BackSwipeable)?.backSwipeController = BackSwipeController(navigationController: self)
-            } else {
-                (self as? BackSwipeable)?.backSwipeController = nil
-            }
+            objc_setAssociatedObject(self, &AssocKey.swipeBack, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

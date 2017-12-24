@@ -8,11 +8,6 @@
 
 import UIKit
 
-private struct AssocKey {
-    private init() {}
-    static var swipeToDismiss: Void?
-}
-
 public protocol SwipeableToDismiss: class {
     var swipeToDismiss: SwipeToDismissController? { get set }
 }
@@ -36,7 +31,12 @@ public extension SwipeableToDismiss where Self: UIViewController {
 
 public extension UINavigationController {
     public var swipeToDismiss: SwipeToDismissController? {
-        return (self as? SwipeableToDismiss)?.swipeToDismiss
+        get {
+            return objc_getAssociatedObject(self, &AssocKey.swipeToDismiss) as? SwipeToDismissController
+        }
+        set {
+            objc_setAssociatedObject(self, &AssocKey.swipeToDismiss, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
 }
 

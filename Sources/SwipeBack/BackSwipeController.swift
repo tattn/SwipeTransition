@@ -18,18 +18,20 @@ public extension BackSwipeControllerDelegate {
     public func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning) {}
 }
 
+@objcMembers
 public final class BackSwipeController: NSObject {
     var delegate: BackSwipeControllerDelegate? {
         get { return animator.delegate }
         set { animator.delegate = newValue }
     }
 
+    public var isEnabled = true
     public private(set) weak var navigationController: UINavigationController?
     private let panGestureRecognizer = UIPanGestureRecognizer()
     private let animator = Animator()
 
     private var animating = false
-    private var interactiveTransition: InteractiveTransition!
+    private var interactiveTransition: InteractiveTransition?
 
     public init(navigationController: UINavigationController) {
         super.init()
@@ -48,7 +50,7 @@ public final class BackSwipeController: NSObject {
     }
 
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
-        guard let navigationController = navigationController, let view = navigationController.view else { return }
+        guard let navigationController = navigationController, let view = navigationController.view, isEnabled else { return }
 
         switch recognizer.state {
         case .began:
@@ -58,16 +60,16 @@ public final class BackSwipeController: NSObject {
             }
         case .changed:
             let translation = recognizer.translation(in: view)
-            interactiveTransition.update(value: translation.x, maxValue: view.bounds.width)
+            interactiveTransition?.update(value: translation.x, maxValue: view.bounds.width)
         case .ended:
             if recognizer.velocity(in: view).x > 0 {
-                interactiveTransition.finish()
+                interactiveTransition?.finish()
                 interactiveTransition = nil
             } else {
                 fallthrough
             }
         case .cancelled:
-            interactiveTransition.cancel()
+            interactiveTransition?.cancel()
             interactiveTransition = nil
             animating = false
         default:
@@ -84,15 +86,15 @@ extension BackSwipeController: UIGestureRecognizerDelegate {
 
 extension BackSwipeController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return operation == .pop ? animator : nil
+        return operation == .pop && isEnabled ? animator : nil
     }
 
     public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactiveTransition
+        return isEnabled ? interactiveTransition : nil
     }
 
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if animated {
+        if animated, isEnabled {
             animating = true
         }
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 tattn. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class ScrollViewDelegateProxy: DelegateProxy, UIScrollViewDelegate {
     @nonobjc convenience init(delegates: [UIScrollViewDelegate]) {
