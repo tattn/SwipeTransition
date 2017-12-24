@@ -10,7 +10,7 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
 ## Swipe back
 
-Just use BackSwipeableNavigationController instead of UINavigationController. Of course, you can set it with Interface Builder.
+Just use `BackSwipeableNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
 ```swift
 let viewController = UIViewController()
@@ -21,7 +21,7 @@ Another way is to use a `BackSwipeable` protocol.
 
 ```swift
 class CustomNavigationController: UINavigationController, BackSwipeable {
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         backSwipeController = BackSwipeController(navigationController: self)
     }
@@ -34,15 +34,93 @@ It is possible to disable the feature only for a specific view controller.
 class NoSwipeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.isBackSwipeEnabled = false
+        navigationController?.swipeBack?.isEnabled = false
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.isBackSwipeEnabled = true
+        navigationController?.swipeBack?.isEnabled = true
     }
 }
 ```
+
+## Swipe to dismiss
+
+Just use `SwipeableToDismissNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
+
+```swift
+let viewController = UIViewController()
+let navigationController = SwipeableToDismissNavigationController(rootViewControlelr: viewController)
+````
+
+Another way is to use a `BackSwipeable` protocol.
+
+```swift
+class CustomNavigationController: UINavigationController, SwipeableToDismiss {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        modalPresentationStyle = .overFullScreen
+        configureSwipeToDismiss()
+    }
+}
+```
+
+It is possible to disable the feature only for a specific view controller.
+
+```swift
+class NoSwipeVC: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.swipeToDismiss?.isEnabled = false
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.swipeToDismiss?.isEnabled = true
+    }
+}
+```
+
+It also works on scroll view.
+
+```swift
+class ScrollVC: UIViewController, UIScrollViewDelegate {
+    @IBOutlet private var scrollView: UIScrollView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scrollView.delegate = self
+        navigationController?.swipeToDismiss?.scrollView = scrollView
+        
+        // in case of multiple scroll views
+        // navigationController?.swipeToDismiss?.setScrollViews(scrollViews)
+    }
+}
+```
+
+## Configuration
+
+You can also change the behavior such as animation.
+
+```swift
+BackSwipeableConfiguration.shared.parallaxFactor = 0.6
+
+SwipeToDismissConfiguration.shared.dismissHeightRatio = 0.5
+```
+
+Inheriting the configure class, you can set it with computed property.
+
+```swift
+class CustomBackSwipeableConfiguration: BackSwipeableConfiguration {
+    override var transitionDuration: TimeInterval {
+        get { return 1.5 }
+        set { super.transitionDuration = newValue }
+    }
+}
+
+BackSwipeableConfiguration.shared = CustomBackSwipeableConfiguration()
+```
+
 
 # Installation
 
