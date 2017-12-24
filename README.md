@@ -141,6 +141,11 @@ class CustomBackSwipeableConfiguration: BackSwipeableConfiguration {
 BackSwipeableConfiguration.shared = CustomBackSwipeableConfiguration()
 ```
 
+# Requirements
+
+- Xcode 9.x
+- Swift 4.x
+- iOS 8.0+
 
 # Installation
 
