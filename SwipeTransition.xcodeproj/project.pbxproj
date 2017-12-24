@@ -30,6 +30,32 @@
 		2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
 		2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */; };
 		2467A7B21FEECE36007A7AC9 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7B11FEECE36007A7AC9 /* Weak.swift */; };
+		2467A7BC1FEF7E44007A7AC9 /* AutoSwipeBack.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A7BA1FEF7E44007A7AC9 /* AutoSwipeBack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2467A7BF1FEF7E44007A7AC9 /* AutoSwipeBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */; };
+		2467A7C01FEF7E44007A7AC9 /* AutoSwipeBack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2467A7C51FEF7F41007A7AC9 /* UINavigationController+AutoLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C41FEF7F41007A7AC9 /* UINavigationController+AutoLoad.m */; };
+		2467A7C71FEF8938007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
+		2467A7C91FEF89FB007A7AC9 /* BackSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* BackSwipeController.swift */; };
+		2467A7CA1FEF89FB007A7AC9 /* BackSwipeableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */; };
+		2467A7CC1FEF89FB007A7AC9 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
+		2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */; };
+		2467A7CE1FEF89FF007A7AC9 /* SwipeableToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */; };
+		2467A7CF1FEF89FF007A7AC9 /* SwipeToDismissController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */; };
+		2467A7D01FEF89FF007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */; };
+		2467A7D21FEF8A06007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
+		2467A7D41FEF8A06007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
+		2467A7D51FEF8A06007A7AC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A91FEE375E007A7AC9 /* Extensions.swift */; };
+		2467A7D61FEF8A06007A7AC9 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7B11FEECE36007A7AC9 /* Weak.swift */; };
+		2467A7D71FEF8A06007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
+		2467A7D91FEF8ABD007A7AC9 /* UINavigationController+AutoLoad.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A7D81FEF8ABD007A7AC9 /* UINavigationController+AutoLoad.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2467A7E11FEFD393007A7AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7E01FEFD393007A7AC9 /* AppDelegate.swift */; };
+		2467A7E31FEFD393007A7AC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7E21FEFD393007A7AC9 /* ViewController.swift */; };
+		2467A7E61FEFD393007A7AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2467A7E41FEFD393007A7AC9 /* Main.storyboard */; };
+		2467A7E81FEFD393007A7AC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2467A7E71FEFD393007A7AC9 /* Assets.xcassets */; };
+		2467A7EB1FEFD393007A7AC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2467A7E91FEFD393007A7AC9 /* LaunchScreen.storyboard */; };
+		2467A7F01FEFD3A1007A7AC9 /* AutoSwipeBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */; };
+		2467A7F11FEFD3A1007A7AC9 /* AutoSwipeBack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +65,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 241BA6C51FEC271B002E8902;
 			remoteInfo = BackSwipeable;
+		};
+		2467A7BD1FEF7E44007A7AC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 241BA6BD1FEC271B002E8902 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2467A7B71FEF7E44007A7AC9;
+			remoteInfo = AutoSwipeTransition;
+		};
+		2467A7F21FEFD3A1007A7AC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 241BA6BD1FEC271B002E8902 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2467A7B71FEF7E44007A7AC9;
+			remoteInfo = AutoSwipeTransition;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,6 +90,18 @@
 			dstSubfolderSpec = 10;
 			files = (
 				241BA6F01FECDA8A002E8902 /* SwipeTransition.framework in Embed Frameworks */,
+				2467A7C01FEF7E44007A7AC9 /* AutoSwipeBack.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2467A7F41FEFD3A1007A7AC9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2467A7F11FEFD3A1007A7AC9 /* AutoSwipeBack.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +134,19 @@
 		2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewDelegateProxy.swift; sourceTree = "<group>"; };
 		2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableToDismissNavigationController.swift; sourceTree = "<group>"; };
 		2467A7B11FEECE36007A7AC9 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
+		2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutoSwipeBack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2467A7BA1FEF7E44007A7AC9 /* AutoSwipeBack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoSwipeBack.h; sourceTree = "<group>"; };
+		2467A7BB1FEF7E44007A7AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2467A7C41FEF7F41007A7AC9 /* UINavigationController+AutoLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AutoLoad.m"; sourceTree = "<group>"; };
+		2467A7C61FEF8938007A7AC9 /* AssocKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssocKey.swift; sourceTree = "<group>"; };
+		2467A7D81FEF8ABD007A7AC9 /* UINavigationController+AutoLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AutoLoad.h"; sourceTree = "<group>"; };
+		2467A7DE1FEFD393007A7AC9 /* AutoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2467A7E01FEFD393007A7AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2467A7E21FEFD393007A7AC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2467A7E51FEFD393007A7AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2467A7E71FEFD393007A7AC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2467A7EA1FEFD393007A7AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2467A7EC1FEFD393007A7AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +162,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				241BA6EF1FECDA8A002E8902 /* SwipeTransition.framework in Frameworks */,
+				2467A7BF1FEF7E44007A7AC9 /* AutoSwipeBack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2467A7B41FEF7E44007A7AC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2467A7DB1FEFD393007A7AC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2467A7F01FEFD3A1007A7AC9 /* AutoSwipeBack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +189,8 @@
 			children = (
 				241BA6C81FEC271B002E8902 /* Sources */,
 				241BA6DA1FEC480E002E8902 /* Example */,
+				2467A7B91FEF7E44007A7AC9 /* AutoSwipeBack */,
+				2467A7DF1FEFD393007A7AC9 /* AutoExample */,
 				241BA6C71FEC271B002E8902 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +200,8 @@
 			children = (
 				241BA6C61FEC271B002E8902 /* SwipeTransition.framework */,
 				241BA6D91FEC480E002E8902 /* Example.app */,
+				2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */,
+				2467A7DE1FEFD393007A7AC9 /* AutoExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +218,7 @@
 				2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */,
 				2467A7A91FEE375E007A7AC9 /* Extensions.swift */,
 				2467A7B11FEECE36007A7AC9 /* Weak.swift */,
+				2467A7C61FEF8938007A7AC9 /* AssocKey.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -153,12 +239,12 @@
 		2467A7AD1FEE52A4007A7AC9 /* SwipeBack */ = {
 			isa = PBXGroup;
 			children = (
+				241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */,
 				241BA6D11FEC2730002E8902 /* BackSwipeController.swift */,
+				241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */,
+				241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */,
 				241BA6D31FEC2778002E8902 /* Animator.swift */,
 				241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */,
-				241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */,
-				241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */,
-				241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */,
 			);
 			path = SwipeBack;
 			sourceTree = "<group>";
@@ -174,6 +260,30 @@
 			path = SwipeToDismiss;
 			sourceTree = "<group>";
 		};
+		2467A7B91FEF7E44007A7AC9 /* AutoSwipeBack */ = {
+			isa = PBXGroup;
+			children = (
+				2467A7BA1FEF7E44007A7AC9 /* AutoSwipeBack.h */,
+				2467A7BB1FEF7E44007A7AC9 /* Info.plist */,
+				2467A7D81FEF8ABD007A7AC9 /* UINavigationController+AutoLoad.h */,
+				2467A7C41FEF7F41007A7AC9 /* UINavigationController+AutoLoad.m */,
+			);
+			path = AutoSwipeBack;
+			sourceTree = "<group>";
+		};
+		2467A7DF1FEFD393007A7AC9 /* AutoExample */ = {
+			isa = PBXGroup;
+			children = (
+				2467A7E01FEFD393007A7AC9 /* AppDelegate.swift */,
+				2467A7E21FEFD393007A7AC9 /* ViewController.swift */,
+				2467A7E41FEFD393007A7AC9 /* Main.storyboard */,
+				2467A7E71FEFD393007A7AC9 /* Assets.xcassets */,
+				2467A7E91FEFD393007A7AC9 /* LaunchScreen.storyboard */,
+				2467A7EC1FEFD393007A7AC9 /* Info.plist */,
+			);
+			path = AutoExample;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -183,6 +293,16 @@
 			files = (
 				2467A7A21FED4EA5007A7AC9 /* DelegateProxy.h in Headers */,
 				241BA6CB1FEC271B002E8902 /* SwipeTransition.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2467A7B51FEF7E44007A7AC9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2467A7D21FEF8A06007A7AC9 /* DelegateProxy.h in Headers */,
+				2467A7D91FEF8ABD007A7AC9 /* UINavigationController+AutoLoad.h in Headers */,
+				2467A7BC1FEF7E44007A7AC9 /* AutoSwipeBack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,10 +340,48 @@
 			);
 			dependencies = (
 				241BA6F21FECDA8A002E8902 /* PBXTargetDependency */,
+				2467A7BE1FEF7E44007A7AC9 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
 			productReference = 241BA6D91FEC480E002E8902 /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2467A7B71FEF7E44007A7AC9 /* AutoSwipeBack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2467A7C11FEF7E44007A7AC9 /* Build configuration list for PBXNativeTarget "AutoSwipeBack" */;
+			buildPhases = (
+				2467A7B31FEF7E44007A7AC9 /* Sources */,
+				2467A7B41FEF7E44007A7AC9 /* Frameworks */,
+				2467A7B51FEF7E44007A7AC9 /* Headers */,
+				2467A7B61FEF7E44007A7AC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoSwipeBack;
+			productName = AutoSwipeTransition;
+			productReference = 2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2467A7DD1FEFD393007A7AC9 /* AutoExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2467A7ED1FEFD393007A7AC9 /* Build configuration list for PBXNativeTarget "AutoExample" */;
+			buildPhases = (
+				2467A7DA1FEFD393007A7AC9 /* Sources */,
+				2467A7DB1FEFD393007A7AC9 /* Frameworks */,
+				2467A7DC1FEFD393007A7AC9 /* Resources */,
+				2467A7F41FEFD3A1007A7AC9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2467A7F31FEFD3A1007A7AC9 /* PBXTargetDependency */,
+			);
+			name = AutoExample;
+			productName = AutoExample;
+			productReference = 2467A7DE1FEFD393007A7AC9 /* AutoExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -245,6 +403,14 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					2467A7B71FEF7E44007A7AC9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					2467A7DD1FEFD393007A7AC9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 241BA6C01FEC271B002E8902 /* Build configuration list for PBXProject "SwipeTransition" */;
@@ -262,6 +428,8 @@
 			targets = (
 				241BA6C51FEC271B002E8902 /* SwipeTransition */,
 				241BA6D81FEC480E002E8902 /* Example */,
+				2467A7B71FEF7E44007A7AC9 /* AutoSwipeBack */,
+				2467A7DD1FEFD393007A7AC9 /* AutoExample */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +452,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2467A7B61FEF7E44007A7AC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2467A7DC1FEFD393007A7AC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2467A7EB1FEFD393007A7AC9 /* LaunchScreen.storyboard in Resources */,
+				2467A7E81FEFD393007A7AC9 /* Assets.xcassets in Resources */,
+				2467A7E61FEFD393007A7AC9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -302,6 +487,7 @@
 				2467A7A61FEE1F14007A7AC9 /* SwipeToDismissController.swift in Sources */,
 				2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */,
 				241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */,
+				2467A7C71FEF8938007A7AC9 /* AssocKey.swift in Sources */,
 				2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
 				2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */,
 				2467A7B21FEECE36007A7AC9 /* Weak.swift in Sources */,
@@ -317,6 +503,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2467A7B31FEF7E44007A7AC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2467A7CC1FEF89FB007A7AC9 /* Animator.swift in Sources */,
+				2467A7CA1FEF89FB007A7AC9 /* BackSwipeableConfiguration.swift in Sources */,
+				2467A7D61FEF8A06007A7AC9 /* Weak.swift in Sources */,
+				2467A7C51FEF7F41007A7AC9 /* UINavigationController+AutoLoad.m in Sources */,
+				2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */,
+				2467A7D41FEF8A06007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
+				2467A7C91FEF89FB007A7AC9 /* BackSwipeController.swift in Sources */,
+				2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */,
+				2467A7CE1FEF89FF007A7AC9 /* SwipeableToDismiss.swift in Sources */,
+				2467A7D71FEF8A06007A7AC9 /* AssocKey.swift in Sources */,
+				2467A7D01FEF89FF007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
+				2467A7CF1FEF89FF007A7AC9 /* SwipeToDismissController.swift in Sources */,
+				2467A7D51FEF8A06007A7AC9 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2467A7DA1FEFD393007A7AC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2467A7E31FEFD393007A7AC9 /* ViewController.swift in Sources */,
+				2467A7E11FEFD393007A7AC9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -324,6 +539,16 @@
 			isa = PBXTargetDependency;
 			target = 241BA6C51FEC271B002E8902 /* SwipeTransition */;
 			targetProxy = 241BA6F11FECDA8A002E8902 /* PBXContainerItemProxy */;
+		};
+		2467A7BE1FEF7E44007A7AC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2467A7B71FEF7E44007A7AC9 /* AutoSwipeBack */;
+			targetProxy = 2467A7BD1FEF7E44007A7AC9 /* PBXContainerItemProxy */;
+		};
+		2467A7F31FEFD3A1007A7AC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2467A7B71FEF7E44007A7AC9 /* AutoSwipeBack */;
+			targetProxy = 2467A7F21FEFD3A1007A7AC9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -340,6 +565,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				241BA6E51FEC480E002E8902 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2467A7E41FEFD393007A7AC9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2467A7E51FEFD393007A7AC9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2467A7E91FEFD393007A7AC9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2467A7EA1FEFD393007A7AC9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -535,6 +776,80 @@
 			};
 			name = Release;
 		};
+		2467A7C21FEF7E44007A7AC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/AutoSwipeBack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoSwipeBack;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2467A7C31FEF7E44007A7AC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/AutoSwipeBack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoSwipeBack;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2467A7EE1FEFD393007A7AC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AutoExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2467A7EF1FEFD393007A7AC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AutoExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -561,6 +876,24 @@
 			buildConfigurations = (
 				241BA6E91FEC480E002E8902 /* Debug */,
 				241BA6EA1FEC480E002E8902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2467A7C11FEF7E44007A7AC9 /* Build configuration list for PBXNativeTarget "AutoSwipeBack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2467A7C21FEF7E44007A7AC9 /* Debug */,
+				2467A7C31FEF7E44007A7AC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2467A7ED1FEFD393007A7AC9 /* Build configuration list for PBXNativeTarget "AutoExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2467A7EE1FEFD393007A7AC9 /* Debug */,
+				2467A7EF1FEFD393007A7AC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
