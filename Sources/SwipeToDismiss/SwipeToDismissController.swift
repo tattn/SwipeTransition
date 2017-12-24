@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objcMembers
 public class SwipeToDismissController: NSObject {
 
     public var isEnabled = true

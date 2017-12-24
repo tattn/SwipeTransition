@@ -17,4 +17,4 @@ FOUNDATION_EXPORT const unsigned char AutoSwipeBackVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <AutoSwipeBack/PublicHeader.h>
 
 #import "DelegateProxy.h"
-#import "UINavigationController+AutoLoad.h"
+#import "UINavigationController+AutoSwipeBack.h"

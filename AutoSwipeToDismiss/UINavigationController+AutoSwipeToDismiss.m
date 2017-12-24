@@ -1,6 +1,6 @@
 //
-//  UINavigationController+AutoLoad.m
-//  AutoSwipeTransition
+//  UINavigationController+AutoSwipeToDismiss.m
+//  AutoSwipeToDismiss
 //
 //  Created by Tatsuya Tanaka on 20171224.
 //  Copyright © 2017年 tattn. All rights reserved.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import <AutoSwipeBack/AutoSwipeBack-Swift.h>
-#import "UINavigationController+AutoLoad.h"
+#import <AutoSwipeToDismiss/AutoSwipeToDismiss-Swift.h>
+#import "UINavigationController+AutoSwipeToDismiss.h"
 
-@implementation UINavigationController (AutoLoad)
+@implementation UINavigationController (AutoSwipeToDismiss)
 + (void)load
 {
     static dispatch_once_t onceToken;
@@ -19,7 +19,7 @@
         Class class = [self class];
 
         SEL originalSelector = @selector(viewDidLoad);
-        SEL swizzledSelector = @selector(swipetransition_viewDidLoad);
+        SEL swizzledSelector = @selector(autoswipetodismiss_viewDidLoad);
 
         Method originalMethod = class_getInstanceMethod(class, originalSelector);
         Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
@@ -40,20 +40,21 @@
     });
 }
 
-- (void)swipetransition_viewDidLoad
+- (void)autoswipetodismiss_viewDidLoad
 {
-    [self swipetransition_viewDidLoad];
+    [self autoswipetodismiss_viewDidLoad];
 
-    self.swipeBack = [[BackSwipeController alloc] initWithNavigationController:self];
+    self.swipeToDismiss = [[SwipeToDismissController alloc] initWithView:self.view];
+
 }
 
-- (void)setSwipeBack:(BackSwipeController*)swipeBack
+- (void)setSwipeToDismiss:(SwipeToDismissController*)swipeToDismiss
 {
-    objc_setAssociatedObject(self, __AssocKey.swipeBack, swipeBack, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, __AssocKey.swipeToDismiss, swipeToDismiss, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BackSwipeController*)swipeBack
+- (SwipeToDismissController*)swipeToDismiss
 {
-    return objc_getAssociatedObject(self, __AssocKey.swipeBack);
+    return objc_getAssociatedObject(self, __AssocKey.swipeToDismiss);
 }
 @end

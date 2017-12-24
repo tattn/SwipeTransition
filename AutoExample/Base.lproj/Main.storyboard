@@ -15,25 +15,35 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Auto Example-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AutoExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Auto Example" id="BYZ-38-t0r" customClass="ViewController" customModule="AutoExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1kb-WW-daz">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1kb-WW-daz">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTY-dL-Wv9">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="164.5" y="0.0" width="46" height="301.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                         <state key="normal" title="Push!">
                                             <color key="titleColor" red="1" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="U2T-rN-oYJ" kind="show" id="s3M-vJ-HEc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-V5-R62">
+                                        <rect key="frame" x="153.5" y="301.5" width="68" height="301.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="Present!">
+                                            <color key="titleColor" red="1" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Zz5-wK-iac" kind="presentation" modalPresentationStyle="overFullScreen" id="aT6-LY-NnJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -48,16 +58,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Op1-X2-WkN"/>
+                    <navigationItem key="navigationItem" title="Auto Example" id="Op1-X2-WkN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Push VC-->
         <scene sceneID="bDA-7J-fWI">
             <objects>
-                <viewController id="U2T-rN-oYJ" sceneMemberID="viewController">
+                <viewController title="Push VC" id="U2T-rN-oYJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pix-Zs-FyZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +78,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuL-mE-wXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="134"/>
+        </scene>
+        <!--Present VC-->
+        <scene sceneID="WWY-1e-VIW">
+            <objects>
+                <viewController title="Present VC" id="dXO-h2-w9E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XQy-bS-eAZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.77400416139999995" green="0.46735060210000001" blue="0.70231097939999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="M3w-5E-7Vy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Present VC" id="uQS-01-54T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7B-Il-qVD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1852" y="815"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IaU-Ao-jJH">
@@ -86,6 +112,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i58-cZ-Yj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-238" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hTB-YS-idH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zz5-wK-iac" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sgf-KU-xwC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dXO-h2-w9E" kind="relationship" relationship="rootViewController" id="dac-BW-m3B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZo-or-eRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1163.2" y="814.99250374812596"/>
         </scene>
     </scenes>
 </document>

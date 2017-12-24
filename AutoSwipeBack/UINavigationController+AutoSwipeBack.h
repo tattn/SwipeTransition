@@ -1,5 +1,5 @@
 //
-//  UINavigationController+AutoLoad.h
+//  UINavigationController+AutoSwipeBack.h
 //  AutoSwipeBack
 //
 //  Created by Tatsuya Tanaka on 20171224.
@@ -10,6 +10,6 @@
 
 @class BackSwipeController;
 
-@interface UINavigationController (AutoLoad)
+@interface UINavigationController (AutoSwipeBack)
 @property(nonatomic) BackSwipeController* swipeBack;
 @end
