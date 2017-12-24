@@ -6,13 +6,19 @@ SwipeTransition
 
 SwipeTransition allows trendy transitions using swipe gesture such as "swipe back".
 
+<img src="https://github.com/tattn/SwipeTransition/raw/master/docs/assets/demo.gif" alt="Demo" width="50%" />
+
 # Usage
 
 ## The easiest way to use
 
-Just setting these frameworks in the Embedded Binaries will work.
+Just setting these frameworks in the Embedded Binaries, it works.
 
 ![Embedded Binaries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/embedded_binaries.png)
+
+Notes: these frameworks use Method Swizzling.
+
+When setting manually, please use `SwipeTransition.framework`.
 
 ## Swipe back
 
@@ -33,6 +39,10 @@ class CustomNavigationController: UINavigationController, BackSwipeable {
     }
 }
 ```
+
+Notes: it's unavailable using `Auto*.framework`.
+
+### Configuration
 
 It is possible to disable the feature only for a specific view controller.
 
@@ -71,6 +81,10 @@ class CustomNavigationController: UINavigationController, SwipeableToDismiss {
 }
 ```
 
+Notes: it's unavailable using `Auto*.framework`.
+
+### Configuration
+
 It is possible to disable the feature only for a specific view controller.
 
 ```swift
@@ -104,7 +118,7 @@ class ScrollVC: UIViewController, UIScrollViewDelegate {
 }
 ```
 
-## Configuration
+## Common Configuration
 
 You can also change the behavior such as animation.
 
