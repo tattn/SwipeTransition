@@ -39,9 +39,6 @@
 		2467A7CA1FEF89FB007A7AC9 /* BackSwipeableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */; };
 		2467A7CC1FEF89FB007A7AC9 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
 		2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */; };
-		2467A7CE1FEF89FF007A7AC9 /* SwipeableToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */; };
-		2467A7CF1FEF89FF007A7AC9 /* SwipeToDismissController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */; };
-		2467A7D01FEF89FF007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */; };
 		2467A7D21FEF8A06007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
 		2467A7D41FEF8A06007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
@@ -515,10 +512,7 @@
 				2467A7D41FEF8A06007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
 				2467A7C91FEF89FB007A7AC9 /* BackSwipeController.swift in Sources */,
 				2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */,
-				2467A7CE1FEF89FF007A7AC9 /* SwipeableToDismiss.swift in Sources */,
 				2467A7D71FEF8A06007A7AC9 /* AssocKey.swift in Sources */,
-				2467A7D01FEF89FF007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
-				2467A7CF1FEF89FF007A7AC9 /* SwipeToDismissController.swift in Sources */,
 				2467A7D51FEF8A06007A7AC9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
