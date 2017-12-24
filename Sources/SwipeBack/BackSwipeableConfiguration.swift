@@ -10,7 +10,8 @@ import Foundation
 
 open class BackSwipeableConfiguration {
     public static var shared = BackSwipeableConfiguration()
-    public var transitionDuration: TimeInterval = 0.3
-    public var parallaxFactor: CGFloat = 0.3
-    public var backViewDimness: CGFloat = 0.1
+    public init() {}
+    open var transitionDuration: TimeInterval = 0.3
+    open var parallaxFactor: CGFloat = 0.3
+    open var backViewDimness: CGFloat = 0.1
 }
