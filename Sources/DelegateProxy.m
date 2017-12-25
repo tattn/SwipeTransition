@@ -54,8 +54,6 @@
     return NO;
 }
 
--(void)doesNotRecognizeSelector:(SEL)aSelector {
-}
 @end
 
 
@@ -108,6 +106,4 @@
     return NO;
 }
 
--(void)doesNotRecognizeSelector:(SEL)aSelector {
-}
 @end

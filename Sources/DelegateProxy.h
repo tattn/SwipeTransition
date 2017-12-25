@@ -11,6 +11,9 @@
 
 #import <Foundation/Foundation.h>
 
+// Duplicate the class for Swift's bug close to this
+// https://bugs.swift.org/browse/SR-6023
+
 @interface STDelegateProxy : NSObject
 - (nonnull instancetype)initWithDelegates:(NSArray<id> * __nonnull)delegates NS_REFINED_FOR_SWIFT;
 @end
