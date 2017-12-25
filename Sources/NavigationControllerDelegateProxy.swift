@@ -1,5 +1,5 @@
 //
-//  UINavigationControllerDelegateProxy.swift
+//  NavigationControllerDelegateProxy.swift
 //  SwipeTransition
 //
 //  Created by Tatsuya Tanaka on 20171225.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class UINavigationControllerDelegateProxy: DelegateProxy, UINavigationControllerDelegate {
+open class NavigationControllerDelegateProxy: DelegateProxy, UINavigationControllerDelegate {
     @nonobjc convenience init(delegates: [UINavigationControllerDelegate]) {
         self.init(__delegates: delegates)
     }

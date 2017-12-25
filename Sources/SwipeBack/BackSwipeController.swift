@@ -33,7 +33,7 @@ public final class BackSwipeController: NSObject {
     private var animating = false
     private var interactiveTransition: InteractiveTransition?
 
-    private var proxy: UINavigationControllerDelegateProxy? // strong reference
+    private var proxy: NavigationControllerDelegateProxy? // strong reference
 
     public init(navigationController: UINavigationController) {
         super.init()
@@ -52,7 +52,7 @@ public final class BackSwipeController: NSObject {
     }
 
     public func setNavigationControllerDelegate(_ delegate: UINavigationControllerDelegate?) {
-        proxy = UINavigationControllerDelegateProxy(delegates: [self] + (delegate.map { [$0] } ?? []) )
+        proxy = NavigationControllerDelegateProxy(delegates: [self] + (delegate.map { [$0] } ?? []) )
         navigationController?.delegate = proxy
     }
 

@@ -83,8 +83,9 @@ public class SwipeToDismissController: NSObject {
     }
 
     private func dismiss() {
-        proxy = nil
-        target?.dismiss(animated: true, completion: nil)
+        target?.dismiss(animated: true) { [weak self] in
+            self?.proxy = nil
+        }
     }
 
     private func addGesture(to view: UIView) {

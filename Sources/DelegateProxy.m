@@ -34,7 +34,7 @@
             return [delegate methodSignatureForSelector:aSelector];
         }
     }
-    return [super methodSignatureForSelector: aSelector];
+    return nil;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
@@ -52,6 +52,9 @@
         }
     }
     return NO;
+}
+
+-(void)doesNotRecognizeSelector:(SEL)aSelector {
 }
 @end
 
