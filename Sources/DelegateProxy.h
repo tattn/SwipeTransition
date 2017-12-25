@@ -11,7 +11,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DelegateProxy : NSObject
+@interface STDelegateProxy : NSObject
+- (nonnull instancetype)initWithDelegates:(NSArray<id> * __nonnull)delegates NS_REFINED_FOR_SWIFT;
+@end
+
+@interface STDelegateProxy2 : NSObject
 - (nonnull instancetype)initWithDelegates:(NSArray<id> * __nonnull)delegates NS_REFINED_FOR_SWIFT;
 @end
 

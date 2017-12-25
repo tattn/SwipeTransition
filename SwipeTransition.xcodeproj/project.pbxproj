@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24058D151FF0C01F00B5101B /* UINavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* UINavigationControllerDelegateProxy.swift */; };
-		24058D161FF0C02600B5101B /* UINavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* UINavigationControllerDelegateProxy.swift */; };
-		24058D171FF0C02700B5101B /* UINavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* UINavigationControllerDelegateProxy.swift */; };
+		24058D151FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */; };
+		24058D161FF0C02600B5101B /* NavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */; };
+		24058D171FF0C02700B5101B /* NavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */; };
 		241BA6CB1FEC271B002E8902 /* SwipeTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 241BA6C91FEC271B002E8902 /* SwipeTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* BackSwipeController.swift */; };
 		241BA6D41FEC2778002E8902 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
@@ -140,7 +140,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		24058D141FF0C01F00B5101B /* UINavigationControllerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerDelegateProxy.swift; sourceTree = "<group>"; };
+		24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegateProxy.swift; sourceTree = "<group>"; };
 		241BA6C61FEC271B002E8902 /* SwipeTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241BA6C91FEC271B002E8902 /* SwipeTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeTransition.h; sourceTree = "<group>"; };
 		241BA6CA1FEC271B002E8902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 				2467A7A91FEE375E007A7AC9 /* Extensions.swift */,
 				2467A7B11FEECE36007A7AC9 /* Weak.swift */,
 				2467A7C61FEF8938007A7AC9 /* AssocKey.swift */,
-				24058D141FF0C01F00B5101B /* UINavigationControllerDelegateProxy.swift */,
+				24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -581,7 +581,7 @@
 				241BA6FB1FED07F1002E8902 /* BackSwipeableConfiguration.swift in Sources */,
 				241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */,
 				241BA6D41FEC2778002E8902 /* Animator.swift in Sources */,
-				24058D151FF0C01F00B5101B /* UINavigationControllerDelegateProxy.swift in Sources */,
+				24058D151FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift in Sources */,
 				2467A7A11FED4E43007A7AC9 /* DelegateProxy.m in Sources */,
 				241BA6F91FECF03D002E8902 /* BackSwipeableNavigationController.swift in Sources */,
 				241BA6EE1FECCDA8002E8902 /* BackSwipeable.swift in Sources */,
@@ -615,7 +615,7 @@
 				2467A7D61FEF8A06007A7AC9 /* Weak.swift in Sources */,
 				2467A7C51FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m in Sources */,
 				2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */,
-				24058D161FF0C02600B5101B /* UINavigationControllerDelegateProxy.swift in Sources */,
+				24058D161FF0C02600B5101B /* NavigationControllerDelegateProxy.swift in Sources */,
 				2467A7D41FEF8A06007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
 				2467A7C91FEF89FB007A7AC9 /* BackSwipeController.swift in Sources */,
 				2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */,
@@ -637,7 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24058D171FF0C02700B5101B /* UINavigationControllerDelegateProxy.swift in Sources */,
+				24058D171FF0C02700B5101B /* NavigationControllerDelegateProxy.swift in Sources */,
 				2467A8081FEFDA3D007A7AC9 /* SwipeToDismissController.swift in Sources */,
 				2467A8091FEFDA3D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
 				2467A8141FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m in Sources */,
