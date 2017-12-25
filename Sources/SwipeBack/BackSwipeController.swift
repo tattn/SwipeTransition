@@ -33,20 +33,27 @@ public final class BackSwipeController: NSObject {
     private var animating = false
     private var interactiveTransition: InteractiveTransition?
 
+    private var proxy: UINavigationControllerDelegateProxy? // strong reference
+
     public init(navigationController: UINavigationController) {
         super.init()
         panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
         panGestureRecognizer.maximumNumberOfTouches = 1
         panGestureRecognizer.delegate = self
 
-        navigationController.delegate = self
         navigationController.view.addGestureRecognizer(panGestureRecognizer)
         self.navigationController = navigationController
+        setNavigationControllerDelegate(navigationController.delegate)
     }
 
     deinit {
         panGestureRecognizer.removeTarget(self, action: #selector(handlePanGesture(_:)))
         navigationController?.view.removeGestureRecognizer(panGestureRecognizer)
+    }
+
+    public func setNavigationControllerDelegate(_ delegate: UINavigationControllerDelegate?) {
+        proxy = UINavigationControllerDelegateProxy(delegates: [self] + (delegate.map { [$0] } ?? []) )
+        navigationController?.delegate = proxy
     }
 
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
