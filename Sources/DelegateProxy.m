@@ -34,7 +34,7 @@
             return [delegate methodSignatureForSelector:aSelector];
         }
     }
-    return nil;
+    return [super methodSignatureForSelector: aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
