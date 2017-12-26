@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import <AutoSwipeToDismiss/AutoSwipeToDismiss-Swift.h>
+#import <SwipeTransition/SwipeTransition.h>
 #import "UINavigationController+AutoSwipeToDismiss.h"
 
 @implementation UINavigationController (AutoSwipeToDismiss)

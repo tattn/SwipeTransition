@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AutoSwipeBack
+import SwipeTransition
 
 class ViewController: UIViewController {
 
@@ -31,8 +31,8 @@ class ViewController: UIViewController {
             .flatMap { $0 as? UIScrollView }
             .first
 
-        navigationController?.swipeBack.delegate = self
-        navigationController?.swipeBack.setScrollViews([scrollView!])
+        navigationController?.swipeBack?.delegate = self
+        navigationController?.swipeBack?.setScrollViews([scrollView!])
     }
 }
 

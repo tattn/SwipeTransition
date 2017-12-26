@@ -8,8 +8,5 @@
 
 import UIKit
 
-final class ScrollViewDelegateProxy: STDelegateProxy, UIScrollViewDelegate {
-    @nonobjc convenience init(delegates: [UIScrollViewDelegate]) {
-        self.init(__delegates: delegates)
-    }
+final class ScrollViewDelegateProxy: DelegateProxy<UIScrollViewDelegate>, UIScrollViewDelegate {
 }

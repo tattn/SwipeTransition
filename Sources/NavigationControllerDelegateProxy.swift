@@ -8,8 +8,5 @@
 
 import UIKit
 
-final class NavigationControllerDelegateProxy: STDelegateProxy2, UINavigationControllerDelegate {
-    @nonobjc convenience init(delegates: [UINavigationControllerDelegate]) {
-        self.init(__delegates: delegates)
-    }
+final class NavigationControllerDelegateProxy: DelegateProxy<UINavigationControllerDelegate>, UINavigationControllerDelegate {
 }

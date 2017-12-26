@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		24058D151FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */; };
-		24058D161FF0C02600B5101B /* NavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */; };
-		24058D171FF0C02700B5101B /* NavigationControllerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24058D141FF0C01F00B5101B /* NavigationControllerDelegateProxy.swift */; };
 		241BA6CB1FEC271B002E8902 /* SwipeTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 241BA6C91FEC271B002E8902 /* SwipeTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* BackSwipeController.swift */; };
 		241BA6D41FEC2778002E8902 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
@@ -38,15 +36,10 @@
 		2467A7C01FEF7E44007A7AC9 /* AutoSwipeBack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2467A7C51FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C41FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m */; };
 		2467A7C71FEF8938007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
-		2467A7C91FEF89FB007A7AC9 /* BackSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* BackSwipeController.swift */; };
 		2467A7CA1FEF89FB007A7AC9 /* BackSwipeableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */; };
-		2467A7CC1FEF89FB007A7AC9 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
 		2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */; };
 		2467A7D21FEF8A06007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
-		2467A7D41FEF8A06007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
-		2467A7D51FEF8A06007A7AC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A91FEE375E007A7AC9 /* Extensions.swift */; };
-		2467A7D61FEF8A06007A7AC9 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7B11FEECE36007A7AC9 /* Weak.swift */; };
 		2467A7D71FEF8A06007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
 		2467A7D91FEF8ABD007A7AC9 /* UINavigationController+AutoSwipeBack.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A7D81FEF8ABD007A7AC9 /* UINavigationController+AutoSwipeBack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A7E11FEFD393007A7AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7E01FEFD393007A7AC9 /* AppDelegate.swift */; };
@@ -59,18 +52,21 @@
 		2467A7FF1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A7FD1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A8021FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; };
 		2467A8031FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2467A8081FEFDA3D007A7AC9 /* SwipeToDismissController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */; };
 		2467A8091FEFDA3D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */; };
 		2467A80B1FEFDA44007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A80C1FEFDA44007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
-		2467A80D1FEFDA44007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */; };
-		2467A80E1FEFDA44007A7AC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A91FEE375E007A7AC9 /* Extensions.swift */; };
-		2467A80F1FEFDA44007A7AC9 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7B11FEECE36007A7AC9 /* Weak.swift */; };
 		2467A8101FEFDA44007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
 		2467A8121FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A8111FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A8141FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */; };
 		2467A8151FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; };
 		2467A8161FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		247E68A31FF2348600617B12 /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68A21FF2348600617B12 /* DelegateProxy.swift */; };
+		247E68A41FF2348600617B12 /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68A21FF2348600617B12 /* DelegateProxy.swift */; };
+		247E68A51FF2348600617B12 /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68A21FF2348600617B12 /* DelegateProxy.swift */; };
+		247E68A71FF2451B00617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
+		247E68A81FF2452100617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
+		247E68A91FF2453E00617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
+		247E68AA1FF2453E00617B12 /* SwipeTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +105,13 @@
 			remoteGlobalIDString = 2467A7FA1FEFDA2B007A7AC9;
 			remoteInfo = AutoSwipeToDismiss;
 		};
+		247E68AB1FF2453E00617B12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 241BA6BD1FEC271B002E8902 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 241BA6C51FEC271B002E8902;
+			remoteInfo = SwipeTransition;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -131,6 +134,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				247E68AA1FF2453E00617B12 /* SwipeTransition.framework in Embed Frameworks */,
 				2467A8161FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Embed Frameworks */,
 				2467A7F11FEFD3A1007A7AC9 /* AutoSwipeBack.framework in Embed Frameworks */,
 			);
@@ -184,6 +188,7 @@
 		2467A7FE1FEFDA2B007A7AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2467A8111FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AutoSwipeToDismiss.h"; sourceTree = "<group>"; };
 		2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AutoSwipeToDismiss.m"; sourceTree = "<group>"; };
+		247E68A21FF2348600617B12 /* DelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247E68A71FF2451B00617B12 /* SwipeTransition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247E68A91FF2453E00617B12 /* SwipeTransition.framework in Frameworks */,
 				2467A8151FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Frameworks */,
 				2467A7F01FEFD3A1007A7AC9 /* AutoSwipeBack.framework in Frameworks */,
 			);
@@ -224,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247E68A81FF2452100617B12 /* SwipeTransition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +247,7 @@
 				2467A7FC1FEFDA2B007A7AC9 /* AutoSwipeToDismiss */,
 				2467A7DF1FEFD393007A7AC9 /* AutoExample */,
 				241BA6C71FEC271B002E8902 /* Products */,
+				247E68A61FF2451B00617B12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,6 +272,7 @@
 				2467A7AE1FEE52BF007A7AC9 /* SwipeToDismiss */,
 				2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */,
 				2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */,
+				247E68A21FF2348600617B12 /* DelegateProxy.swift */,
 				2467A7AB1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift */,
 				2467A7A91FEE375E007A7AC9 /* Extensions.swift */,
 				2467A7B11FEECE36007A7AC9 /* Weak.swift */,
@@ -342,6 +352,13 @@
 				2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */,
 			);
 			path = AutoSwipeToDismiss;
+			sourceTree = "<group>";
+		};
+		247E68A61FF2451B00617B12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +467,7 @@
 			dependencies = (
 				2467A7F31FEFD3A1007A7AC9 /* PBXTargetDependency */,
 				2467A8181FEFDF7C007A7AC9 /* PBXTargetDependency */,
+				247E68AC1FF2453E00617B12 /* PBXTargetDependency */,
 			);
 			name = AutoExample;
 			productName = AutoExample;
@@ -589,6 +607,7 @@
 				2467A7A81FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
 				2467A7A61FEE1F14007A7AC9 /* SwipeToDismissController.swift in Sources */,
 				2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */,
+				247E68A31FF2348600617B12 /* DelegateProxy.swift in Sources */,
 				241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */,
 				2467A7C71FEF8938007A7AC9 /* AssocKey.swift in Sources */,
 				2467A7AC1FEE5278007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
@@ -610,17 +629,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2467A7CC1FEF89FB007A7AC9 /* Animator.swift in Sources */,
+				247E68A41FF2348600617B12 /* DelegateProxy.swift in Sources */,
 				2467A7CA1FEF89FB007A7AC9 /* BackSwipeableConfiguration.swift in Sources */,
-				2467A7D61FEF8A06007A7AC9 /* Weak.swift in Sources */,
 				2467A7C51FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m in Sources */,
 				2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */,
-				24058D161FF0C02600B5101B /* NavigationControllerDelegateProxy.swift in Sources */,
-				2467A7D41FEF8A06007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
-				2467A7C91FEF89FB007A7AC9 /* BackSwipeController.swift in Sources */,
 				2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */,
 				2467A7D71FEF8A06007A7AC9 /* AssocKey.swift in Sources */,
-				2467A7D51FEF8A06007A7AC9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,14 +651,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24058D171FF0C02700B5101B /* NavigationControllerDelegateProxy.swift in Sources */,
-				2467A8081FEFDA3D007A7AC9 /* SwipeToDismissController.swift in Sources */,
 				2467A8091FEFDA3D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
 				2467A8141FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m in Sources */,
 				2467A80C1FEFDA44007A7AC9 /* DelegateProxy.m in Sources */,
-				2467A80F1FEFDA44007A7AC9 /* Weak.swift in Sources */,
-				2467A80D1FEFDA44007A7AC9 /* ScrollViewDelegateProxy.swift in Sources */,
-				2467A80E1FEFDA44007A7AC9 /* Extensions.swift in Sources */,
+				247E68A51FF2348600617B12 /* DelegateProxy.swift in Sources */,
 				2467A8101FEFDA44007A7AC9 /* AssocKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,6 +686,11 @@
 			isa = PBXTargetDependency;
 			target = 2467A7FA1FEFDA2B007A7AC9 /* AutoSwipeToDismiss */;
 			targetProxy = 2467A8171FEFDF7C007A7AC9 /* PBXContainerItemProxy */;
+		};
+		247E68AC1FF2453E00617B12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 241BA6C51FEC271B002E8902 /* SwipeTransition */;
+			targetProxy = 247E68AB1FF2453E00617B12 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
