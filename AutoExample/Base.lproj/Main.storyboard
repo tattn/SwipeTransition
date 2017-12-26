@@ -18,7 +18,7 @@
         <!--Auto Example-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Auto Example" id="BYZ-38-t0r" customClass="ViewController" customModule="AutoExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Auto Example" id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
         <!--Push VC-->
         <scene sceneID="bDA-7J-fWI">
             <objects>
-                <viewController title="Push VC" id="U2T-rN-oYJ" sceneMemberID="viewController">
+                <viewController title="Push VC" id="U2T-rN-oYJ" customClass="ViewController" customModule="AutoExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pix-Zs-FyZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

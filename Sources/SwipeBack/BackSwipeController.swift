@@ -8,21 +8,26 @@
 
 import UIKit
 
+// TODO: Change delegate to closure
+@objc
 public protocol BackSwipeControllerDelegate: class {
-    func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning)
-    func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning)
+    @objc optional func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning)
+    @objc optional func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning)
+    @objc optional func backSwipeControllerIsFirstPageOfPageViewController() -> Bool
 }
 
-public extension BackSwipeControllerDelegate {
-    public func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning) {}
-    public func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning) {}
-}
+//public extension BackSwipeControllerDelegate {
+//    public func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning) {}
+//    public func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning) {}
+//    public func backSwipeControllerIsFirstPageOfPageViewController() -> Bool { return false }
+//}
 
 @objcMembers
 public final class BackSwipeController: NSObject {
-    var delegate: BackSwipeControllerDelegate? {
-        get { return animator.delegate }
-        set { animator.delegate = newValue }
+    public var delegate: BackSwipeControllerDelegate? {
+        didSet {
+            animator.delegate = delegate
+        }
     }
 
     public var isEnabled = true
@@ -34,6 +39,11 @@ public final class BackSwipeController: NSObject {
     private var interactiveTransition: InteractiveTransition?
 
     private var proxy: NavigationControllerDelegateProxy? // strong reference
+
+    private var scrollViewDelegateProxy: ScrollViewDelegateProxy? // strong reference
+    private weak var disabledScrollView: UIScrollView?
+
+    private var previousContentOffsetX: CGFloat = 0
 
     public init(navigationController: UINavigationController) {
         super.init()
@@ -56,6 +66,12 @@ public final class BackSwipeController: NSObject {
         navigationController?.delegate = proxy
     }
 
+    public func setScrollViews(_ scrollViews: [UIScrollView]) {
+        let delegates = scrollViews.flatMap { $0.delegate }
+        scrollViewDelegateProxy = ScrollViewDelegateProxy(delegates: [self] + delegates)
+        scrollViews.forEach { $0.delegate = scrollViewDelegateProxy }
+    }
+
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         guard let navigationController = navigationController, let view = navigationController.view, isEnabled else { return }
 
@@ -72,6 +88,7 @@ public final class BackSwipeController: NSObject {
             if recognizer.velocity(in: view).x > 0 {
                 interactiveTransition?.finish()
                 interactiveTransition = nil
+                disabledScrollView?.isScrollEnabled = true
             } else {
                 fallthrough
             }
@@ -79,6 +96,7 @@ public final class BackSwipeController: NSObject {
             interactiveTransition?.cancel()
             interactiveTransition = nil
             animating = false
+            disabledScrollView?.isScrollEnabled = true
         default:
             break
         }
@@ -109,5 +127,16 @@ extension BackSwipeController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         animating = false
         panGestureRecognizer.isEnabled = navigationController.viewControllers.count > 1
+    }
+}
+
+extension BackSwipeController: UIScrollViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let delegate = delegate else { return }
+        if delegate.backSwipeControllerIsFirstPageOfPageViewController?() == true,
+            scrollView.contentOffset.x <= UIScreen.main.bounds.size.width {
+            scrollView.isScrollEnabled = false
+            disabledScrollView = scrollView
+        }
     }
 }

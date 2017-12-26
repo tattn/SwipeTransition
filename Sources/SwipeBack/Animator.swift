@@ -32,7 +32,7 @@ extension Animator: UIViewControllerAnimatedTransitioning {
         dimmedView.backgroundColor = UIColor(white: 0, alpha: BackSwipeableConfiguration.shared.backViewDimness)
         to.view.addSubview(dimmedView)
 
-        delegate?.backSwipeControllerStartTransition(context: transitionContext)
+        delegate?.backSwipeControllerStartTransition?(context: transitionContext)
 
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
@@ -45,7 +45,7 @@ extension Animator: UIViewControllerAnimatedTransitioning {
             }, completion: { [weak self] _ in
                 dimmedView.removeFromSuperview()
                 from.view.transform = .identity
-                self?.delegate?.backSwipeControllerDidFinishTransition(context: transitionContext)
+                self?.delegate?.backSwipeControllerDidFinishTransition?(context: transitionContext)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )
