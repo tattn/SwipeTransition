@@ -56,6 +56,7 @@
 		247E68A81FF2452100617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
 		247E68A91FF2453E00617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
 		247E68AA1FF2453E00617B12 /* SwipeTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		247E68B01FF3466300617B12 /* SwipeBackContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68AF1FF3466300617B12 /* SwipeBackContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,7 @@
 		2467A8111FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AutoSwipeToDismiss.h"; sourceTree = "<group>"; };
 		2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AutoSwipeToDismiss.m"; sourceTree = "<group>"; };
 		247E68A21FF2348600617B12 /* DelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProxy.swift; sourceTree = "<group>"; };
+		247E68AF1FF3466300617B12 /* SwipeBackContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 			children = (
 				241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */,
 				241BA6D11FEC2730002E8902 /* BackSwipeController.swift */,
+				247E68AF1FF3466300617B12 /* SwipeBackContext.swift */,
 				241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */,
 				241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */,
 				241BA6D31FEC2778002E8902 /* Animator.swift */,
@@ -594,6 +597,7 @@
 				2467A7C71FEF8938007A7AC9 /* AssocKey.swift in Sources */,
 				2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */,
 				2467A7B21FEECE36007A7AC9 /* Weak.swift in Sources */,
+				247E68B01FF3466300617B12 /* SwipeBackContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

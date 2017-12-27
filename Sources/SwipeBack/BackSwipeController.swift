@@ -8,95 +8,72 @@
 
 import UIKit
 
-// TODO: Change delegate to closure
-@objc
-public protocol BackSwipeControllerDelegate: class {
+// Allows to use in Objective-C
+@objc public protocol BackSwipeControllerDelegate: class {
     @objc optional func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning)
     @objc optional func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning)
     @objc optional func backSwipeControllerIsFirstPageOfPageViewController() -> Bool
 }
 
-//public extension BackSwipeControllerDelegate {
-//    public func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning) {}
-//    public func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning) {}
-//    public func backSwipeControllerIsFirstPageOfPageViewController() -> Bool { return false }
-//}
-
 @objcMembers
 public final class BackSwipeController: NSObject {
-    public var delegate: BackSwipeControllerDelegate? {
+    public weak var delegate: BackSwipeControllerDelegate? {
         didSet {
             animator.delegate = delegate
         }
     }
 
-    public var isEnabled = true
-    public private(set) weak var navigationController: UINavigationController?
-    private let panGestureRecognizer = UIPanGestureRecognizer()
+    public var isEnabled: Bool {
+        get { return context.isEnabled }
+        set { context.isEnabled = newValue }
+    }
+    
     private let animator = Animator()
+    private let context: SwipeBackContext
+    private let panGestureRecognizer = UIPanGestureRecognizer()
 
-    private var animating = false
-    private var interactiveTransition: InteractiveTransition?
+    public required init(navigationController: UINavigationController) {
+        context = SwipeBackContext(navigationController: navigationController)
 
-    private var proxy: NavigationControllerDelegateProxy? // strong reference
-
-    private var scrollViewDelegateProxy: ScrollViewDelegateProxy? // strong reference
-    private weak var disabledScrollView: UIScrollView?
-
-    private var previousContentOffsetX: CGFloat = 0
-
-    public init(navigationController: UINavigationController) {
         super.init()
+
         panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
         panGestureRecognizer.maximumNumberOfTouches = 1
         panGestureRecognizer.delegate = self
 
         navigationController.view.addGestureRecognizer(panGestureRecognizer)
-        self.navigationController = navigationController
         setNavigationControllerDelegate(navigationController.delegate)
     }
 
     deinit {
         panGestureRecognizer.removeTarget(self, action: #selector(handlePanGesture(_:)))
-        navigationController?.view.removeGestureRecognizer(panGestureRecognizer)
+        context.navigationController?.view.removeGestureRecognizer(panGestureRecognizer)
     }
 
     public func setNavigationControllerDelegate(_ delegate: UINavigationControllerDelegate?) {
-        proxy = NavigationControllerDelegateProxy(delegates: [self] + (delegate.map { [$0] } ?? []) )
-        navigationController?.delegate = proxy
+        context.navigationControllerDelegateProxy = NavigationControllerDelegateProxy(delegates: [self] + (delegate.map { [$0] } ?? []) )
     }
 
     public func setScrollViews(_ scrollViews: [UIScrollView]) {
-        let delegates = scrollViews.flatMap { $0.delegate }
-        scrollViewDelegateProxy = ScrollViewDelegateProxy(delegates: [self] + delegates)
-        scrollViews.forEach { $0.delegate = scrollViewDelegateProxy }
+        context.scrollViewDelegateProxies = scrollViews
+            .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }
+        zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
     }
 
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
-        guard let navigationController = navigationController, let view = navigationController.view, isEnabled else { return }
-
         switch recognizer.state {
         case .began:
-            if navigationController.viewControllers.count > 1, !animating {
-                interactiveTransition = InteractiveTransition()
-                navigationController.popViewController(animated: true)
-            }
+            context.startTransition()
         case .changed:
-            let translation = recognizer.translation(in: view)
-            interactiveTransition?.update(value: translation.x, maxValue: view.bounds.width)
+            context.updateTransition(recognizer: recognizer)
         case .ended:
-            if recognizer.velocity(in: view).x > 0 {
-                interactiveTransition?.finish()
-                interactiveTransition = nil
-                disabledScrollView?.isScrollEnabled = true
+            if context.allowsTransitionFinish(recognizer: recognizer) {
+                context.finishTransition()
             } else {
                 fallthrough
             }
         case .cancelled:
-            interactiveTransition?.cancel()
-            interactiveTransition = nil
-            animating = false
-            disabledScrollView?.isScrollEnabled = true
+            context.cancelTransition()
         default:
             break
         }
@@ -105,38 +82,37 @@ public final class BackSwipeController: NSObject {
 
 extension BackSwipeController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return navigationController.map { $0.viewControllers.count > 1 } ?? false
+        return context.allowsTransitionStart
     }
 }
 
 extension BackSwipeController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return operation == .pop && isEnabled ? animator : nil
+        return operation == .pop && context.isEnabled ? animator : nil
     }
 
     public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return isEnabled ? interactiveTransition : nil
+        return context.interactiveTransitionIfNeeded()
     }
 
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if animated, isEnabled {
-            animating = true
+        if animated, context.isEnabled {
+            context.animating = true
         }
     }
 
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        animating = false
+        context.animating = false
         panGestureRecognizer.isEnabled = navigationController.viewControllers.count > 1
     }
 }
 
 extension BackSwipeController: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let delegate = delegate else { return }
-        if delegate.backSwipeControllerIsFirstPageOfPageViewController?() == true,
+        if let isFirstPage = delegate?.backSwipeControllerIsFirstPageOfPageViewController?(), isFirstPage,
             scrollView.contentOffset.x <= UIScreen.main.bounds.size.width {
             scrollView.isScrollEnabled = false
-            disabledScrollView = scrollView
+            context.disabledScrollView = scrollView
         }
     }
 }
