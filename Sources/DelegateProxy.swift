@@ -13,3 +13,6 @@ class DelegateProxy<T>: STDelegateProxy {
         self.init(__delegates: delegates)
     }
 }
+
+final class ScrollViewDelegateProxy: DelegateProxy<UIScrollViewDelegate>, UIScrollViewDelegate {}
+final class NavigationControllerDelegateProxy: DelegateProxy<UINavigationControllerDelegate>, UINavigationControllerDelegate {}
