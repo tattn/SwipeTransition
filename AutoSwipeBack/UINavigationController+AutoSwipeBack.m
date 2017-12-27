@@ -42,9 +42,9 @@
 
 - (void)autoswipeback_viewDidLoad
 {
-    [self autoswipeback_viewDidLoad];
-
+    UIView* _ __unused = self.view;
     self.swipeBack = [[BackSwipeController alloc] initWithNavigationController:self];
+    [self autoswipeback_viewDidLoad];
 }
 
 - (void)setSwipeBack:(BackSwipeController*)swipeBack
