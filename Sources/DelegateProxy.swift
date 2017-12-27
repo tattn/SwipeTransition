@@ -8,9 +8,6 @@
 
 import Foundation
 
-// Wrap the delegate proxy to avoid the same bug
-// https://bugs.swift.org/browse/SR-6023
-
 class DelegateProxy<T>: STDelegateProxy {
     @nonobjc convenience init(delegates: [T]) {
         self.init(__delegates: delegates)

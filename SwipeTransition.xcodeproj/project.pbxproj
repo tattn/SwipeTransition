@@ -36,10 +36,6 @@
 		2467A7C01FEF7E44007A7AC9 /* AutoSwipeBack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2467A7C51FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C41FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m */; };
 		2467A7C71FEF8938007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
-		2467A7CA1FEF89FB007A7AC9 /* BackSwipeableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */; };
-		2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */; };
-		2467A7D21FEF8A06007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
 		2467A7D71FEF8A06007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
 		2467A7D91FEF8ABD007A7AC9 /* UINavigationController+AutoSwipeBack.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A7D81FEF8ABD007A7AC9 /* UINavigationController+AutoSwipeBack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A7E11FEFD393007A7AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7E01FEFD393007A7AC9 /* AppDelegate.swift */; };
@@ -52,17 +48,12 @@
 		2467A7FF1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A7FD1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A8021FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; };
 		2467A8031FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2467A8091FEFDA3D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */; };
-		2467A80B1FEFDA44007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2467A80C1FEFDA44007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
 		2467A8101FEFDA44007A7AC9 /* AssocKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7C61FEF8938007A7AC9 /* AssocKey.swift */; };
 		2467A8121FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A8111FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A8141FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */; };
 		2467A8151FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; };
 		2467A8161FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		247E68A31FF2348600617B12 /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68A21FF2348600617B12 /* DelegateProxy.swift */; };
-		247E68A41FF2348600617B12 /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68A21FF2348600617B12 /* DelegateProxy.swift */; };
-		247E68A51FF2348600617B12 /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68A21FF2348600617B12 /* DelegateProxy.swift */; };
 		247E68A71FF2451B00617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
 		247E68A81FF2452100617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
 		247E68A91FF2453E00617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
@@ -377,7 +368,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2467A7D21FEF8A06007A7AC9 /* DelegateProxy.h in Headers */,
 				2467A7D91FEF8ABD007A7AC9 /* UINavigationController+AutoSwipeBack.h in Headers */,
 				2467A7BC1FEF7E44007A7AC9 /* AutoSwipeBack.h in Headers */,
 			);
@@ -387,7 +377,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2467A80B1FEFDA44007A7AC9 /* DelegateProxy.h in Headers */,
 				2467A8121FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h in Headers */,
 				2467A7FF1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.h in Headers */,
 			);
@@ -629,11 +618,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				247E68A41FF2348600617B12 /* DelegateProxy.swift in Sources */,
-				2467A7CA1FEF89FB007A7AC9 /* BackSwipeableConfiguration.swift in Sources */,
 				2467A7C51FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m in Sources */,
-				2467A7CD1FEF89FB007A7AC9 /* InteractiveTransition.swift in Sources */,
-				2467A7D31FEF8A06007A7AC9 /* DelegateProxy.m in Sources */,
 				2467A7D71FEF8A06007A7AC9 /* AssocKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,10 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2467A8091FEFDA3D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
 				2467A8141FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m in Sources */,
-				2467A80C1FEFDA44007A7AC9 /* DelegateProxy.m in Sources */,
-				247E68A51FF2348600617B12 /* DelegateProxy.swift in Sources */,
 				2467A8101FEFDA44007A7AC9 /* AssocKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
