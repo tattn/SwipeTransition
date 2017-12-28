@@ -20,7 +20,33 @@ Notes: these frameworks use Method Swizzling.
 
 When setting manually without Method Swizzling, please use `SwipeTransition.framework` only.
 
+## Features
+
+- [x] Swipe back anywhere.
+- [x] Swipe to dismiss anywhere.
+- [x] Apply to all view controllers automatically!
+
 ## Swipe back
+
+### Configuration
+
+It is possible to disable the feature only for a specific view controller.
+
+```swift
+class NoSwipeVC: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.swipeBack?.isEnabled = false
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.swipeBack?.isEnabled = true
+    }
+}
+```
+
+### Manually setting
 
 Notes: when you use `AutoSwipeBack.framework`, these are unnecessary.
 
@@ -42,46 +68,7 @@ class CustomNavigationController: UINavigationController {
 }
 ```
 
-### Configuration
-
-It is possible to disable the feature only for a specific view controller.
-
-```swift
-class NoSwipeVC: UIViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.swipeBack?.isEnabled = false
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.swipeBack?.isEnabled = true
-    }
-}
-```
-
 ## Swipe to dismiss
-
-Notes: when you use `AutoSwipeToDismiss.framework`, these are unnecessary.
-
-Just use `SwipeToDismissNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
-
-```swift
-let viewController = UIViewController()
-let navigationController = SwipeToDismissNavigationController(rootViewControlelr: viewController)
-````
-
-Another way is to set `swipeToDismiss`.
-
-```swift
-class CustomNavigationController: UINavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        modalPresentationStyle = .overFullScreen
-        swipeToDismiss = SwipeToDismissController(viewController: self)
-    }
-}
-```
 
 ### Configuration
 
@@ -118,7 +105,30 @@ class ScrollVC: UIViewController, UIScrollViewDelegate {
 }
 ```
 
-## Common Configuration
+### Manually setting
+
+Notes: when you use `AutoSwipeToDismiss.framework`, these are unnecessary.
+
+Just use `SwipeToDismissNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
+
+```swift
+let viewController = UIViewController()
+let navigationController = SwipeToDismissNavigationController(rootViewControlelr: viewController)
+````
+
+Another way is to set `swipeToDismiss`.
+
+```swift
+class CustomNavigationController: UINavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        modalPresentationStyle = .overFullScreen
+        swipeToDismiss = SwipeToDismissController(viewController: self)
+    }
+}
+```
+
+## Common configuration
 
 You can also change the behavior such as animation.
 
