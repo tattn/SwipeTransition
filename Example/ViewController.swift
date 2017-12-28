@@ -93,7 +93,7 @@ class DismissTopVC: UIViewController {
     @objc func swipeableNC() {
         let vc = UIViewController()
         vc.view.backgroundColor = .orange
-        let nav = SwipeableToDismissNavigationController(rootViewController: vc)
+        let nav = SwipeToDismissNavigationController(rootViewController: vc)
         present(nav, animated: true, completion: nil)
     }
 
@@ -105,12 +105,12 @@ class DismissTopVC: UIViewController {
 
     @objc func scrollViewInSwipeableNC() {
         let vc = DismissScrollVC2()
-        let nav = SwipeableToDismissNavigationController(rootViewController: vc)
+        let nav = SwipeToDismissNavigationController(rootViewController: vc)
         present(nav, animated: true, completion: nil)
     }
 }
 
-class DismissSimpleVC: UIViewController, SwipeableToDismiss {
+class DismissSimpleVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,7 +143,7 @@ class ScrollVC: UIViewController {
     }
 }
 
-class DismissScrollVC: ScrollVC, SwipeableToDismiss {
+class DismissScrollVC: ScrollVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DismissScrollVC"

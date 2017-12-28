@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class SwipeableToDismissNavigationController: UINavigationController, SwipeableToDismiss {
+open class SwipeToDismissNavigationController: UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         swipeBack = SwipeBackController(navigationController: self)

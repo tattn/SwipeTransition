@@ -10,6 +10,6 @@
 
 @class SwipeToDismissController;
 
-@interface UINavigationController (AutoSwipeToDismiss)
+@interface UIViewController (AutoSwipeToDismiss)
 @property(nonatomic) SwipeToDismissController* swipeToDismiss;
 @end

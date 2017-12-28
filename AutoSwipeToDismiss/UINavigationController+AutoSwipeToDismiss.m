@@ -11,7 +11,7 @@
 #import <SwipeTransition/SwipeTransition.h>
 #import "UINavigationController+AutoSwipeToDismiss.h"
 
-@implementation UINavigationController (AutoSwipeToDismiss)
+@implementation UIViewController (AutoSwipeToDismiss)
 + (void)load
 {
     static dispatch_once_t onceToken;
