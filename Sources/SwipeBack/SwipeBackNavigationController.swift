@@ -1,5 +1,5 @@
 //
-//  BackSwipeableNavigationController.swift
+//  SwipeBackNavigationController.swift
 //  SwipeTransition
 //
 //  Created by Tatsuya Tanaka on 20171222.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-open class BackSwipeableNavigationController: UINavigationController, BackSwipeable {
+open class SwipeBackNavigationController: UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        swipeBack = BackSwipeController(navigationController: self)
+        swipeBack = SwipeBackController(navigationController: self)
     }
 }

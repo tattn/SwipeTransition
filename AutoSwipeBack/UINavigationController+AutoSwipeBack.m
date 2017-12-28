@@ -43,16 +43,16 @@
 - (void)autoswipeback_viewDidLoad
 {
     UIView* _ __unused = self.view;
-    self.swipeBack = [[BackSwipeController alloc] initWithNavigationController:self];
+    self.swipeBack = [[SwipeBackController alloc] initWithNavigationController:self];
     [self autoswipeback_viewDidLoad];
 }
 
-- (void)setSwipeBack:(BackSwipeController*)swipeBack
+- (void)setSwipeBack:(SwipeBackController*)swipeBack
 {
     objc_setAssociatedObject(self, __AssocKey.swipeBack, swipeBack, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BackSwipeController*)swipeBack
+- (SwipeBackController*)swipeBack
 {
     return objc_getAssociatedObject(self, __AssocKey.swipeBack);
 }

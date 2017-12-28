@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class BackSwipeController;
+@class SwipeBackController;
 
 @interface UINavigationController (AutoSwipeBack)
-@property(nonatomic) BackSwipeController* swipeBack;
+@property(nonatomic) SwipeBackController* swipeBack;
 @end

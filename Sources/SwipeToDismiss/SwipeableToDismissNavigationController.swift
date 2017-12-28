@@ -8,10 +8,10 @@
 
 import UIKit
 
-open class SwipeableToDismissNavigationController: UINavigationController, SwipeableToDismiss, BackSwipeable {
+open class SwipeableToDismissNavigationController: UINavigationController, SwipeableToDismiss {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        swipeBack = BackSwipeController(navigationController: self)
+        swipeBack = SwipeBackController(navigationController: self)
         modalPresentationStyle = .overFullScreen
         configureSwipeToDismiss()
     }

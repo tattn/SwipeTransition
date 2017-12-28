@@ -1,5 +1,5 @@
 //
-//  BackSwipeController.swift
+//  SwipeBackController.swift
 //  SwipeTransition
 //
 //  Created by Tatsuya Tanaka on 20171222.
@@ -9,15 +9,15 @@
 import UIKit
 
 // Allows to use in Objective-C
-@objc public protocol BackSwipeControllerDelegate: class {
+@objc public protocol SwipeBackControllerDelegate: class {
     @objc optional func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning)
     @objc optional func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning)
     @objc optional func backSwipeControllerIsFirstPageOfPageViewController() -> Bool
 }
 
 @objcMembers
-public final class BackSwipeController: NSObject {
-    public weak var delegate: BackSwipeControllerDelegate? {
+public final class SwipeBackController: NSObject {
+    public weak var delegate: SwipeBackControllerDelegate? {
         didSet {
             animator.delegate = delegate
         }
@@ -80,13 +80,13 @@ public final class BackSwipeController: NSObject {
     }
 }
 
-extension BackSwipeController: UIGestureRecognizerDelegate {
+extension SwipeBackController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return context.allowsTransitionStart
     }
 }
 
-extension BackSwipeController: UINavigationControllerDelegate {
+extension SwipeBackController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return operation == .pop && context.isEnabled ? animator : nil
     }
@@ -107,7 +107,7 @@ extension BackSwipeController: UINavigationControllerDelegate {
     }
 }
 
-extension BackSwipeController: UIScrollViewDelegate {
+extension SwipeBackController: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let isFirstPage = delegate?.backSwipeControllerIsFirstPageOfPageViewController?(), isFirstPage,
             scrollView.contentOffset.x <= UIScreen.main.bounds.size.width {

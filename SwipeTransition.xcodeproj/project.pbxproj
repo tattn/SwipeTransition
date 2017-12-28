@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		241BA6CB1FEC271B002E8902 /* SwipeTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 241BA6C91FEC271B002E8902 /* SwipeTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* BackSwipeController.swift */; };
+		241BA6D21FEC2730002E8902 /* SwipeBackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* SwipeBackController.swift */; };
 		241BA6D41FEC2778002E8902 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
 		241BA6DC1FEC480E002E8902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6DB1FEC480E002E8902 /* AppDelegate.swift */; };
 		241BA6DE1FEC480E002E8902 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6DD1FEC480E002E8902 /* ViewController.swift */; };
@@ -16,11 +16,11 @@
 		241BA6E31FEC480E002E8902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 241BA6E21FEC480E002E8902 /* Assets.xcassets */; };
 		241BA6E61FEC480E002E8902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 241BA6E41FEC480E002E8902 /* LaunchScreen.storyboard */; };
 		241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */; };
-		241BA6EE1FECCDA8002E8902 /* BackSwipeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */; };
+		241BA6EE1FECCDA8002E8902 /* SwipeBackExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6ED1FECCDA8002E8902 /* SwipeBackExtensions.swift */; };
 		241BA6EF1FECDA8A002E8902 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
 		241BA6F01FECDA8A002E8902 /* SwipeTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		241BA6F91FECF03D002E8902 /* BackSwipeableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */; };
-		241BA6FB1FED07F1002E8902 /* BackSwipeableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */; };
+		241BA6F91FECF03D002E8902 /* SwipeBackNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6F81FECF03D002E8902 /* SwipeBackNavigationController.swift */; };
+		241BA6FB1FED07F1002E8902 /* SwipeBackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* SwipeBackConfiguration.swift */; };
 		2467A7A11FED4E43007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
 		2467A7A21FED4EA5007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A7A41FED5967007A7AC9 /* SwipeableToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */; };
@@ -137,7 +137,7 @@
 		241BA6C61FEC271B002E8902 /* SwipeTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241BA6C91FEC271B002E8902 /* SwipeTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeTransition.h; sourceTree = "<group>"; };
 		241BA6CA1FEC271B002E8902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		241BA6D11FEC2730002E8902 /* BackSwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeController.swift; sourceTree = "<group>"; };
+		241BA6D11FEC2730002E8902 /* SwipeBackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackController.swift; sourceTree = "<group>"; };
 		241BA6D31FEC2778002E8902 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		241BA6D91FEC480E002E8902 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		241BA6DB1FEC480E002E8902 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,9 +147,9 @@
 		241BA6E51FEC480E002E8902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		241BA6E71FEC480E002E8902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
-		241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeable.swift; sourceTree = "<group>"; };
-		241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeableNavigationController.swift; sourceTree = "<group>"; };
-		241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeableConfiguration.swift; sourceTree = "<group>"; };
+		241BA6ED1FECCDA8002E8902 /* SwipeBackExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackExtensions.swift; sourceTree = "<group>"; };
+		241BA6F81FECF03D002E8902 /* SwipeBackNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackNavigationController.swift; sourceTree = "<group>"; };
+		241BA6FA1FED07F1002E8902 /* SwipeBackConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackConfiguration.swift; sourceTree = "<group>"; };
 		2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateProxy.h; sourceTree = "<group>"; };
 		2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelegateProxy.m; sourceTree = "<group>"; };
 		2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableToDismiss.swift; sourceTree = "<group>"; };
@@ -285,11 +285,11 @@
 		2467A7AD1FEE52A4007A7AC9 /* SwipeBack */ = {
 			isa = PBXGroup;
 			children = (
-				241BA6ED1FECCDA8002E8902 /* BackSwipeable.swift */,
-				241BA6D11FEC2730002E8902 /* BackSwipeController.swift */,
+				241BA6ED1FECCDA8002E8902 /* SwipeBackExtensions.swift */,
+				241BA6D11FEC2730002E8902 /* SwipeBackController.swift */,
 				247E68AF1FF3466300617B12 /* SwipeBackContext.swift */,
-				241BA6FA1FED07F1002E8902 /* BackSwipeableConfiguration.swift */,
-				241BA6F81FECF03D002E8902 /* BackSwipeableNavigationController.swift */,
+				241BA6FA1FED07F1002E8902 /* SwipeBackConfiguration.swift */,
+				241BA6F81FECF03D002E8902 /* SwipeBackNavigationController.swift */,
 				241BA6D31FEC2778002E8902 /* Animator.swift */,
 				241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */,
 			);
@@ -582,18 +582,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				241BA6FB1FED07F1002E8902 /* BackSwipeableConfiguration.swift in Sources */,
+				241BA6FB1FED07F1002E8902 /* SwipeBackConfiguration.swift in Sources */,
 				241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */,
 				241BA6D41FEC2778002E8902 /* Animator.swift in Sources */,
 				2467A7A11FED4E43007A7AC9 /* DelegateProxy.m in Sources */,
-				241BA6F91FECF03D002E8902 /* BackSwipeableNavigationController.swift in Sources */,
-				241BA6EE1FECCDA8002E8902 /* BackSwipeable.swift in Sources */,
+				241BA6F91FECF03D002E8902 /* SwipeBackNavigationController.swift in Sources */,
+				241BA6EE1FECCDA8002E8902 /* SwipeBackExtensions.swift in Sources */,
 				2467A7A41FED5967007A7AC9 /* SwipeableToDismiss.swift in Sources */,
 				2467A7A81FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift in Sources */,
 				2467A7A61FEE1F14007A7AC9 /* SwipeToDismissController.swift in Sources */,
 				2467A7AA1FEE375E007A7AC9 /* Extensions.swift in Sources */,
 				247E68A31FF2348600617B12 /* DelegateProxy.swift in Sources */,
-				241BA6D21FEC2730002E8902 /* BackSwipeController.swift in Sources */,
+				241BA6D21FEC2730002E8902 /* SwipeBackController.swift in Sources */,
 				2467A7C71FEF8938007A7AC9 /* AssocKey.swift in Sources */,
 				2467A7B01FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift in Sources */,
 				2467A7B21FEECE36007A7AC9 /* Weak.swift in Sources */,

@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: BackSwipeControllerDelegate {
+extension ViewController: SwipeBackControllerDelegate {
     func backSwipeControllerIsFirstPageOfPageViewController() -> Bool {
         return index == 0
     }

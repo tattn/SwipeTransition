@@ -9,13 +9,13 @@
 import UIKit
 
 public final class Animator: NSObject {
-    public weak var delegate: BackSwipeControllerDelegate?
+    public weak var delegate: SwipeBackControllerDelegate?
     private weak var toViewController: UIViewController?
 }
 
 extension Animator: UIViewControllerAnimatedTransitioning {
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return BackSwipeableConfiguration.shared.transitionDuration
+        return SwipeBackConfiguration.shared.transitionDuration
     }
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,11 +25,11 @@ extension Animator: UIViewControllerAnimatedTransitioning {
         to.view.frame = transitionContext.containerView.frame
 
         // parallax effect
-        to.view.transform.tx = -transitionContext.containerView.bounds.width * BackSwipeableConfiguration.shared.parallaxFactor
+        to.view.transform.tx = -transitionContext.containerView.bounds.width * SwipeBackConfiguration.shared.parallaxFactor
 
         // dim the back view
         let dimmedView = UIView(frame: to.view.bounds)
-        dimmedView.backgroundColor = UIColor(white: 0, alpha: BackSwipeableConfiguration.shared.backViewDimness)
+        dimmedView.backgroundColor = UIColor(white: 0, alpha: SwipeBackConfiguration.shared.backViewDimness)
         to.view.addSubview(dimmedView)
 
         delegate?.backSwipeControllerStartTransition?(context: transitionContext)
