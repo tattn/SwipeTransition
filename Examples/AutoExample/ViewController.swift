@@ -31,14 +31,8 @@ class ViewController: UIViewController {
             .flatMap { $0 as? UIScrollView }
             .first
 
-        navigationController?.swipeBack?.delegate = self
         navigationController?.swipeBack?.setScrollViews([scrollView!])
-    }
-}
-
-extension ViewController: SwipeBackControllerDelegate {
-    func backSwipeControllerIsFirstPageOfPageViewController() -> Bool {
-        return index == 0
+        navigationController?.swipeBack?.isFirstPageOfPageViewController = { [unowned self] in self.index == 0 }
     }
 }
 
