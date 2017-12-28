@@ -46,8 +46,7 @@ public final class SwipeBackController: NSObject {
     }
 
     deinit {
-        panGestureRecognizer.removeTarget(self, action: #selector(handlePanGesture(_:)))
-        context.navigationController?.view.removeGestureRecognizer(panGestureRecognizer)
+        panGestureRecognizer.view?.removeGestureRecognizer(panGestureRecognizer)
     }
 
     public func setNavigationControllerDelegate(_ delegate: UINavigationControllerDelegate?) {

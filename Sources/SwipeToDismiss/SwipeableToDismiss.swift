@@ -18,9 +18,8 @@ public extension UIViewController {
         }
     }
 
-    public func configureSwipeToDismiss(scrollView: UIScrollView? = nil, navigationBar: UIView? = nil) {
+    public func configureSwipeToDismiss(scrollView: UIScrollView? = nil) {
         swipeToDismiss = SwipeToDismissController(view: view)
         swipeToDismiss?.scrollView = scrollView
-        swipeToDismiss?.navigationBar = navigationBar
     }
 }

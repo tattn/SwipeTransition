@@ -51,6 +51,7 @@
 		2467A8141FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */; };
 		2467A8151FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; };
 		2467A8161FEFDF7C007A7AC9 /* AutoSwipeToDismiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		246C0B591FF4E7690040E6BC /* SwipeToDismissContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C0B581FF4E7690040E6BC /* SwipeToDismissContext.swift */; };
 		247E68A31FF2348600617B12 /* DelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68A21FF2348600617B12 /* DelegateProxy.swift */; };
 		247E68A71FF2451B00617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
 		247E68A81FF2452100617B12 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
@@ -176,6 +177,7 @@
 		2467A7FE1FEFDA2B007A7AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2467A8111FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AutoSwipeToDismiss.h"; sourceTree = "<group>"; };
 		2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AutoSwipeToDismiss.m"; sourceTree = "<group>"; };
+		246C0B581FF4E7690040E6BC /* SwipeToDismissContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissContext.swift; sourceTree = "<group>"; };
 		247E68A21FF2348600617B12 /* DelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProxy.swift; sourceTree = "<group>"; };
 		247E68AF1FF3466300617B12 /* SwipeBackContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -301,6 +303,7 @@
 			children = (
 				2467A7A31FED5967007A7AC9 /* SwipeableToDismiss.swift */,
 				2467A7A51FEE1F14007A7AC9 /* SwipeToDismissController.swift */,
+				246C0B581FF4E7690040E6BC /* SwipeToDismissContext.swift */,
 				2467A7A71FEE2A0D007A7AC9 /* SwipeToDismissConfiguration.swift */,
 				2467A7AF1FEE5886007A7AC9 /* SwipeableToDismissNavigationController.swift */,
 			);
@@ -585,6 +588,7 @@
 				241BA6FB1FED07F1002E8902 /* SwipeBackConfiguration.swift in Sources */,
 				241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */,
 				241BA6D41FEC2778002E8902 /* Animator.swift in Sources */,
+				246C0B591FF4E7690040E6BC /* SwipeToDismissContext.swift in Sources */,
 				2467A7A11FED4E43007A7AC9 /* DelegateProxy.m in Sources */,
 				241BA6F91FECF03D002E8902 /* SwipeBackNavigationController.swift in Sources */,
 				241BA6EE1FECCDA8002E8902 /* SwipeBackExtensions.swift in Sources */,

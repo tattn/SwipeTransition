@@ -26,8 +26,8 @@ final class SwipeBackContext {
 
     var interactiveTransition: InteractiveTransition?
 
-    var animating = false
     var isEnabled = true
+    var animating = false
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
