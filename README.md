@@ -12,13 +12,13 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
 ## The easiest way to use
 
-Just setting these frameworks in the Embedded Binaries, it works.
+Just setting these frameworks in the `Linked Frameworks and Libraries`, it works.
 
-![Embedded Binaries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/embedded_binaries.png)
+![Linked Frameworks and Libraries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/linked_frameworks.png)
 
 Notes: these frameworks use Method Swizzling.
 
-When setting manually, please use `SwipeTransition.framework`.
+When setting manually without Method Swizzling, please use `SwipeTransition.framework` only.
 
 ## Swipe back
 
