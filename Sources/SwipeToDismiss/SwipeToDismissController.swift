@@ -18,27 +18,21 @@ public class SwipeToDismissController: NSObject {
 
     private let context: SwipeToDismissContext
 
-    public weak var scrollView: UIScrollView? {
-        didSet {
-            scrollView.map { setScrollViews([$0]) }
-        }
-    }
-
     private var panGestures: [UIPanGestureRecognizer] = []
 
-    public required init?(view: UIView) {
-        guard let viewController = view.viewController else {
-            assertionFailure("the view doesn't belong to a view controller.")
-            return nil
-        }
+    public required init?(viewController: UIViewController) {
         context = SwipeToDismissContext(viewController: viewController)
         super.init()
         viewController.navigationController.map { addGesture(to: $0.navigationBar) }
-        addGesture(to: view)
+        addGesture(to: viewController.view)
     }
 
     deinit {
         panGestures.forEach { $0.view?.removeGestureRecognizer($0) }
+    }
+
+    public func setScrollView(_ scrollView: UIScrollView) {
+        setScrollViews([scrollView])
     }
 
     public func setScrollViews(_ scrollViews: [UIScrollView]) {

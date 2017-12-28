@@ -1,5 +1,5 @@
 //
-//  SwipeableToDismissNavigationController.swift
+//  SwipeToDismissNavigationController.swift
 //  SwipeTransition
 //
 //  Created by Tatsuya Tanaka on 20171223.
@@ -12,7 +12,7 @@ open class SwipeToDismissNavigationController: UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         swipeBack = SwipeBackController(navigationController: self)
+        swipeToDismiss = SwipeToDismissController(viewController: self)
         modalPresentationStyle = .overFullScreen
-        configureSwipeToDismiss()
     }
 }

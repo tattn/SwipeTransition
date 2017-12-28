@@ -1,5 +1,5 @@
 //
-//  SwipeableToDismiss.swift
+//  SwipeToDismissExtensions.swift
 //  SwipeTransition
 //
 //  Created by Tatsuya Tanaka on 20171223.
@@ -16,10 +16,5 @@ public extension UIViewController {
         set {
             objc_setAssociatedObject(self, &AssocKey.swipeToDismiss, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
-    }
-
-    public func configureSwipeToDismiss(scrollView: UIScrollView? = nil) {
-        swipeToDismiss = SwipeToDismissController(view: view)
-        swipeToDismiss?.scrollView = scrollView
     }
 }

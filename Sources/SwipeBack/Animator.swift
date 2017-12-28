@@ -8,17 +8,17 @@
 
 import UIKit
 
-public final class Animator: NSObject {
+final class Animator: NSObject {
     public weak var delegate: SwipeBackControllerDelegate?
     private weak var toViewController: UIViewController?
 }
 
 extension Animator: UIViewControllerAnimatedTransitioning {
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return SwipeBackConfiguration.shared.transitionDuration
     }
 
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let to = transitionContext.viewController(forKey: .to),
             let from = transitionContext.viewController(forKey: .from) else { return }
         transitionContext.containerView.insertSubview(to.view, belowSubview: from.view)
@@ -53,7 +53,7 @@ extension Animator: UIViewControllerAnimatedTransitioning {
         toViewController = to
     }
 
-    public func animationEnded(_ transitionCompleted: Bool) {
+    func animationEnded(_ transitionCompleted: Bool) {
         if !transitionCompleted {
             toViewController?.view.transform = .identity
         }

@@ -166,7 +166,7 @@
         if (self.presentedViewController
             || self.presentingViewController.presentedViewController == self
             || [self.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]]) {
-            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithView:self.view];
+            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
         }
     }
 

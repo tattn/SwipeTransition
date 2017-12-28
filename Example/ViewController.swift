@@ -116,7 +116,7 @@ class DismissSimpleVC: UIViewController {
         super.viewDidLoad()
         title = "DismissSimpleVC"
         view.backgroundColor = .orange
-        configureSwipeToDismiss()
+        swipeToDismiss = SwipeToDismissController(viewController: self)
     }
 }
 
@@ -147,7 +147,8 @@ class DismissScrollVC: ScrollVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DismissScrollVC"
-        configureSwipeToDismiss(scrollView: scrollView)
+        swipeToDismiss = SwipeToDismissController(viewController: self)
+        swipeToDismiss?.setScrollView(scrollView)
     }
 }
 
@@ -155,7 +156,7 @@ class DismissScrollVC2: ScrollVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DismissScrollVC2"
-        navigationController?.swipeToDismiss?.scrollView = scrollView
+        navigationController?.swipeToDismiss?.setScrollView(scrollView)
 
         let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
         button.center = view.center
