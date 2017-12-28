@@ -31,10 +31,6 @@ public class SwipeToDismissController: NSObject {
         panGestures.forEach { $0.view?.removeGestureRecognizer($0) }
     }
 
-    public func setScrollView(_ scrollView: UIScrollView) {
-        setScrollViews([scrollView])
-    }
-
     public func setScrollViews(_ scrollViews: [UIScrollView]) {
         context.proxies = scrollViews
             .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }

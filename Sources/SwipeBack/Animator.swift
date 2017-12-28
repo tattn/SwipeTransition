@@ -9,7 +9,7 @@
 import UIKit
 
 final class Animator: NSObject {
-    public weak var delegate: SwipeBackControllerDelegate?
+    weak var parent: SwipeBackController!
     private weak var toViewController: UIViewController?
 }
 
@@ -32,7 +32,7 @@ extension Animator: UIViewControllerAnimatedTransitioning {
         dimmedView.backgroundColor = UIColor(white: 0, alpha: SwipeBackConfiguration.shared.backViewDimness)
         to.view.addSubview(dimmedView)
 
-        delegate?.backSwipeControllerStartTransition?(context: transitionContext)
+        parent.onStartTransition?(transitionContext)
 
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
@@ -45,7 +45,7 @@ extension Animator: UIViewControllerAnimatedTransitioning {
             }, completion: { [weak self] _ in
                 dimmedView.removeFromSuperview()
                 from.view.transform = .identity
-                self?.delegate?.backSwipeControllerDidFinishTransition?(context: transitionContext)
+                self?.parent.onFinishTransition?(transitionContext)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )

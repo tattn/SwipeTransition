@@ -8,27 +8,18 @@
 
 import UIKit
 
-// Allows to use in Objective-C
-@objc public protocol SwipeBackControllerDelegate: class {
-    @objc optional func backSwipeControllerStartTransition(context: UIViewControllerContextTransitioning)
-    @objc optional func backSwipeControllerDidFinishTransition(context: UIViewControllerContextTransitioning)
-    @objc optional func backSwipeControllerIsFirstPageOfPageViewController() -> Bool
-}
-
 @objcMembers
 public final class SwipeBackController: NSObject {
-    public weak var delegate: SwipeBackControllerDelegate? {
-        didSet {
-            animator.delegate = delegate
-        }
-    }
+    public var onStartTransition: ((UIViewControllerContextTransitioning) -> Void)?
+    public var onFinishTransition: ((UIViewControllerContextTransitioning) -> Void)?
+    public var isFirstPageOfPageViewController: (() -> Bool)?
 
     public var isEnabled: Bool {
         get { return context.isEnabled }
         set { context.isEnabled = newValue }
     }
     
-    private let animator = Animator()
+    private var animator = Animator()
     private let context: SwipeBackContext
     private let panGestureRecognizer = UIPanGestureRecognizer()
 
@@ -36,6 +27,7 @@ public final class SwipeBackController: NSObject {
         context = SwipeBackContext(navigationController: navigationController)
 
         super.init()
+        animator.parent = self
 
         panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
         panGestureRecognizer.maximumNumberOfTouches = 1
@@ -108,7 +100,7 @@ extension SwipeBackController: UINavigationControllerDelegate {
 
 extension SwipeBackController: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let isFirstPage = delegate?.backSwipeControllerIsFirstPageOfPageViewController?(), isFirstPage,
+        if let isFirstPage = isFirstPageOfPageViewController?(), isFirstPage,
             scrollView.contentOffset.x <= UIScreen.main.bounds.size.width {
             scrollView.isScrollEnabled = false
             context.disabledScrollView = scrollView

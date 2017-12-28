@@ -148,7 +148,7 @@ class DismissScrollVC: ScrollVC {
         super.viewDidLoad()
         title = "DismissScrollVC"
         swipeToDismiss = SwipeToDismissController(viewController: self)
-        swipeToDismiss?.setScrollView(scrollView)
+        swipeToDismiss?.setScrollViews([scrollView])
     }
 }
 
@@ -156,7 +156,7 @@ class DismissScrollVC2: ScrollVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DismissScrollVC2"
-        navigationController?.swipeToDismiss?.setScrollView(scrollView)
+        navigationController?.swipeToDismiss?.setScrollViews([scrollView])
 
         let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
         button.center = view.center
