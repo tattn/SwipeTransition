@@ -16,5 +16,4 @@ FOUNDATION_EXPORT const unsigned char AutoSwipeToDismissVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AutoSwipeToDismiss/PublicHeader.h>
 
-#import "DelegateProxy.h"
 #import "UINavigationController+AutoSwipeToDismiss.h"

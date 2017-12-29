@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import <SwipeTransition/SwipeTransition.h>
+#import <SwipeTransition/SwipeTransition-Swift.h>
 #import "UINavigationController+AutoSwipeBack.h"
 
 @implementation UINavigationController (AutoSwipeBack)
