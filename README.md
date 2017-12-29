@@ -2,7 +2,9 @@ SwipeTransition
 ===
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![pods](https://img.shields.io/cocoapods/v/SwipeTransition.svg)
 [![Swift Version](https://img.shields.io/badge/Swift-4-F16D39.svg)](https://developer.apple.com/swift)
+[![Objective-C compatible](https://img.shields.io/badge/Objective--C-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 SwipeTransition allows trendy transitions using swipe gesture such as "swipe back".
 
@@ -12,7 +14,7 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
 ## The easiest way to use
 
-Just setting these frameworks in the `Linked Frameworks and Libraries`, it works.
+Just setting these frameworks in the `Linked Frameworks and Libraries`, it works. (if you use Carthage)
 
 ![Linked Frameworks and Libraries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/linked_frameworks.png)
 
@@ -165,6 +167,13 @@ SwipeBackConfiguration.shared = CustomSwipeBackConfiguration()
 github "tattn/SwipeTransition"
 ```
 
+## CocoaPods
+
+```ruby
+pod "SwipeTransition"
+pod "SwipeTransitionAutoSwipeBack"      # if needed
+pod "SwipeTransitionAutoSwipeToDismiss" # if needed
+```
 
 # Contributing
 
