@@ -22,12 +22,14 @@ matrix:
     - env: JOB=pod_lint
       script:
         - pod lib lint --quick
-
-    - env: JOB=xcode SCHEME=Replacer XCODE_OPTION="-sdk iphonesimulator -destination \"name=iPhone 8\""
+    - env: JOB=xcode SCHEME=SwipeTransitionTests SDK=iphonesimulator
 
 script:
   - set -o pipefail
-  - xcodebuild $ACTION -project "$PROJECT" -scheme "$SCHEME" $XCODE_OPTION -configuration "$CONFIG" ENABLE_TESTABILITY=YES | xcpretty
+  - xcodebuild $ACTION -project $PROJECT -scheme $SCHEME -sdk $SDK -destination 'name=iPhone 7,OS=11.0' -configuration $CONFIG ENABLE_TESTABILITY=YES | xcpretty
 
 notifications:
   email: false
+
+after_success:
+  - sleep 5 # workaround https://github.com/travis-ci/travis-ci/issues/4725
