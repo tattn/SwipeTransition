@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		241A249A1FF7375300347055 /* SwipeBackContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241A24991FF7375300347055 /* SwipeBackContextTests.swift */; };
+		241A249C1FF7375300347055 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
+		241A24A51FF7BC8000347055 /* TestablePanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241A24A41FF7BC8000347055 /* TestablePanGestureRecognizer.swift */; };
 		241BA6CB1FEC271B002E8902 /* SwipeTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 241BA6C91FEC271B002E8902 /* SwipeTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241BA6D21FEC2730002E8902 /* SwipeBackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* SwipeBackController.swift */; };
 		241BA6D41FEC2778002E8902 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* Animator.swift */; };
@@ -59,6 +62,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		241A249D1FF7375300347055 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 241BA6BD1FEC271B002E8902 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 241BA6C51FEC271B002E8902;
+			remoteInfo = SwipeTransition;
+		};
+		241A24A21FF7383500347055 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 241BA6BD1FEC271B002E8902 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 241BA6D81FEC480E002E8902;
+			remoteInfo = Example;
+		};
 		241BA6F11FECDA8A002E8902 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 241BA6BD1FEC271B002E8902 /* Project object */;
@@ -133,6 +150,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		241A24971FF7375300347055 /* SwipeTransitionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeTransitionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		241A24991FF7375300347055 /* SwipeBackContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackContextTests.swift; sourceTree = "<group>"; };
+		241A249B1FF7375300347055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		241A24A41FF7BC8000347055 /* TestablePanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestablePanGestureRecognizer.swift; sourceTree = "<group>"; };
 		241BA6C61FEC271B002E8902 /* SwipeTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241BA6C91FEC271B002E8902 /* SwipeTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeTransition.h; sourceTree = "<group>"; };
 		241BA6CA1FEC271B002E8902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +200,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		241A24941FF7375300347055 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				241A249C1FF7375300347055 /* SwipeTransition.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		241BA6C21FEC271B002E8902 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,11 +254,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		241A24981FF7375300347055 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				241A24991FF7375300347055 /* SwipeBackContextTests.swift */,
+				241A249B1FF7375300347055 /* Info.plist */,
+				241A24A41FF7BC8000347055 /* TestablePanGestureRecognizer.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		241BA6BC1FEC271B002E8902 = {
 			isa = PBXGroup;
 			children = (
 				241BA6C81FEC271B002E8902 /* Sources */,
 				241BA6DA1FEC480E002E8902 /* Examples */,
+				241A24981FF7375300347055 /* Tests */,
 				241BA6C71FEC271B002E8902 /* Products */,
 				247E68A61FF2451B00617B12 /* Frameworks */,
 			);
@@ -243,6 +283,7 @@
 				2467A7B81FEF7E44007A7AC9 /* AutoSwipeBack.framework */,
 				2467A7DE1FEFD393007A7AC9 /* AutoExample.app */,
 				2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */,
+				241A24971FF7375300347055 /* SwipeTransitionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,6 +444,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		241A24961FF7375300347055 /* SwipeTransitionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 241A24A11FF7375300347055 /* Build configuration list for PBXNativeTarget "SwipeTransitionTests" */;
+			buildPhases = (
+				241A24931FF7375300347055 /* Sources */,
+				241A24941FF7375300347055 /* Frameworks */,
+				241A24951FF7375300347055 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				241A249E1FF7375300347055 /* PBXTargetDependency */,
+				241A24A31FF7383500347055 /* PBXTargetDependency */,
+			);
+			name = SwipeTransitionTests;
+			productName = SwipeTransitionTests;
+			productReference = 241A24971FF7375300347055 /* SwipeTransitionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		241BA6C51FEC271B002E8902 /* SwipeTransition */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 241BA6CE1FEC271B002E8902 /* Build configuration list for PBXNativeTarget "SwipeTransition" */;
@@ -509,6 +569,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = tattn;
 				TargetAttributes = {
+					241A24961FF7375300347055 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					241BA6C51FEC271B002E8902 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -550,11 +614,19 @@
 				2467A7B71FEF7E44007A7AC9 /* AutoSwipeBack */,
 				2467A7FA1FEFDA2B007A7AC9 /* AutoSwipeToDismiss */,
 				2467A7DD1FEFD393007A7AC9 /* AutoExample */,
+				241A24961FF7375300347055 /* SwipeTransitionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		241A24951FF7375300347055 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		241BA6C41FEC271B002E8902 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -599,6 +671,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		241A24931FF7375300347055 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				241A249A1FF7375300347055 /* SwipeBackContextTests.swift in Sources */,
+				241A24A51FF7BC8000347055 /* TestablePanGestureRecognizer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		241BA6C11FEC271B002E8902 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -660,6 +741,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		241A249E1FF7375300347055 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 241BA6C51FEC271B002E8902 /* SwipeTransition */;
+			targetProxy = 241A249D1FF7375300347055 /* PBXContainerItemProxy */;
+		};
+		241A24A31FF7383500347055 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 241BA6D81FEC480E002E8902 /* Example */;
+			targetProxy = 241A24A21FF7383500347055 /* PBXContainerItemProxy */;
+		};
 		241BA6F21FECDA8A002E8902 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 241BA6C51FEC271B002E8902 /* SwipeTransition */;
@@ -728,6 +819,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		241A249F1FF7375300347055 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.SwipeTransitionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		241A24A01FF7375300347055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.SwipeTransitionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		241BA6CC1FEC271B002E8902 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1035,6 +1154,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		241A24A11FF7375300347055 /* Build configuration list for PBXNativeTarget "SwipeTransitionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				241A249F1FF7375300347055 /* Debug */,
+				241A24A01FF7375300347055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		241BA6C01FEC271B002E8902 /* Build configuration list for PBXProject "SwipeTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

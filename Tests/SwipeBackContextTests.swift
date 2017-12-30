@@ -1,5 +1,5 @@
 //
-//  SwipeTransitionTests.swift
+//  SwipeBackContextTests.swift
 //  SwipeTransitionTests
 //
 //  Created by Tatsuya Tanaka on 20171230.
@@ -7,29 +7,74 @@
 //
 
 import XCTest
+@testable import SwipeTransition
 
-class SwipeTransitionTests: XCTestCase {
-    
+class SwipeBackContextTestsTests: XCTestCase {
+
+    private var context: SwipeBackContext!
+    private var viewController: UIViewController!
+    private var navigationController: UINavigationController!
+    private var panGestureRecognizer: TestablePanGestureRecognizer!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewController = UIViewController()
+        navigationController = UINavigationController(rootViewController: UIViewController())
+        panGestureRecognizer = TestablePanGestureRecognizer()
+        context = SwipeBackContext(navigationController: navigationController)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testAllowsTransitionStart() {
+        XCTAssertFalse(context.allowsTransitionStart)
+        navigationController.pushViewController(viewController, animated: false)
+        XCTAssertTrue(context.allowsTransitionStart)
+        context.isEnabled = false
+        XCTAssertFalse(context.allowsTransitionStart)
+        context.isEnabled = true
+        XCTAssertTrue(context.allowsTransitionStart)
+        context.animating = true
+        XCTAssertFalse(context.allowsTransitionStart)
+        context.animating = false
+        XCTAssertTrue(context.allowsTransitionStart)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testStartTransition() {
+        navigationController.pushViewController(viewController, animated: false)
+        XCTAssertNil(context.interactiveTransition)
+        context.startTransition()
+        XCTAssertNotNil(context.interactiveTransition)
     }
-    
+
+    func testUpdateTransition() {
+        navigationController.pushViewController(viewController, animated: false)
+        context.startTransition()
+        XCTAssertTrue(context.interactiveTransition?.percentComplete == 0)
+        panGestureRecognizer.perfomTouch(location: nil, translation: CGPoint(x: 50, y: 0), state: .changed)
+        context.updateTransition(recognizer: panGestureRecognizer)
+        // XCTAssertTrue(context.interactiveTransition?.percentComplete != 0) // 🤔
+    }
+
+    func testFinishTransition() {
+        navigationController.pushViewController(viewController, animated: false)
+        context.startTransition()
+        context.animating = true
+        XCTAssertNotNil(context.interactiveTransition)
+        context.finishTransition()
+        XCTAssertNil(context.interactiveTransition)
+        XCTAssertTrue(context.animating)
+    }
+
+    func testCancelTransition() {
+        navigationController.pushViewController(viewController, animated: false)
+        context.startTransition()
+        context.animating = true
+        XCTAssertNotNil(context.interactiveTransition)
+        context.cancelTransition()
+        XCTAssertNil(context.interactiveTransition)
+        XCTAssertFalse(context.animating)
+    }
 }
