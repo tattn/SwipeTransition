@@ -1,0 +1,17 @@
+included:
+- Sources
+- Tests
+- Examples
+
+disabled_rules:
+- line_length
+- type_name
+- fallthrough
+- vertical_whitespace
+
+opt_in_rules:
+- prohibited_super_call
+- overridden_super_call
+- private_outlet
+- empty_count
+
