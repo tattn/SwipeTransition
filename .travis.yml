@@ -22,7 +22,7 @@ matrix:
     - env: JOB=pod_lint
       script:
         - pod lib lint --quick
-    - env: JOB=xcode SCHEME=SwipeTransitionTests SDK=iphonesimulator
+    - env: JOB=xcode SCHEME=SwipeTransition SDK=iphonesimulator
 
 script:
   - set -o pipefail
@@ -32,4 +32,9 @@ notifications:
   email: false
 
 after_success:
-  - sleep 5 # workaround https://github.com/travis-ci/travis-ci/issues/4725
+- |
+  if [ "$JOB" == "xcode" ]; then
+    bash <(curl -s https://codecov.io/bash)
+  fi
+  sleep 5 # workaround https://github.com/travis-ci/travis-ci/issues/4725
+
