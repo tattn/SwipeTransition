@@ -39,3 +39,6 @@ end
 
 # Run SwiftLint
 swiftlint.lint_files
+
+# Show LGTM
+lgtm.check_lgtm https_image_only: true
