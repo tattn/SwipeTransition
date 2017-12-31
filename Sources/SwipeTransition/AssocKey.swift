@@ -14,6 +14,7 @@ struct AssocKey {
     static var swipeToDismiss: Void?
 }
 
+// swiftlint:disable type_name
 @available(swift 256)
 @objcMembers
 public class __AssocKey: NSObject {

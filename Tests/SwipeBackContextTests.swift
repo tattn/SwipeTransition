@@ -23,7 +23,7 @@ class SwipeBackContextTestsTests: XCTestCase {
         panGestureRecognizer = TestablePanGestureRecognizer()
         context = SwipeBackContext(navigationController: navigationController)
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
@@ -41,7 +41,7 @@ class SwipeBackContextTestsTests: XCTestCase {
         context.animating = false
         XCTAssertTrue(context.allowsTransitionStart)
     }
-    
+
     func testStartTransition() {
         navigationController.pushViewController(viewController, animated: false)
         XCTAssertNil(context.interactiveTransition)

@@ -14,7 +14,6 @@ final class SwipeBackContext {
 
     weak var disabledScrollView: UIScrollView?
 
-
     // Delegate Proxies (strong reference)
     var navigationControllerDelegateProxy: NavigationControllerDelegateProxy? {
         didSet {

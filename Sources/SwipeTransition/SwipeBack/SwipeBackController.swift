@@ -18,7 +18,7 @@ public final class SwipeBackController: NSObject {
         get { return context.isEnabled }
         set { context.isEnabled = newValue }
     }
-    
+
     private var animator = Animator()
     private let context: SwipeBackContext
     private let panGestureRecognizer = UIPanGestureRecognizer()

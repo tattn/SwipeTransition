@@ -136,7 +136,7 @@ class ScrollVC: UIViewController {
         contentView.frame.size.height = view.frame.height * 2
         scrollView.contentSize.height = contentView.frame.height
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(red:0.07, green:0.13, blue:0.26, alpha:1).cgColor, UIColor(red:0.54, green:0.74, blue:0.74, alpha:1).cgColor]
+        gradientLayer.colors = [UIColor(red: 0.07, green: 0.13, blue: 0.26, alpha: 1).cgColor, UIColor(red: 0.54, green: 0.74, blue: 0.74, alpha: 1).cgColor]
         gradientLayer.frame = contentView.bounds
         contentView.layer.insertSublayer(gradientLayer, at: 0)
         scrollView.addSubview(contentView)
@@ -172,5 +172,3 @@ class DismissScrollVC2: ScrollVC {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-
