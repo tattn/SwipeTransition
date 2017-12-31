@@ -4,6 +4,7 @@ SwipeTransition
 [![Build Status](https://travis-ci.org/tattn/SwipeTransition.svg?branch=master)](https://travis-ci.org/tattn/SwipeTransition)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![pods](https://img.shields.io/cocoapods/v/SwipeTransition.svg)
+[![Platform](https://img.shields.io/cocoapods/p/SwipeTransition.svg)](http://cocoapods.org/pods/SwipeTransition)
 [![Swift Version](https://img.shields.io/badge/Swift-4-F16D39.svg)](https://developer.apple.com/swift)
 [![Objective-C compatible](https://img.shields.io/badge/Objective--C-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
@@ -28,6 +29,28 @@ When setting manually without Method Swizzling, please use `SwipeTransition.fram
 - [x] Swipe back anywhere.
 - [x] Swipe to dismiss anywhere.
 - [x] Apply to all view controllers automatically!
+
+# Requirements
+
+- Xcode 9.x
+- Swift 4.x
+- iOS 8.0+
+
+# Installation
+
+## Carthage
+
+```ruby
+github "tattn/SwipeTransition"
+```
+
+## CocoaPods
+
+```ruby
+pod "SwipeTransition"
+pod "SwipeTransitionAutoSwipeBack"      # if needed
+pod "SwipeTransitionAutoSwipeToDismiss" # if needed
+```
 
 ## Swipe back
 
@@ -152,28 +175,6 @@ class CustomSwipeBackConfiguration: SwipeBackConfiguration {
 }
 
 SwipeBackConfiguration.shared = CustomSwipeBackConfiguration()
-```
-
-# Requirements
-
-- Xcode 9.x
-- Swift 4.x
-- iOS 8.0+
-
-# Installation
-
-## Carthage
-
-```ruby
-github "tattn/SwipeTransition"
-```
-
-## CocoaPods
-
-```ruby
-pod "SwipeTransition"
-pod "SwipeTransitionAutoSwipeBack"      # if needed
-pod "SwipeTransitionAutoSwipeToDismiss" # if needed
 ```
 
 # Contributing
