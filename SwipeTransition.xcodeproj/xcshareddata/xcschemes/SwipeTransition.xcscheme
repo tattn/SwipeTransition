@@ -27,9 +27,29 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "241A24961FF7375300347055"
+               BuildableName = "SwipeTransitionTests.xctest"
+               BlueprintName = "SwipeTransitionTests"
+               ReferencedContainer = "container:SwipeTransition.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "241BA6C51FEC271B002E8902"
+            BuildableName = "SwipeTransition.framework"
+            BlueprintName = "SwipeTransition"
+            ReferencedContainer = "container:SwipeTransition.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
