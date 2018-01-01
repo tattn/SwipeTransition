@@ -22,6 +22,10 @@ matrix:
     - env: JOB=pod_lint
       script:
         - pod lib lint --quick
+    - env: JOB=danger
+      script:
+        - bundle install --path vendor/bundle
+        - bundle exec danger --verbose
     - env: JOB=xcode SCHEME=SwipeTransition SDK=iphonesimulator
 
 script:
