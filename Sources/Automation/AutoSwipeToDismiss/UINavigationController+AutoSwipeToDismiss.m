@@ -38,6 +38,7 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
         Class class = [self class];
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithCoder:), @selector(autoswipetodismiss_initWithCoder:));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(init), @selector(autoswipetodismiss_init));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithNibName:bundle:), @selector(autoswipetodismiss_initWithNibName:bundle:));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithRootViewController:), @selector(autoswipetodismiss_initWithRootViewController:));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewWillAppear:), @selector(autoswipetodismiss_viewWillAppear:));
     });
@@ -53,6 +54,13 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 - (instancetype)autoswipetodismiss_init
 {
     [self autoswipetodismiss_init];
+    [self setupModalPresentationStyle];
+    return self;
+}
+
+- (instancetype)autoswipetodismiss_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    [self autoswipetodismiss_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     [self setupModalPresentationStyle];
     return self;
 }
