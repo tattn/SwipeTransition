@@ -11,5 +11,5 @@
 @class SwipeToDismissController;
 
 @interface UIViewController (AutoSwipeToDismiss)
-@property(nonatomic) SwipeToDismissController* swipeToDismiss;
+@property(nonatomic, nullable) SwipeToDismissController* swipeToDismiss;
 @end

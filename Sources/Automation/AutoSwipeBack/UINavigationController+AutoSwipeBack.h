@@ -11,5 +11,5 @@
 @class SwipeBackController;
 
 @interface UINavigationController (AutoSwipeBack)
-@property(nonatomic) SwipeBackController* swipeBack;
+@property(nonatomic, nullable) SwipeBackController* swipeBack;
 @end

@@ -92,12 +92,12 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 
 
 
-- (void)setSwipeToDismiss:(SwipeToDismissController*)swipeToDismiss
+- (void)setSwipeToDismiss:(nullable SwipeToDismissController*)swipeToDismiss
 {
     objc_setAssociatedObject(self, __AssocKey.swipeToDismiss, swipeToDismiss, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (SwipeToDismissController*)swipeToDismiss
+- (nullable SwipeToDismissController*)swipeToDismiss
 {
     return objc_getAssociatedObject(self, __AssocKey.swipeToDismiss);
 }

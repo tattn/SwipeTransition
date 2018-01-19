@@ -47,12 +47,12 @@
     [self autoswipeback_viewDidLoad];
 }
 
-- (void)setSwipeBack:(SwipeBackController*)swipeBack
+- (void)setSwipeBack:(nullable SwipeBackController*)swipeBack
 {
     objc_setAssociatedObject(self, __AssocKey.swipeBack, swipeBack, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (SwipeBackController*)swipeBack
+- (nullable SwipeBackController*)swipeBack
 {
     return objc_getAssociatedObject(self, __AssocKey.swipeBack);
 }
