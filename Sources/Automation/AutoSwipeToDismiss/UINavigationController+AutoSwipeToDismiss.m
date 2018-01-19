@@ -11,149 +11,62 @@
 #import <SwipeTransition/SwipeTransition-Swift.h>
 #import "UINavigationController+AutoSwipeToDismiss.h"
 
+void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+
+    BOOL isAdded = class_addMethod(class,
+                                   originalSelector,
+                                   method_getImplementation(swizzledMethod),
+                                   method_getTypeEncoding(swizzledMethod));
+
+    if (isAdded) {
+        class_replaceMethod(class,
+                            swizzledSelector,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
 @implementation UIViewController (AutoSwipeToDismiss)
 + (void)load
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
-
-        {
-            SEL originalSelector = @selector(initWithCoder:);
-            SEL swizzledSelector = @selector(autoswipetodismiss_initWithCoder:);
-
-            Method originalMethod = class_getInstanceMethod(class, originalSelector);
-            Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-
-            BOOL isAdded = class_addMethod(class,
-                                           originalSelector,
-                                           method_getImplementation(swizzledMethod),
-                                           method_getTypeEncoding(swizzledMethod));
-
-            if (isAdded) {
-                class_replaceMethod(class,
-                                    swizzledSelector,
-                                    method_getImplementation(originalMethod),
-                                    method_getTypeEncoding(originalMethod));
-            } else {
-                method_exchangeImplementations(originalMethod, swizzledMethod);
-            }
-        }
-
-        {
-            SEL originalSelector = @selector(init);
-            SEL swizzledSelector = @selector(autoswipetodismiss_init);
-
-            Method originalMethod = class_getInstanceMethod(class, originalSelector);
-            Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-
-            BOOL isAdded = class_addMethod(class,
-                                           originalSelector,
-                                           method_getImplementation(swizzledMethod),
-                                           method_getTypeEncoding(swizzledMethod));
-
-            if (isAdded) {
-                class_replaceMethod(class,
-                                    swizzledSelector,
-                                    method_getImplementation(originalMethod),
-                                    method_getTypeEncoding(originalMethod));
-            } else {
-                method_exchangeImplementations(originalMethod, swizzledMethod);
-            }
-        }
-
-        {
-            SEL originalSelector = @selector(initWithRootViewController:);
-            SEL swizzledSelector = @selector(autoswipetodismiss_initWithRootViewController:);
-
-            Method originalMethod = class_getInstanceMethod(class, originalSelector);
-            Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-
-            BOOL isAdded = class_addMethod(class,
-                                           originalSelector,
-                                           method_getImplementation(swizzledMethod),
-                                           method_getTypeEncoding(swizzledMethod));
-
-            if (isAdded) {
-                class_replaceMethod(class,
-                                    swizzledSelector,
-                                    method_getImplementation(originalMethod),
-                                    method_getTypeEncoding(originalMethod));
-            } else {
-                method_exchangeImplementations(originalMethod, swizzledMethod);
-            }
-        }
-
-//        {
-//            SEL originalSelector = @selector(viewDidLoad);
-//            SEL swizzledSelector = @selector(autoswipetodismiss_viewDidLoad);
-//
-//            Method originalMethod = class_getInstanceMethod(class, originalSelector);
-//            Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-//
-//            BOOL isAdded = class_addMethod(class,
-//                                           originalSelector,
-//                                           method_getImplementation(swizzledMethod),
-//                                           method_getTypeEncoding(swizzledMethod));
-//
-//            if (isAdded) {
-//                class_replaceMethod(class,
-//                                    swizzledSelector,
-//                                    method_getImplementation(originalMethod),
-//                                    method_getTypeEncoding(originalMethod));
-//            } else {
-//                method_exchangeImplementations(originalMethod, swizzledMethod);
-//            }
-//        }
-
-        {
-            SEL originalSelector = @selector(viewWillAppear:);
-            SEL swizzledSelector = @selector(autoswipetodismiss_viewWillAppear:);
-
-            Method originalMethod = class_getInstanceMethod(class, originalSelector);
-            Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-
-            BOOL isAdded = class_addMethod(class,
-                                           originalSelector,
-                                           method_getImplementation(swizzledMethod),
-                                           method_getTypeEncoding(swizzledMethod));
-
-            if (isAdded) {
-                class_replaceMethod(class,
-                                    swizzledSelector,
-                                    method_getImplementation(originalMethod),
-                                    method_getTypeEncoding(originalMethod));
-            } else {
-                method_exchangeImplementations(originalMethod, swizzledMethod);
-            }
-        }
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithCoder:), @selector(autoswipetodismiss_initWithCoder:));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(init), @selector(autoswipetodismiss_init));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithRootViewController:), @selector(autoswipetodismiss_initWithRootViewController:));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewWillAppear:), @selector(autoswipetodismiss_viewWillAppear:));
     });
 }
 
 - (instancetype)autoswipetodismiss_initWithCoder:(nonnull NSCoder *)aCoder
 {
     [self autoswipetodismiss_initWithCoder:aCoder];
-    self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self setupModalPresentationStyle];
     return self;
 }
 
 - (instancetype)autoswipetodismiss_init
 {
     [self autoswipetodismiss_init];
-    self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self setupModalPresentationStyle];
     return self;
 }
 
 - (instancetype)autoswipetodismiss_initWithRootViewController:(nonnull UIViewController*)viewController
 {
     [self autoswipetodismiss_initWithRootViewController:viewController];
-    self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self setupModalPresentationStyle];
     return self;
 }
 
 - (void)autoswipetodismiss_viewDidLoad
 {
-    self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self setupModalPresentationStyle];
     [self autoswipetodismiss_viewDidLoad];
 }
 
@@ -169,8 +82,15 @@
             self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
         }
     }
-
 }
+
+- (void)setupModalPresentationStyle {
+    @try {
+        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    } @catch (NSException *exception) {} // for UISearchController and so on...
+}
+
+
 
 - (void)setSwipeToDismiss:(SwipeToDismissController*)swipeToDismiss
 {
