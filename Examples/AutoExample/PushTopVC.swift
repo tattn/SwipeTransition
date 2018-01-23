@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PushTopVC.swift
 //  AutoExample
 //
 //  Created by Tatsuya Tanaka on 20171224.
@@ -9,7 +9,7 @@
 import UIKit
 import SwipeTransition
 
-class ViewController: UIViewController {
+class PushTopVC: UIViewController {
 
     private let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
 
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UIPageViewControllerDataSource {
+extension PushTopVC: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard index > 0 else { return nil }
         index -= 1
