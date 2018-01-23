@@ -48,6 +48,7 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 {
     [self autoswipetodismiss_initWithCoder:aCoder];
     [self setupModalPresentationStyle];
+    self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
     return self;
 }
 
@@ -55,6 +56,7 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 {
     [self autoswipetodismiss_init];
     [self setupModalPresentationStyle];
+    self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
     return self;
 }
 
@@ -62,6 +64,7 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 {
     [self autoswipetodismiss_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     [self setupModalPresentationStyle];
+    self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
     return self;
 }
 
@@ -70,12 +73,6 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     [self autoswipetodismiss_initWithRootViewController:viewController];
     [self setupModalPresentationStyle];
     return self;
-}
-
-- (void)autoswipetodismiss_viewDidLoad
-{
-    [self setupModalPresentationStyle];
-    [self autoswipetodismiss_viewDidLoad];
 }
 
 - (void)autoswipetodismiss_viewWillAppear:(BOOL)animated
@@ -87,7 +84,7 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
         if (self.presentedViewController
             || self.presentingViewController.presentedViewController == self
             || [self.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]]) {
-            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
+            [self.swipeToDismiss addSwipeGesture];
         }
     }
 }
@@ -97,8 +94,6 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
         self.modalPresentationStyle = UIModalPresentationOverFullScreen;
     } @catch (NSException *exception) {} // for UISearchController and so on...
 }
-
-
 
 - (void)setSwipeToDismiss:(nullable SwipeToDismissController*)swipeToDismiss
 {

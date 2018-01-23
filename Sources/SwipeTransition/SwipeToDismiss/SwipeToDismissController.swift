@@ -2,78 +2,128 @@
 //  SwipeToDismissController.swift
 //  SwipeTransition
 //
-//  Created by Tatsuya Tanaka on 20171223.
-//  Copyright © 2017年 tattn. All rights reserved.
+//  Created by Tatsuya Tanaka on 20180119.
+//  Copyright © 2018年 tattn. All rights reserved.
 //
 
-import UIKit
-
 @objcMembers
-public class SwipeToDismissController: NSObject {
+public final class SwipeToDismissController: NSObject {
+    public var onStartTransition: ((UIViewControllerContextTransitioning) -> Void)?
+    public var onFinishTransition: ((UIViewControllerContextTransitioning) -> Void)?
 
     public var isEnabled: Bool {
         get { return context.isEnabled }
         set { context.isEnabled = newValue }
     }
 
+    private var animator = DismissAnimator()
     private let context: SwipeToDismissContext
+    private let panGestureRecognizer = UIPanGestureRecognizer()
+    private var scrollAmountY: CGFloat = 0
 
-    private var panGestures: [UIPanGestureRecognizer] = []
-
-    public required init?(viewController: UIViewController) {
+    public init(viewController: UIViewController) {
         context = SwipeToDismissContext(viewController: viewController)
+
         super.init()
-        viewController.navigationController.map { addGesture(to: $0.navigationBar) }
-        addGesture(to: viewController.view)
+        animator.parent = self
+
+        panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
+        panGestureRecognizer.maximumNumberOfTouches = 1
+        panGestureRecognizer.delegate = self
+
+        viewController.transitioningDelegate = self
+        if viewController.isViewLoaded {
+            addSwipeGesture()
+        }
     }
 
     deinit {
-        panGestures.forEach { $0.view?.removeGestureRecognizer($0) }
+        panGestureRecognizer.view?.removeGestureRecognizer(panGestureRecognizer)
+    }
+
+    public func addSwipeGesture() {
+        context.viewController!.view.addGestureRecognizer(panGestureRecognizer)
     }
 
     public func setScrollViews(_ scrollViews: [UIScrollView]) {
-        context.proxies = scrollViews
+        context.scrollViewDelegateProxies = scrollViews
             .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }
-        zip(scrollViews, context.proxies).forEach { $0.delegate = $1 }
-    }
-
-    private func addGesture(to view: UIView) {
-        for gesture in panGestures where gesture.view == view {
-            view.removeGestureRecognizer(gesture)
+        zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
+        if #available(iOS 11, *) {
+            scrollViews.forEach { $0.contentInsetAdjustmentBehavior = .never }
         }
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        view.addGestureRecognizer(gesture)
-        panGestures.append(gesture)
     }
 
-    @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-        switch gesture.state {
+    @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
         case .began:
-            context.startDragging()
+            context.startTransition()
         case .changed:
-            let offsetY = gesture.translation(in: gesture.view).y
-            context.updateDragging(withOffset: offsetY)
-            gesture.setTranslation(.zero, in: gesture.view)
+            context.updateTransition(recognizer: recognizer)
         case .ended:
-            context.finishDragging(withVelocityY: 0)
+            if context.allowsTransitionFinish() {
+                context.finishTransition()
+            } else {
+                fallthrough
+            }
+        case .cancelled:
+            context.cancelTransition()
         default:
             break
         }
     }
 }
 
-extension SwipeToDismissController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        context.updateDragging(with: scrollView)
-    }
-
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        context.startDragging(withScrollViewOffsetY: scrollView.contentOffset.y)
-    }
-
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        context.finishDragging(withVelocityY: velocity.y)
+extension SwipeToDismissController: UIGestureRecognizerDelegate {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return context.allowsTransitionStart
     }
 }
 
-extension SwipeToDismissController: UITableViewDelegate, UICollectionViewDelegate {}
+extension SwipeToDismissController: UIViewControllerTransitioningDelegate {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
+
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator(parent: self)
+    }
+
+    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return context.interactiveTransitionIfNeeded()
+    }
+
+    public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return nil
+    }
+}
+
+extension SwipeToDismissController: UIScrollViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if context.transitioning {
+            scrollAmountY += -scrollView.contentOffset.y
+            scrollView.contentOffset.y = 0
+            context.updateTransition(withTranslationY: scrollAmountY)
+
+            if scrollAmountY <= 0 {
+                scrollAmountY = 0
+                context.cancelTransition()
+            }
+        } else if scrollView.contentOffset.y < 0 {
+            context.startTransition()
+            scrollAmountY = -scrollView.contentOffset.y
+            scrollView.contentOffset.y = 0
+        }
+    }
+
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if context.transitioning {
+            if context.allowsTransitionFinish() {
+                context.finishTransition()
+            } else {
+                context.cancelTransition()
+            }
+        }
+        scrollAmountY = 0
+    }
+}
