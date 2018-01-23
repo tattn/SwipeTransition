@@ -85,21 +85,31 @@ class DismissTopVC: UIViewController {
     }
 
     @objc func dismissSimpleNC() {
-        let nav = UINavigationController(rootViewController: DismissSimpleVC())
+        let vc = UIViewController()
+        vc.title = "DismissSimpleNC"
+        vc.view.backgroundColor = .orange
+        let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .overFullScreen
+        nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
         present(nav, animated: true, completion: nil)
     }
 
     @objc func swipeableNC() {
         let vc = UIViewController()
+        vc.title = "SwipeableNC"
         vc.view.backgroundColor = .orange
         let nav = SwipeToDismissNavigationController(rootViewController: vc)
         present(nav, animated: true, completion: nil)
     }
 
     @objc func dismissScrollVC() {
-        let nav = UINavigationController(rootViewController: DismissScrollVC())
+        let vc = ScrollVC()
+        vc.title = "DismissScrollVC"
+        vc.view.backgroundColor = .orange
+        let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .overFullScreen
+        nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
+        nav.swipeToDismiss?.setScrollViews([vc.scrollView])
         present(nav, animated: true, completion: nil)
     }
 
@@ -140,15 +150,6 @@ class ScrollVC: UIViewController {
         gradientLayer.frame = contentView.bounds
         contentView.layer.insertSublayer(gradientLayer, at: 0)
         scrollView.addSubview(contentView)
-    }
-}
-
-class DismissScrollVC: ScrollVC {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "DismissScrollVC"
-        swipeToDismiss = SwipeToDismissController(viewController: self)
-        swipeToDismiss?.setScrollViews([scrollView])
     }
 }
 
