@@ -43,7 +43,7 @@
                                             <color key="titleColor" red="1" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Zz5-wK-iac" kind="presentation" modalPresentationStyle="overFullScreen" id="aT6-LY-NnJ"/>
+                                            <segue destination="Zz5-wK-iac" kind="presentation" modalPresentationStyle="overFullScreen" id="gUv-Az-5lq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -67,7 +67,7 @@
         <!--Push VC-->
         <scene sceneID="bDA-7J-fWI">
             <objects>
-                <viewController title="Push VC" id="U2T-rN-oYJ" customClass="ViewController" customModule="AutoExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Push VC" id="U2T-rN-oYJ" customClass="PushTopVC" customModule="AutoExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pix-Zs-FyZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,31 @@
                     <view key="view" contentMode="scaleToFill" id="XQy-bS-eAZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQc-4H-TS1">
+                                <rect key="frame" x="0.0" y="635" width="375" height="32"/>
+                                <color key="backgroundColor" red="0.28101783990000001" green="0.64342606069999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="GJB-oJ-B1Z"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sm8-CV-1Nv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="32"/>
+                                <color key="backgroundColor" red="0.28101783990000001" green="0.64342606069999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="B2c-cu-ian"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.77400416139999995" green="0.46735060210000001" blue="0.70231097939999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sm8-CV-1Nv" firstAttribute="top" secondItem="M3w-5E-7Vy" secondAttribute="top" id="ONZ-3L-Fyv"/>
+                            <constraint firstItem="RQc-4H-TS1" firstAttribute="bottom" secondItem="M3w-5E-7Vy" secondAttribute="bottom" id="T7t-tV-W36"/>
+                            <constraint firstItem="M3w-5E-7Vy" firstAttribute="trailing" secondItem="RQc-4H-TS1" secondAttribute="trailing" id="UiE-gZ-Zxy"/>
+                            <constraint firstItem="M3w-5E-7Vy" firstAttribute="trailing" secondItem="sm8-CV-1Nv" secondAttribute="trailing" id="XQg-W9-oHG"/>
+                            <constraint firstItem="RQc-4H-TS1" firstAttribute="leading" secondItem="M3w-5E-7Vy" secondAttribute="leading" id="gjt-YG-JFi"/>
+                            <constraint firstItem="sm8-CV-1Nv" firstAttribute="leading" secondItem="M3w-5E-7Vy" secondAttribute="leading" id="jIR-4R-bcD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M3w-5E-7Vy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Present VC" id="uQS-01-54T"/>
