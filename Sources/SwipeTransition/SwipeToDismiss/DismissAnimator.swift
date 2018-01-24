@@ -36,8 +36,7 @@ extension DismissAnimator: UIViewControllerAnimatedTransitioning {
             from.view.transform = .identity
             self?.parent.onFinishTransition?(transitionContext)
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            }
-        )
+        })
     }
 
     func animationEnded(_ transitionCompleted: Bool) {

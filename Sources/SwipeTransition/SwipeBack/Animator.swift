@@ -42,13 +42,12 @@ extension Animator: UIViewControllerAnimatedTransitioning {
                 to.view.transform = .identity
                 from.view.transform = CGAffineTransform(translationX: to.view.frame.width, y: 0)
                 dimmedView.alpha = 0
-            }, completion: { [weak self] _ in
-                dimmedView.removeFromSuperview()
-                from.view.transform = .identity
-                self?.parent.onFinishTransition?(transitionContext)
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            }
-        )
+        }, completion: { [weak self] _ in
+            dimmedView.removeFromSuperview()
+            from.view.transform = .identity
+            self?.parent.onFinishTransition?(transitionContext)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        })
 
         toViewController = to
     }
