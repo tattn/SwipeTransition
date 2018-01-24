@@ -21,15 +21,12 @@ public final class SwipeBackController: NSObject {
 
     private lazy var animator = SwipeBackAnimator(parent: self)
     private let context: SwipeBackContext
-    private let panGestureRecognizer = UIPanGestureRecognizer()
+    private lazy var panGestureRecognizer = OneFingerPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
 
     public required init(navigationController: UINavigationController) {
         context = SwipeBackContext(navigationController: navigationController)
-
         super.init()
 
-        panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
-        panGestureRecognizer.maximumNumberOfTouches = 1
         panGestureRecognizer.delegate = self
 
         navigationController.view.addGestureRecognizer(panGestureRecognizer)
@@ -50,7 +47,7 @@ public final class SwipeBackController: NSObject {
         zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
     }
 
-    @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+    @objc private func handlePanGesture(_ recognizer: OneFingerPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
             context.startTransition()

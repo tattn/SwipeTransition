@@ -18,15 +18,12 @@ public final class SwipeToDismissController: NSObject {
 
     private lazy var animator = DismissAnimator(parent: self)
     private let context: SwipeToDismissContext
-    private let panGestureRecognizer = UIPanGestureRecognizer()
+    private lazy var panGestureRecognizer = OneFingerPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
 
     public init(viewController: UIViewController) {
         context = SwipeToDismissContext(viewController: viewController)
-
         super.init()
 
-        panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
-        panGestureRecognizer.maximumNumberOfTouches = 1
         panGestureRecognizer.delegate = self
 
         viewController.transitioningDelegate = self
@@ -52,7 +49,7 @@ public final class SwipeToDismissController: NSObject {
         }
     }
 
-    @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+    @objc private func handlePanGesture(_ recognizer: OneFingerPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
             context.startTransition()
