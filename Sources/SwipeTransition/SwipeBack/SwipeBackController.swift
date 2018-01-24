@@ -87,12 +87,12 @@ extension SwipeBackController: UINavigationControllerDelegate {
 
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if animated, context.isEnabled {
-            context.animating = true
+            context.transitioning = true
         }
     }
 
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        context.animating = false
+        context.transitioning = false
         panGestureRecognizer.isEnabled = navigationController.viewControllers.count > 1
     }
 }

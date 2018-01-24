@@ -21,7 +21,6 @@ final class SwipeToDismissContext {
     var interactiveTransition: InteractiveTransition?
 
     var isEnabled = true
-    var animating = false
     var transitioning: Bool { return interactiveTransition != nil }
 
     init(viewController: UIViewController) {
@@ -29,7 +28,7 @@ final class SwipeToDismissContext {
     }
 
     var allowsTransitionStart: Bool {
-        return !animating && isEnabled
+        return !transitioning && isEnabled
     }
 
     func allowsTransitionFinish() -> Bool {
@@ -63,7 +62,6 @@ final class SwipeToDismissContext {
         interactiveTransition?.cancel()
         interactiveTransition = nil
         disabledScrollView?.isScrollEnabled = true
-        animating = false
     }
 
     func interactiveTransitionIfNeeded() -> InteractiveTransition? {

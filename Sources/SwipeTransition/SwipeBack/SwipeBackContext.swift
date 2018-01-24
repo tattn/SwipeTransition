@@ -26,7 +26,7 @@ final class SwipeBackContext {
     var interactiveTransition: InteractiveTransition?
 
     var isEnabled = true
-    var animating = false
+    var transitioning = false
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -34,7 +34,7 @@ final class SwipeBackContext {
 
     var allowsTransitionStart: Bool {
         guard let navigationController = navigationController else { return false }
-        return navigationController.viewControllers.count > 1 && !animating && isEnabled
+        return navigationController.viewControllers.count > 1 && !transitioning && isEnabled
     }
 
     func allowsTransitionFinish(recognizer: UIPanGestureRecognizer) -> Bool {
@@ -64,7 +64,7 @@ final class SwipeBackContext {
         interactiveTransition?.cancel()
         interactiveTransition = nil
         disabledScrollView?.isScrollEnabled = true
-        animating = false
+        transitioning = false
     }
 
     func interactiveTransitionIfNeeded() -> InteractiveTransition? {
