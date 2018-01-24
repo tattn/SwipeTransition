@@ -12,8 +12,6 @@ final class SwipeToDismissContext {
     private(set) weak var viewController: UIViewController?
     var targetView: UIView? { return viewController?.view }
 
-    weak var disabledScrollView: UIScrollView?
-
     // Delegate Proxies (strong reference)
     var scrollViewDelegateProxies: [ScrollViewDelegateProxy] = []
 
@@ -22,6 +20,8 @@ final class SwipeToDismissContext {
 
     var isEnabled = true
     var transitioning: Bool { return interactiveTransition != nil }
+
+    var scrollAmountY: CGFloat = 0
 
     init(viewController: UIViewController) {
         self.viewController = viewController
@@ -55,13 +55,11 @@ final class SwipeToDismissContext {
     func finishTransition() {
         interactiveTransition?.finish()
         interactiveTransition = nil
-        disabledScrollView?.isScrollEnabled = true
     }
 
     func cancelTransition() {
         interactiveTransition?.cancel()
         interactiveTransition = nil
-        disabledScrollView?.isScrollEnabled = true
     }
 
     func interactiveTransitionIfNeeded() -> InteractiveTransition? {

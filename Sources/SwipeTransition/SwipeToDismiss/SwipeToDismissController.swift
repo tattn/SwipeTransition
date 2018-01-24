@@ -19,7 +19,6 @@ public final class SwipeToDismissController: NSObject {
     private lazy var animator = DismissAnimator(parent: self)
     private let context: SwipeToDismissContext
     private let panGestureRecognizer = UIPanGestureRecognizer()
-    private var scrollAmountY: CGFloat = 0
 
     public init(viewController: UIViewController) {
         context = SwipeToDismissContext(viewController: viewController)
@@ -100,17 +99,17 @@ extension SwipeToDismissController: UIViewControllerTransitioningDelegate {
 extension SwipeToDismissController: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if context.transitioning {
-            scrollAmountY += -scrollView.contentOffset.y
+            context.scrollAmountY += -scrollView.contentOffset.y
             scrollView.contentOffset.y = 0
-            context.updateTransition(withTranslationY: scrollAmountY)
+            context.updateTransition(withTranslationY: context.scrollAmountY)
 
-            if scrollAmountY <= 0 {
-                scrollAmountY = 0
+            if context.scrollAmountY <= 0 {
+                context.scrollAmountY = 0
                 context.cancelTransition()
             }
         } else if scrollView.contentOffset.y < 0 {
             context.startTransition()
-            scrollAmountY = -scrollView.contentOffset.y
+            context.scrollAmountY = -scrollView.contentOffset.y
             scrollView.contentOffset.y = 0
         }
     }
@@ -123,6 +122,6 @@ extension SwipeToDismissController: UIScrollViewDelegate {
                 context.cancelTransition()
             }
         }
-        scrollAmountY = 0
+        context.scrollAmountY = 0
     }
 }
