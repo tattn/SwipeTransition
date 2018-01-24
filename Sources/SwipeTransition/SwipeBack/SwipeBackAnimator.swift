@@ -1,5 +1,5 @@
 //
-//  Animator.swift
+//  SwipeBackAnimator.swift
 //  SwipeTransition
 //
 //  Created by Tatsuya Tanaka on 20171222.
@@ -8,12 +8,16 @@
 
 import UIKit
 
-final class Animator: NSObject {
-    weak var parent: SwipeBackController!
-    private weak var toViewController: UIViewController?
+final class SwipeBackAnimator: NSObject {
+    private weak var parent: SwipeBackController!
+    private weak var toView: UIView?
+    required init(parent: SwipeBackController) {
+        super.init()
+        self.parent = parent
+    }
 }
 
-extension Animator: UIViewControllerAnimatedTransitioning {
+extension SwipeBackAnimator: UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return SwipeBackConfiguration.shared.transitionDuration
     }
@@ -23,6 +27,7 @@ extension Animator: UIViewControllerAnimatedTransitioning {
             let from = transitionContext.viewController(forKey: .from) else { return }
         transitionContext.containerView.insertSubview(to.view, belowSubview: from.view)
         to.view.frame = transitionContext.containerView.frame
+        toView = to.view
 
         // parallax effect
         to.view.transform.tx = -transitionContext.containerView.bounds.width * SwipeBackConfiguration.shared.parallaxFactor
@@ -48,13 +53,11 @@ extension Animator: UIViewControllerAnimatedTransitioning {
             self?.parent.onFinishTransition?(transitionContext)
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
-
-        toViewController = to
     }
 
     func animationEnded(_ transitionCompleted: Bool) {
         if !transitionCompleted {
-            toViewController?.view.transform = .identity
+            toView?.transform = .identity
         }
     }
 }

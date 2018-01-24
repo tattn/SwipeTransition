@@ -9,9 +9,9 @@
 import UIKit
 
 final class DismissAnimator: NSObject {
-    weak var parent: SwipeToDismissController!
-    convenience init(parent: SwipeToDismissController) {
-        self.init()
+    private weak var parent: SwipeToDismissController!
+    required init(parent: SwipeToDismissController) {
+        super.init()
         self.parent = parent
     }
 }

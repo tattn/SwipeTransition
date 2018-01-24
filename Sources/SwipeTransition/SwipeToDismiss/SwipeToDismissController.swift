@@ -16,7 +16,7 @@ public final class SwipeToDismissController: NSObject {
         set { context.isEnabled = newValue }
     }
 
-    private var animator = DismissAnimator()
+    private lazy var animator = DismissAnimator(parent: self)
     private let context: SwipeToDismissContext
     private let panGestureRecognizer = UIPanGestureRecognizer()
     private var scrollAmountY: CGFloat = 0
@@ -25,7 +25,6 @@ public final class SwipeToDismissController: NSObject {
         context = SwipeToDismissContext(viewController: viewController)
 
         super.init()
-        animator.parent = self
 
         panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
         panGestureRecognizer.maximumNumberOfTouches = 1
@@ -86,7 +85,7 @@ extension SwipeToDismissController: UIViewControllerTransitioningDelegate {
     }
 
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return DismissAnimator(parent: self)
+        return animator
     }
 
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

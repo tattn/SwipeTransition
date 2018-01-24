@@ -19,7 +19,7 @@ public final class SwipeBackController: NSObject {
         set { context.isEnabled = newValue }
     }
 
-    private var animator = Animator()
+    private lazy var animator = SwipeBackAnimator(parent: self)
     private let context: SwipeBackContext
     private let panGestureRecognizer = UIPanGestureRecognizer()
 
@@ -27,7 +27,6 @@ public final class SwipeBackController: NSObject {
         context = SwipeBackContext(navigationController: navigationController)
 
         super.init()
-        animator.parent = self
 
         panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
         panGestureRecognizer.maximumNumberOfTouches = 1
