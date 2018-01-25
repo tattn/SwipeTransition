@@ -24,10 +24,6 @@ class SwipeBackContextTestsTests: XCTestCase {
         context = SwipeBackContext(navigationController: navigationController)
     }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testAllowsTransitionStart() {
         XCTAssertFalse(context.allowsTransitionStart)
         navigationController.pushViewController(viewController, animated: false)
@@ -35,10 +31,6 @@ class SwipeBackContextTestsTests: XCTestCase {
         context.isEnabled = false
         XCTAssertFalse(context.allowsTransitionStart)
         context.isEnabled = true
-        XCTAssertTrue(context.allowsTransitionStart)
-        context.animating = true
-        XCTAssertFalse(context.allowsTransitionStart)
-        context.animating = false
         XCTAssertTrue(context.allowsTransitionStart)
     }
 
@@ -61,20 +53,18 @@ class SwipeBackContextTestsTests: XCTestCase {
     func testFinishTransition() {
         navigationController.pushViewController(viewController, animated: false)
         context.startTransition()
-        context.animating = true
         XCTAssertNotNil(context.interactiveTransition)
         context.finishTransition()
         XCTAssertNil(context.interactiveTransition)
-        XCTAssertTrue(context.animating)
+        XCTAssertFalse(context.transitioning)
     }
 
     func testCancelTransition() {
         navigationController.pushViewController(viewController, animated: false)
         context.startTransition()
-        context.animating = true
         XCTAssertNotNil(context.interactiveTransition)
         context.cancelTransition()
         XCTAssertNil(context.interactiveTransition)
-        XCTAssertFalse(context.animating)
+        XCTAssertFalse(context.transitioning)
     }
 }
