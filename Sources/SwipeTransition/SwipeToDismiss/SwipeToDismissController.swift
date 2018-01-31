@@ -104,7 +104,7 @@ extension SwipeToDismissController: UIScrollViewDelegate {
                 context.scrollAmountY = 0
                 context.cancelTransition()
             }
-        } else if scrollView.contentOffset.y < 0 {
+        } else if scrollView.contentOffset.y < 0, !scrollView.isDecelerating {
             context.startTransition()
             context.scrollAmountY = -scrollView.contentOffset.y
             scrollView.contentOffset.y = 0
