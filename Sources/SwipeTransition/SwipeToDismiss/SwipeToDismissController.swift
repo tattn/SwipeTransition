@@ -6,6 +6,8 @@
 //  Copyright © 2018年 tattn. All rights reserved.
 //
 
+import Foundation
+
 @objcMembers
 public final class SwipeToDismissController: NSObject {
     public var onStartTransition: ((UIViewControllerContextTransitioning) -> Void)?
@@ -44,9 +46,6 @@ public final class SwipeToDismissController: NSObject {
         context.scrollViewDelegateProxies = scrollViews
             .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }
         zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
-        if #available(iOS 11, *) {
-            scrollViews.forEach { $0.contentInsetAdjustmentBehavior = .never }
-        }
     }
 
     @objc private func handlePanGesture(_ recognizer: OneFingerPanGestureRecognizer) {
@@ -94,20 +93,24 @@ extension SwipeToDismissController: UIViewControllerTransitioningDelegate {
 }
 
 extension SwipeToDismissController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if context.transitioning {
-            context.scrollAmountY += -scrollView.contentOffset.y
-            scrollView.contentOffset.y = 0
-            context.updateTransition(withTranslationY: context.scrollAmountY)
+    private func baseY(of scrollView: UIScrollView) -> CGFloat {
+        if #available(iOS 11.0, *) {
+            return -scrollView.safeAreaInsets.top
+        } else {
+            return 0
+        }
+    }
 
-            if context.scrollAmountY <= 0 {
-                context.scrollAmountY = 0
-                context.cancelTransition()
-            }
-        } else if scrollView.contentOffset.y < 0, !scrollView.isDecelerating {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let baseY = self.baseY(of: scrollView)
+        if context.transitioning {
+            context.scrollAmountY += -(scrollView.contentOffset.y - baseY)
+            scrollView.contentOffset.y = baseY
+            context.updateTransition(withTranslationY: context.scrollAmountY - baseY)
+        } else if scrollView.contentOffset.y < baseY, !scrollView.isDecelerating {
             context.startTransition()
-            context.scrollAmountY = -scrollView.contentOffset.y
-            scrollView.contentOffset.y = 0
+            context.scrollAmountY = scrollView.contentOffset.y
+            scrollView.contentOffset.y = baseY
         }
     }
 
@@ -119,6 +122,6 @@ extension SwipeToDismissController: UIScrollViewDelegate {
                 context.cancelTransition()
             }
         }
-        context.scrollAmountY = 0
+        context.scrollAmountY = scrollView.contentOffset.y
     }
 }

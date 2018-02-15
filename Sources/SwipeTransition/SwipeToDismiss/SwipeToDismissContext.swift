@@ -49,7 +49,7 @@ final class SwipeToDismissContext {
 
     func updateTransition(withTranslationY translationY: CGFloat) {
         guard let view = targetView, isEnabled else { return }
-        interactiveTransition?.update(value: translationY, maxValue: view.bounds.height)
+        interactiveTransition?.update(value: max(translationY, 0), maxValue: view.bounds.height)
     }
 
     func finishTransition() {
