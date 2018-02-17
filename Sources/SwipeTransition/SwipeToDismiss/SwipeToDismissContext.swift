@@ -37,8 +37,12 @@ final class SwipeToDismissContext {
 
     func startTransition() {
         guard allowsTransitionStart else { return }
-        interactiveTransition = InteractiveTransition()
+        let interactiveTransition = InteractiveTransition()
+        self.interactiveTransition = interactiveTransition
         viewController?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + SwipeToDismissConfiguration.shared.animationWaitTime) {
+            interactiveTransition.update(interactiveTransition.percentComplete)
+        }
     }
 
     func updateTransition(recognizer: UIPanGestureRecognizer) {

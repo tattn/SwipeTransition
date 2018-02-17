@@ -16,4 +16,6 @@ open class SwipeToDismissConfiguration {
             assert(0 < dismissHeightRatio && dismissHeightRatio < 1, "dismissHeightRatio must be in the range of 0.0 to 1.0")
         }
     }
+
+    open var animationWaitTime: TimeInterval = 0.1
 }
