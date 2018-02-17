@@ -54,27 +54,7 @@ pod "SwipeTransitionAutoSwipeToDismiss" # if needed
 
 ## Swipe back
 
-### Configuration
-
-It is possible to disable the feature only for a specific view controller.
-
-```swift
-class NoSwipeVC: UIViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.swipeBack?.isEnabled = false
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.swipeBack?.isEnabled = true
-    }
-}
-```
-
-### Manually setting
-
-Notes: when you use `AutoSwipeBack.framework`, these are unnecessary.
+*Notes: when you use `AutoSwipeBack.framework`, these are unnecessary.*
 
 Just use `SwipeBackNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
@@ -96,44 +76,26 @@ class CustomNavigationController: UINavigationController {
 
 ## Swipe to dismiss
 
-### Configuration
-
-It is possible to disable the feature only for a specific view controller.
+### Make it work on UIScrollview
 
 ```swift
-class NoSwipeVC: UIViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.swipeToDismiss?.isEnabled = false
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.swipeToDismiss?.isEnabled = true
-    }
-}
-```
-
-It also works on scroll view.
-
-```swift
-class ScrollVC: UIViewController, UIScrollViewDelegate {
-    @IBOutlet private var scrollView: UIScrollView!
+class TableVC: UIViewController, UITableViewDataSource {
+    @IBOutlet private var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
-        swipeToDismiss?.setScrollViews([scrollView])
+        tableView.dataSource = self
+        swipeToDismiss?.setScrollViews([tableView])
         
         // in case of presenting a navigationController
-        // navigationController?.swipeToDismiss?.setScrollViews([scrollView])
+        // navigationController?.swipeToDismiss?.setScrollViews([tableView])
     }
 }
 ```
 
 ### Manually setting
 
-Notes: when you use `AutoSwipeToDismiss.framework`, these are unnecessary.
+*Notes: when you use `AutoSwipeToDismiss.framework`, these are unnecessary.*
 
 Just use `SwipeToDismissNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
@@ -154,7 +116,16 @@ class CustomNavigationController: UINavigationController {
 }
 ```
 
-## Common configuration
+## Enable/Disable gestures
+
+Use `isEnabled` property.
+
+```swift
+navigationController?.swipeBack?.isEnabled = false
+navigationController?.swipeToDismiss?.isEnabled = false
+```
+
+## Configuration
 
 You can also change the behavior such as animation.
 
@@ -176,6 +147,10 @@ class CustomSwipeBackConfiguration: SwipeBackConfiguration {
 
 SwipeBackConfiguration.shared = CustomSwipeBackConfiguration()
 ```
+
+## Other usage
+
+See [this wiki](https://github.com/tattn/SwipeTransition/wiki)
 
 # Contributing
 
