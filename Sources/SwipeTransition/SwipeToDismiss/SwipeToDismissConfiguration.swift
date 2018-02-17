@@ -17,5 +17,6 @@ open class SwipeToDismissConfiguration {
         }
     }
 
-    open var animationWaitTime: TimeInterval = 0.1
+    open var transitionDuration: TimeInterval = 0.3
+    open var animationWaitTime: TimeInterval = 0.01
 }

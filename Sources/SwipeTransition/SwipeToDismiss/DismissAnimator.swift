@@ -18,7 +18,7 @@ final class DismissAnimator: NSObject {
 
 extension DismissAnimator: UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return SwipeBackConfiguration.shared.transitionDuration
+        return SwipeToDismissConfiguration.shared.transitionDuration
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
