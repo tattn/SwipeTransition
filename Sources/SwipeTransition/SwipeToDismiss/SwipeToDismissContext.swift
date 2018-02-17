@@ -35,6 +35,11 @@ final class SwipeToDismissContext {
         return interactiveTransition!.percentComplete > SwipeToDismissConfiguration.shared.dismissHeightRatio
     }
 
+    func translation(recognizer: UIPanGestureRecognizer) -> CGPoint {
+        guard let view = targetView else { return .zero }
+        return recognizer.translation(in: view)
+    }
+
     func startTransition() {
         guard allowsTransitionStart else { return }
         interactiveTransition = InteractiveTransition()
@@ -46,9 +51,8 @@ final class SwipeToDismissContext {
     }
 
     func updateTransition(recognizer: UIPanGestureRecognizer) {
-        guard let view = targetView, isEnabled else { return }
-        let translation = recognizer.translation(in: view)
-        updateTransition(withTranslationY: translation.y)
+        guard isEnabled else { return }
+        updateTransition(withTranslationY: translation(recognizer: recognizer).y)
     }
 
     func updateTransition(withTranslationY translationY: CGFloat) {

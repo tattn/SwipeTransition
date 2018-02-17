@@ -58,7 +58,12 @@ public final class SwipeToDismissController: NSObject {
             if context.allowsTransitionFinish() {
                 context.finishTransition()
             } else {
-                fallthrough
+                if let speed = SwipeToDismissConfiguration.shared.dismissSwipeSpeed,
+                    context.translation(recognizer: recognizer).y >= speed {
+                    context.finishTransition()
+                } else {
+                    fallthrough
+                }
             }
         case .cancelled:
             context.cancelTransition()
