@@ -12,6 +12,8 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
 <img src="https://github.com/tattn/SwipeTransition/raw/master/docs/assets/demo.gif" alt="Demo" width="50%" />
 
+Try the demo on the web (appetize.io):　https://appetize.io/app/ku7vwyq8ud61fdezt7njpw8r7m
+
 # Usage
 
 ## The easiest way to use
