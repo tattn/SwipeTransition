@@ -14,7 +14,7 @@
 		241A249A1FF7375300347055 /* SwipeBackContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241A24991FF7375300347055 /* SwipeBackContextTests.swift */; };
 		241A249C1FF7375300347055 /* SwipeTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; };
 		241A24A51FF7BC8000347055 /* TestablePanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241A24A41FF7BC8000347055 /* TestablePanGestureRecognizer.swift */; };
-		241A87AC2018367C00009390 /* OneFingerPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241A87AB2018367C00009390 /* OneFingerPanGestureRecognizer.swift */; };
+		241A87AC2018367C00009390 /* OneFingerDirectionalPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241A87AB2018367C00009390 /* OneFingerDirectionalPanGestureRecognizer.swift */; };
 		241BA6CB1FEC271B002E8902 /* SwipeTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 241BA6C91FEC271B002E8902 /* SwipeTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241BA6D21FEC2730002E8902 /* SwipeBackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D11FEC2730002E8902 /* SwipeBackController.swift */; };
 		241BA6D41FEC2778002E8902 /* SwipeBackAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6D31FEC2778002E8902 /* SwipeBackAnimator.swift */; };
@@ -139,7 +139,7 @@
 		241A24991FF7375300347055 /* SwipeBackContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackContextTests.swift; sourceTree = "<group>"; };
 		241A249B1FF7375300347055 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		241A24A41FF7BC8000347055 /* TestablePanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestablePanGestureRecognizer.swift; sourceTree = "<group>"; };
-		241A87AB2018367C00009390 /* OneFingerPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneFingerPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		241A87AB2018367C00009390 /* OneFingerDirectionalPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneFingerDirectionalPanGestureRecognizer.swift; sourceTree = "<group>"; };
 		241BA6C61FEC271B002E8902 /* SwipeTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241BA6C91FEC271B002E8902 /* SwipeTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeTransition.h; sourceTree = "<group>"; };
 		241BA6CA1FEC271B002E8902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -383,7 +383,7 @@
 				2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */,
 				247E68A21FF2348600617B12 /* DelegateProxy.swift */,
 				2467A7C61FEF8938007A7AC9 /* AssocKey.swift */,
-				241A87AB2018367C00009390 /* OneFingerPanGestureRecognizer.swift */,
+				241A87AB2018367C00009390 /* OneFingerDirectionalPanGestureRecognizer.swift */,
 			);
 			path = SwipeTransition;
 			sourceTree = "<group>";
@@ -716,7 +716,7 @@
 			files = (
 				241BA6FB1FED07F1002E8902 /* SwipeBackConfiguration.swift in Sources */,
 				241BA6EC1FECC571002E8902 /* InteractiveTransition.swift in Sources */,
-				241A87AC2018367C00009390 /* OneFingerPanGestureRecognizer.swift in Sources */,
+				241A87AC2018367C00009390 /* OneFingerDirectionalPanGestureRecognizer.swift in Sources */,
 				241BA6D41FEC2778002E8902 /* SwipeBackAnimator.swift in Sources */,
 				24030913201220AA0021F2D2 /* SwipeToDismissContext.swift in Sources */,
 				2403091120121CB60021F2D2 /* SwipeToDismissController.swift in Sources */,

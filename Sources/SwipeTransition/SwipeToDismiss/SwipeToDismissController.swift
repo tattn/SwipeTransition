@@ -20,7 +20,7 @@ public final class SwipeToDismissController: NSObject {
 
     private lazy var animator = DismissAnimator(parent: self)
     private let context: SwipeToDismissContext
-    private lazy var panGestureRecognizer = OneFingerPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+    private lazy var panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .vertical, target: self, action: #selector(handlePanGesture(_:)))
 
     public init(viewController: UIViewController) {
         context = SwipeToDismissContext(viewController: viewController)
@@ -48,7 +48,7 @@ public final class SwipeToDismissController: NSObject {
         zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
     }
 
-    @objc private func handlePanGesture(_ recognizer: OneFingerPanGestureRecognizer) {
+    @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
             context.startTransition()
@@ -75,10 +75,7 @@ public final class SwipeToDismissController: NSObject {
 
 extension SwipeToDismissController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let panGesture = gestureRecognizer as? OneFingerPanGestureRecognizer,
-            let view = context.targetView else { return false }
-        let velocity = panGesture.velocity(in: view)
-        return context.allowsTransitionStart && fabs(velocity.y) > fabs(velocity.x)
+        return context.allowsTransitionStart
     }
 }
 
