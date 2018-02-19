@@ -75,7 +75,10 @@ public final class SwipeToDismissController: NSObject {
 
 extension SwipeToDismissController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return context.allowsTransitionStart
+        guard let panGesture = gestureRecognizer as? OneFingerPanGestureRecognizer,
+            let view = context.targetView else { return false }
+        let velocity = panGesture.velocity(in: view)
+        return context.allowsTransitionStart && fabs(velocity.y) > fabs(velocity.x)
     }
 }
 
