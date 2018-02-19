@@ -8,24 +8,13 @@
 
 import UIKit
 
-final class SwipeToDismissContext {
-    private(set) weak var viewController: UIViewController?
-    var targetView: UIView? { return viewController?.view }
-
+final class SwipeToDismissContext: Context<UIViewController> {
     // Delegate Proxies (strong reference)
     var scrollViewDelegateProxies: [ScrollViewDelegateProxy] = []
 
-
-    var interactiveTransition: InteractiveTransition?
-
-    var isEnabled = true
     var transitioning: Bool { return interactiveTransition != nil }
 
     var scrollAmountY: CGFloat = 0
-
-    init(viewController: UIViewController) {
-        self.viewController = viewController
-    }
 
     var allowsTransitionStart: Bool {
         return !transitioning && isEnabled
@@ -43,7 +32,7 @@ final class SwipeToDismissContext {
     func startTransition() {
         guard allowsTransitionStart else { return }
         interactiveTransition = InteractiveTransition()
-        viewController?.dismiss(animated: true, completion: nil)
+        target?.dismiss(animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + SwipeToDismissConfiguration.shared.animationWaitTime) {
             guard let interactiveTransition = self.interactiveTransition else { return }
             interactiveTransition.update(interactiveTransition.percentComplete)
@@ -68,9 +57,5 @@ final class SwipeToDismissContext {
     func cancelTransition() {
         interactiveTransition?.cancel()
         interactiveTransition = nil
-    }
-
-    func interactiveTransitionIfNeeded() -> InteractiveTransition? {
-        return isEnabled ? interactiveTransition : nil
     }
 }

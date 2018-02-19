@@ -24,7 +24,7 @@ public final class SwipeBackController: NSObject {
     private lazy var panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .horizontal, target: self, action: #selector(handlePanGesture(_:)))
 
     public required init(navigationController: UINavigationController) {
-        context = SwipeBackContext(navigationController: navigationController)
+        context = SwipeBackContext(target: navigationController)
         super.init()
 
         panGestureRecognizer.delegate = self
