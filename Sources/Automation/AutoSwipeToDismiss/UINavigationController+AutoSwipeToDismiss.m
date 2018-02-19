@@ -47,31 +47,28 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 - (instancetype)autoswipetodismiss_initWithCoder:(nonnull NSCoder *)aCoder
 {
     [self autoswipetodismiss_initWithCoder:aCoder];
-    [self setupModalPresentationStyle];
-    self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
+    [self setupSwipeToDismiss];
     return self;
 }
 
 - (instancetype)autoswipetodismiss_init
 {
     [self autoswipetodismiss_init];
-    [self setupModalPresentationStyle];
-    self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
+    [self setupSwipeToDismiss];
     return self;
 }
 
 - (instancetype)autoswipetodismiss_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     [self autoswipetodismiss_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    [self setupModalPresentationStyle];
-    self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
+    [self setupSwipeToDismiss];
     return self;
 }
 
 - (instancetype)autoswipetodismiss_initWithRootViewController:(nonnull UIViewController*)viewController
 {
     [self autoswipetodismiss_initWithRootViewController:viewController];
-    [self setupModalPresentationStyle];
+    [self setupSwipeToDismiss];
     return self;
 }
 
@@ -89,9 +86,13 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     }
 }
 
-- (void)setupModalPresentationStyle {
+- (void)setupSwipeToDismiss {
+    if (self.swipeToDismiss || [self isKindOfClass:[UIAlertController class]] || [self isKindOfClass:[UISearchController class]]) {
+        return;
+    }
     @try {
         self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
     } @catch (NSException *exception) {} // for UISearchController and so on...
 }
 
