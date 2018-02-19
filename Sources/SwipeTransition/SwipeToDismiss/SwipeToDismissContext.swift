@@ -8,17 +8,11 @@
 
 import UIKit
 
-final class SwipeToDismissContext: Context<UIViewController> {
+final class SwipeToDismissContext: Context<UIViewController>, ContextType {
     // Delegate Proxies (strong reference)
     var scrollViewDelegateProxies: [ScrollViewDelegateProxy] = []
 
-    var transitioning: Bool { return interactiveTransition != nil }
-
     var scrollAmountY: CGFloat = 0
-
-    var allowsTransitionStart: Bool {
-        return !transitioning && isEnabled
-    }
 
     func allowsTransitionFinish() -> Bool {
         return interactiveTransition!.percentComplete > SwipeToDismissConfiguration.shared.dismissHeightRatio
@@ -29,9 +23,7 @@ final class SwipeToDismissContext: Context<UIViewController> {
         return recognizer.translation(in: view)
     }
 
-    func startTransition() {
-        guard allowsTransitionStart else { return }
-        interactiveTransition = InteractiveTransition()
+    func didStartTransition() {
         target?.dismiss(animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + SwipeToDismissConfiguration.shared.animationWaitTime) {
             guard let interactiveTransition = self.interactiveTransition else { return }
@@ -47,15 +39,5 @@ final class SwipeToDismissContext: Context<UIViewController> {
     func updateTransition(withTranslationY translationY: CGFloat) {
         guard let view = targetView, isEnabled else { return }
         interactiveTransition?.update(value: max(translationY, 0), maxValue: view.bounds.height)
-    }
-
-    func finishTransition() {
-        interactiveTransition?.finish()
-        interactiveTransition = nil
-    }
-
-    func cancelTransition() {
-        interactiveTransition?.cancel()
-        interactiveTransition = nil
     }
 }

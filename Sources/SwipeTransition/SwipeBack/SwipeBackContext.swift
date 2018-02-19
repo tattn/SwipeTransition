@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SwipeBackContext: Context<UINavigationController> {
+final class SwipeBackContext: Context<UINavigationController>, ContextType {
     weak var disabledScrollView: UIScrollView?
 
     // Delegate Proxies (strong reference)
@@ -19,11 +19,9 @@ final class SwipeBackContext: Context<UINavigationController> {
     }
     var scrollViewDelegateProxies: [ScrollViewDelegateProxy] = []
 
-    var transitioning = false
-
-    var allowsTransitionStart: Bool {
+    override var allowsTransitionStart: Bool {
         guard let navigationController = target else { return false }
-        return navigationController.viewControllers.count > 1 && !transitioning && isEnabled
+        return navigationController.viewControllers.count > 1 && super.allowsTransitionStart
     }
 
     func allowsTransitionFinish(recognizer: UIPanGestureRecognizer) -> Bool {
@@ -31,9 +29,7 @@ final class SwipeBackContext: Context<UINavigationController> {
         return recognizer.velocity(in: view).x > 0
     }
 
-    func startTransition() {
-        guard allowsTransitionStart else { return }
-        interactiveTransition = InteractiveTransition()
+    func didStartTransition() {
         target?.popViewController(animated: true)
     }
 
@@ -43,16 +39,7 @@ final class SwipeBackContext: Context<UINavigationController> {
         interactiveTransition?.update(value: translation.x, maxValue: view.bounds.width)
     }
 
-    func finishTransition() {
-        interactiveTransition?.finish()
-        interactiveTransition = nil
+    func didCancelTransition() {
         disabledScrollView?.isScrollEnabled = true
-    }
-
-    func cancelTransition() {
-        interactiveTransition?.cancel()
-        interactiveTransition = nil
-        disabledScrollView?.isScrollEnabled = true
-        transitioning = false
     }
 }
