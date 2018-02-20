@@ -81,7 +81,7 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
 
 extension SwipeToDismissController: UIViewControllerTransitioningDelegate {
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return animator
+        return context.isEnabled && context.interactiveTransition != nil ? animator : nil
     }
 
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
