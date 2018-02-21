@@ -99,6 +99,8 @@ extension SwipeToDismissController: UIScrollViewDelegate {
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.isDragging else { return }
+
         let baseY = self.baseY(of: scrollView)
         if context.transitioning {
             context.scrollAmountY += -(scrollView.contentOffset.y - baseY)
