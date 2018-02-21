@@ -19,12 +19,12 @@ open class SwipeToDismissConfiguration {
         }
     }
 
-    /// Threshold of the finger speed to dismiss
-    open var dismissSwipeSpeed: CGFloat? = 120
+    /// Threshold of the finger speed to dismiss [pt/s]
+    open var dismissSwipeSpeed: CGFloat? = 1600
 
-    /// Duration of the dismiss animation
+    /// Duration of the dismiss animation [s]
     open var transitionDuration: TimeInterval = 0.3
 
-    /// Wait time until the dismiss animation
+    /// Wait time until the dismiss animation [s]
     open var animationWaitTime: TimeInterval = 0.01
 }

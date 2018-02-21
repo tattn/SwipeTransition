@@ -55,21 +55,17 @@ public final class SwipeToDismissController: NSObject {
         case .changed:
             context.updateTransition(recognizer: recognizer)
         case .ended:
-            if context.allowsTransitionFinish() {
+            if context.allowsTransitionFinish(swipeVelocity: context.velocity(recognizer: recognizer).y) {
                 context.finishTransition()
             } else {
-                if let speed = SwipeToDismissConfiguration.shared.dismissSwipeSpeed,
-                    context.translation(recognizer: recognizer).y >= speed {
-                    context.finishTransition()
-                } else {
-                    fallthrough
-                }
+                fallthrough
             }
         case .cancelled:
             context.cancelTransition()
         default:
             break
         }
+        context.previousGestureRecordDate = Date()
     }
 }
 
@@ -103,7 +99,9 @@ extension SwipeToDismissController: UIScrollViewDelegate {
 
         let baseY = self.baseY(of: scrollView)
         if context.transitioning {
-            context.scrollAmountY += -(scrollView.contentOffset.y - baseY)
+            let scrollSpeed = -(scrollView.contentOffset.y - baseY)
+            context.scrollSpeed = round(scrollSpeed) == 0 ? context.scrollSpeed : scrollSpeed
+            context.scrollAmountY += scrollSpeed
             scrollView.contentOffset.y = baseY
             context.updateTransition(withTranslationY: context.scrollAmountY - baseY)
         } else if scrollView.contentOffset.y < baseY, !scrollView.isDecelerating {
@@ -111,16 +109,18 @@ extension SwipeToDismissController: UIScrollViewDelegate {
             context.scrollAmountY = scrollView.contentOffset.y
             scrollView.contentOffset.y = baseY
         }
+        context.previousGestureRecordDate = Date()
     }
 
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if context.transitioning {
-            if context.allowsTransitionFinish() {
+            if context.allowsTransitionFinish(swipeVelocity: context.scrollVelocity) {
                 context.finishTransition()
             } else {
                 context.cancelTransition()
             }
         }
         context.scrollAmountY = scrollView.contentOffset.y
+        context.scrollSpeed = 0
     }
 }

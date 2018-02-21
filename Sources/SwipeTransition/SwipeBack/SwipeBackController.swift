@@ -97,7 +97,7 @@ extension SwipeBackController: UINavigationControllerDelegate {
 extension SwipeBackController: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.isDragging else { return }
-        
+
         if let isFirstPage = isFirstPageOfPageViewController?(), isFirstPage,
             scrollView.contentOffset.x <= UIScreen.main.bounds.size.width {
             scrollView.isScrollEnabled = false
