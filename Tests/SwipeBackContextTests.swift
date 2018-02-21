@@ -21,7 +21,7 @@ class SwipeBackContextTestsTests: XCTestCase {
         viewController = UIViewController()
         navigationController = UINavigationController(rootViewController: UIViewController())
         panGestureRecognizer = TestablePanGestureRecognizer()
-        context = SwipeBackContext(navigationController: navigationController)
+        context = SwipeBackContext(target: navigationController)
     }
 
     func testAllowsTransitionStart() {

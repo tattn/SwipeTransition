@@ -46,9 +46,14 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
     }
 
     override var state: UIGestureRecognizerState {
-        if let testState = testState {
-            return testState
+        get {
+            if let testState = testState {
+                return testState
+            }
+            return super.state
         }
-        return super.state
+        set {
+            super.state = newValue
+        }
     }
 }
