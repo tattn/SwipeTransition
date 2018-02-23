@@ -91,7 +91,7 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
         return;
     }
     @try {
-        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        self.modalPresentationStyle = UIModalPresentationFullScreen;
         self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
     } @catch (NSException *exception) {} // for UISearchController and so on...
 }

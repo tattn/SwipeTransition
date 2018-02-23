@@ -43,7 +43,7 @@
                                             <color key="titleColor" red="1" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Zz5-wK-iac" kind="presentation" modalPresentationStyle="overFullScreen" id="gUv-Az-5lq"/>
+                                            <segue destination="Zz5-wK-iac" kind="presentation" modalPresentationStyle="fullScreen" id="gUv-Az-5lq"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -22,7 +22,9 @@ extension DismissAnimator: UIViewControllerAnimatedTransitioning {
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let from = transitionContext.viewController(forKey: .from) else { return }
+        guard let to = transitionContext.viewController(forKey: .to),
+            let from = transitionContext.viewController(forKey: .from) else { return }
+        transitionContext.containerView.insertSubview(to.view, belowSubview: from.view)
 
         parent.onStartTransition?(transitionContext)
 
