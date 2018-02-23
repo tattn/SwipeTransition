@@ -26,7 +26,6 @@ extension SwipeBackAnimator: UIViewControllerAnimatedTransitioning {
         guard let to = transitionContext.viewController(forKey: .to),
             let from = transitionContext.viewController(forKey: .from) else { return }
         transitionContext.containerView.insertSubview(to.view, belowSubview: from.view)
-        to.view.frame = transitionContext.containerView.frame
         toView = to.view
 
         // parallax effect
