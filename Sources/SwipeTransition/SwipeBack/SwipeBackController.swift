@@ -31,6 +31,9 @@ public final class SwipeBackController: NSObject {
 
         navigationController.view.addGestureRecognizer(panGestureRecognizer)
         setNavigationControllerDelegate(navigationController.delegate)
+
+        // Prioritize the default edge swipe over the custom swipe back
+        navigationController.interactivePopGestureRecognizer.map { panGestureRecognizer.require(toFail: $0) }
     }
 
     deinit {
@@ -43,6 +46,7 @@ public final class SwipeBackController: NSObject {
 
     public func setScrollViews(_ scrollViews: [UIScrollView]) {
         context.scrollViewDelegateProxies = scrollViews
+            .filter { $0.delegate as? ScrollViewDelegateProxy == nil }
             .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }
         zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
     }
