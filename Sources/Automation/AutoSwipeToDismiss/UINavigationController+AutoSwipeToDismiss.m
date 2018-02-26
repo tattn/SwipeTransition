@@ -92,7 +92,11 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     }
     @try {
         self.modalPresentationStyle = UIModalPresentationFullScreen;
-        self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
+        if (self.navigationController == nil) {
+            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
+        } else {
+            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self.navigationController];
+        }
     } @catch (NSException *exception) {} // for UISearchController and so on...
 }
 

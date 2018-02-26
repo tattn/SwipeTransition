@@ -87,10 +87,7 @@ class TableVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        swipeToDismiss?.setScrollViews([tableView])
-        
-        // in case of presenting a navigationController
-        // navigationController?.swipeToDismiss?.setScrollViews([tableView])
+        swipeToDismiss?.observeScrollViews([tableView])
     }
 }
 ```

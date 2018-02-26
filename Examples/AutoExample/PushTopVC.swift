@@ -26,13 +26,7 @@ class PushTopVC: UIViewController {
         addChildViewController(pageViewController)
         pageViewController.setViewControllers([ContentVC()], direction: .forward, animated: false, completion: nil)
 
-        let scrollView = pageViewController.view.subviews
-            .lazy
-            .flatMap { $0 as? UIScrollView }
-            .first
-
-        navigationController?.swipeBack?.setScrollViews([scrollView!])
-        navigationController?.swipeBack?.isFirstPageOfPageViewController = { [unowned self] in self.index == 0 }
+        navigationController?.swipeBack?.observePageViewController(pageViewController) { [unowned self] in self.index == 0 }
     }
 }
 

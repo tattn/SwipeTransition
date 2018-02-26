@@ -23,7 +23,11 @@ public final class SwipeToDismissController: NSObject {
     private lazy var panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .vertical, target: self, action: #selector(handlePanGesture(_:)))
 
     public init(viewController: UIViewController) {
-        context = SwipeToDismissContext(target: viewController)
+        if let navigationController = viewController.navigationController {
+            context = SwipeToDismissContext(target: navigationController)
+        } else {
+            context = SwipeToDismissContext(target: viewController)
+        }
         super.init()
 
         panGestureRecognizer.delegate = self
@@ -42,7 +46,7 @@ public final class SwipeToDismissController: NSObject {
         context.target!.view.addGestureRecognizer(panGestureRecognizer)
     }
 
-    public func setScrollViews(_ scrollViews: [UIScrollView]) {
+    public func observeScrollViews(_ scrollViews: [UIScrollView]) {
         context.scrollViewDelegateProxies = scrollViews
             .filter { $0.delegate as? ScrollViewDelegateProxy == nil }
             .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }

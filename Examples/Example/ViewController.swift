@@ -80,7 +80,6 @@ class DismissTopVC: UIViewController {
 
     @objc func dismissSimpleVC() {
         let vc = DismissSimpleVC()
-        vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true, completion: nil)
     }
 
@@ -89,7 +88,6 @@ class DismissTopVC: UIViewController {
         vc.title = "DismissSimpleNC"
         vc.view.backgroundColor = .orange
         let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .overFullScreen
         nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
         present(nav, animated: true, completion: nil)
     }
@@ -107,9 +105,8 @@ class DismissTopVC: UIViewController {
         vc.title = "DismissScrollVC"
         vc.view.backgroundColor = .orange
         let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .overFullScreen
         nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
-        nav.swipeToDismiss?.setScrollViews([vc.scrollView])
+        nav.swipeToDismiss?.observeScrollViews([vc.scrollView])
         present(nav, animated: true, completion: nil)
     }
 
@@ -157,7 +154,7 @@ class DismissScrollVC2: ScrollVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DismissScrollVC2"
-        navigationController?.swipeToDismiss?.setScrollViews([scrollView])
+        navigationController?.swipeToDismiss?.observeScrollViews([scrollView])
 
         let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
         button.center = view.center

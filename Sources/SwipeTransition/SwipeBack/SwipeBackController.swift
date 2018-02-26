@@ -12,7 +12,7 @@ import UIKit
 public final class SwipeBackController: NSObject {
     public var onStartTransition: ((UIViewControllerContextTransitioning) -> Void)?
     public var onFinishTransition: ((UIViewControllerContextTransitioning) -> Void)?
-    public var isFirstPageOfPageViewController: (() -> Bool)?
+    private var isFirstPageOfPageViewController: (() -> Bool)?
 
     public var isEnabled: Bool {
         get { return context.isEnabled }
@@ -44,11 +44,14 @@ public final class SwipeBackController: NSObject {
         context.navigationControllerDelegateProxy = NavigationControllerDelegateProxy(delegates: [self] + (delegate.map { [$0] } ?? []) )
     }
 
-    public func setScrollViews(_ scrollViews: [UIScrollView]) {
-        context.scrollViewDelegateProxies = scrollViews
-            .filter { $0.delegate as? ScrollViewDelegateProxy == nil }
-            .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }
-        zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
+    public func observePageViewController(_ pageViewController: UIPageViewController, isFirstPage: @escaping () -> Bool) {
+        let scrollView = pageViewController.view.subviews
+            .lazy
+            .flatMap { $0 as? UIScrollView }
+            .first
+        scrollView?.panGestureRecognizer.require(toFail: panGestureRecognizer)
+        context.pageViewControllerPanGestureRecognizer = scrollView?.panGestureRecognizer
+        isFirstPageOfPageViewController = isFirstPage
     }
 
     @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
@@ -73,6 +76,14 @@ public final class SwipeBackController: NSObject {
 
 extension SwipeBackController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard context.pageViewControllerPanGestureRecognizer == nil else {
+            if gestureRecognizer != context.pageViewControllerPanGestureRecognizer,
+                let isFirstPage = isFirstPageOfPageViewController?(), isFirstPage,
+                let view = gestureRecognizer.view, panGestureRecognizer.translation(in: view).x > 0 {
+                return true
+            }
+            return false
+        }
         return context.allowsTransitionStart
     }
 }
@@ -95,17 +106,5 @@ extension SwipeBackController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         context.transitioning = false
         panGestureRecognizer.isEnabled = navigationController.viewControllers.count > 1
-    }
-}
-
-extension SwipeBackController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.isDragging else { return }
-
-        if let isFirstPage = isFirstPageOfPageViewController?(), isFirstPage,
-            scrollView.contentOffset.x <= UIScreen.main.bounds.size.width {
-            scrollView.isScrollEnabled = false
-            context.disabledScrollView = scrollView
-        }
     }
 }
