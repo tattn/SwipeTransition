@@ -31,6 +31,7 @@ When setting manually without Method Swizzling, please use `SwipeTransition.fram
 - [x] Swipe back anywhere.
 - [x] Swipe to dismiss anywhere.
 - [x] Apply to all view controllers automatically!
+- [x] ScrollView compatibility (No conflict of gestures on `UIScrollView`)
 
 # Requirements
 
@@ -56,7 +57,7 @@ pod "SwipeTransitionAutoSwipeToDismiss" # if needed
 
 ## Swipe back
 
-*Notes: when you use `AutoSwipeBack.framework`, these are unnecessary.*
+*Notes: if you use `AutoSwipeBack.framework`, these are unnecessary.*
 
 Just use `SwipeBackNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
@@ -78,23 +79,9 @@ class CustomNavigationController: UINavigationController {
 
 ## Swipe to dismiss
 
-### Make it work on UIScrollview
-
-```swift
-class TableVC: UIViewController, UITableViewDataSource {
-    @IBOutlet private var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        swipeToDismiss?.observeScrollViews([tableView])
-    }
-}
-```
-
 ### Manually setting
 
-*Notes: when you use `AutoSwipeToDismiss.framework`, these are unnecessary.*
+*Notes: if you use `AutoSwipeToDismiss.framework`, these are unnecessary.*
 
 Just use `SwipeToDismissNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
@@ -109,7 +96,7 @@ Another way is to set `swipeToDismiss`.
 class CustomNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        modalPresentationStyle = .overFullScreen
+        modalPresentationStyle = .fullScreen
         swipeToDismiss = SwipeToDismissController(viewController: self)
     }
 }
