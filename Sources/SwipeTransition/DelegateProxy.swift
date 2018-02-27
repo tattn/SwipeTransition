@@ -14,5 +14,4 @@ class DelegateProxy<T>: STDelegateProxy {
     }
 }
 
-final class ScrollViewDelegateProxy: DelegateProxy<UIScrollViewDelegate>, UIScrollViewDelegate {}
 final class NavigationControllerDelegateProxy: DelegateProxy<UINavigationControllerDelegate>, UINavigationControllerDelegate {}

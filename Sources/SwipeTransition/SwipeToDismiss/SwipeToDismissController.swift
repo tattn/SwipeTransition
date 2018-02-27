@@ -23,16 +23,12 @@ public final class SwipeToDismissController: NSObject {
     private lazy var panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .vertical, target: self, action: #selector(handlePanGesture(_:)))
 
     public init(viewController: UIViewController) {
-        if let navigationController = viewController.navigationController {
-            context = SwipeToDismissContext(target: navigationController)
-        } else {
-            context = SwipeToDismissContext(target: viewController)
-        }
+        context = SwipeToDismissContext(target: viewController.navigationController ?? viewController)
         super.init()
 
         panGestureRecognizer.delegate = self
-
         viewController.transitioningDelegate = self
+
         if viewController.isViewLoaded {
             addSwipeGesture()
         }
@@ -43,17 +39,17 @@ public final class SwipeToDismissController: NSObject {
     }
 
     public func addSwipeGesture() {
-        context.target!.view.addGestureRecognizer(panGestureRecognizer)
+        context.targetView.unsafelyUnwrapped.addGestureRecognizer(panGestureRecognizer)
     }
 
     @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
-        if let scrollView = context.observedScrollView {
-            if scrollView.contentOffset.y <= baseY(of: scrollView), panGestureRecognizer.translation(in: context.targetView!).y > 0 {
+        if let scrollView = context.observedScrollView, let targetView = context.targetView {
+            if scrollView.contentOffset.y <= baseY(of: scrollView), panGestureRecognizer.translation(in: targetView).y > 0 {
                 scrollView.contentOffset.y = baseY(of: scrollView)
                 scrollView.panGestureRecognizer.state = .failed
                 context.observedScrollView = nil
-                if recognizer.state != .began, !context.transitioning {
-                    recognizer.setTranslation(.zero, in: context.targetView!)
+                if recognizer.state != .began {
+                    recognizer.setTranslation(.zero, in: targetView)
                     context.startTransition()
                 }
             } else {
@@ -77,7 +73,6 @@ public final class SwipeToDismissController: NSObject {
         default:
             break
         }
-        context.previousGestureRecordDate = Date()
     }
 }
 

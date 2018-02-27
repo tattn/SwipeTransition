@@ -9,15 +9,12 @@
 import UIKit
 
 final class SwipeBackContext: Context<UINavigationController>, ContextType {
-    weak var disabledScrollView: UIScrollView?
-
     // Delegate Proxies (strong reference)
     var navigationControllerDelegateProxy: NavigationControllerDelegateProxy? {
         didSet {
             target?.delegate = navigationControllerDelegateProxy
         }
     }
-    var scrollViewDelegateProxies: [ScrollViewDelegateProxy] = []
 
     weak var pageViewControllerPanGestureRecognizer: UIPanGestureRecognizer?
 
@@ -39,9 +36,5 @@ final class SwipeBackContext: Context<UINavigationController>, ContextType {
         guard let view = targetView, isEnabled else { return }
         let translation = recognizer.translation(in: view)
         interactiveTransition?.update(value: translation.x, maxValue: view.bounds.width)
-    }
-
-    func didCancelTransition() {
-        disabledScrollView?.isScrollEnabled = true
     }
 }

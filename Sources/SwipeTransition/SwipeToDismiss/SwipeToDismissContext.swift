@@ -9,16 +9,6 @@
 import UIKit
 
 final class SwipeToDismissContext: Context<UIViewController>, ContextType {
-    // Delegate Proxies (strong reference)
-    var scrollViewDelegateProxies: [ScrollViewDelegateProxy] = []
-
-    var previousGestureRecordDate = Date()
-    var scrollAmountY: CGFloat = 0
-    var scrollSpeed: CGFloat = 0
-    var scrollVelocity: CGFloat {
-        let interval = CGFloat(Date().timeIntervalSince(previousGestureRecordDate))
-        return scrollSpeed / interval
-    }
     weak var observedScrollView: UIScrollView?
 
     func allowsTransitionFinish(swipeVelocity: CGFloat) -> Bool {
