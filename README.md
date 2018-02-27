@@ -14,24 +14,13 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
 Try the demo on the web (appetize.io):　https://appetize.io/app/ku7vwyq8ud61fdezt7njpw8r7m
 
-# Usage
-
-## The easiest way to use
-
-Just setting these frameworks in the `Linked Frameworks and Libraries`, it works. (if you use Carthage)
-
-![Linked Frameworks and Libraries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/linked_frameworks.png)
-
-Notes: these frameworks use Method Swizzling.
-
-When setting manually without Method Swizzling, please use `SwipeTransition.framework` only.
 
 ## Features
 
 - [x] Swipe back anywhere.
 - [x] Swipe to dismiss anywhere.
 - [x] Apply to all view controllers automatically!
-- [x] ScrollView compatibility (No conflict of gestures on `UIScrollView`)
+- [x] No conflict of gestures on `UIScrollView`, `UITableView`, `UICollectionView` and so on.
 
 # Requirements
 
@@ -54,6 +43,18 @@ pod "SwipeTransition"
 pod "SwipeTransitionAutoSwipeBack"      # if needed
 pod "SwipeTransitionAutoSwipeToDismiss" # if needed
 ```
+
+# Usage
+
+## The easiest way to use
+
+Just setting these frameworks in the `Linked Frameworks and Libraries`, it works. (if you use Carthage)
+
+![Linked Frameworks and Libraries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/linked_frameworks.png)
+
+Notes: these frameworks use Method Swizzling.
+
+When setting manually without Method Swizzling, please use `SwipeTransition.framework` only.
 
 ## Manually set up
 
@@ -108,8 +109,8 @@ class CustomNavigationController: UINavigationController {
 Use `isEnabled` property.
 
 ```swift
-navigationController?.swipeBack?.isEnabled = false
-navigationController?.swipeToDismiss?.isEnabled = false
+self.navigationController?.swipeBack?.isEnabled = false
+self.swipeToDismiss?.isEnabled = false
 ```
 
 ## Configuration
