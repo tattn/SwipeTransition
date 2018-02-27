@@ -90,7 +90,7 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
         if #available(iOS 11.0, *) {
             return -scrollView.safeAreaInsets.top
         } else {
-            return 0
+            return -scrollView.contentInset.top
         }
     }
 

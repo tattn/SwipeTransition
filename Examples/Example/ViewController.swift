@@ -145,6 +145,9 @@ class ScrollVC: UIViewController {
         gradientLayer.colors = [UIColor(red: 0.07, green: 0.13, blue: 0.26, alpha: 1).cgColor, UIColor(red: 0.54, green: 0.74, blue: 0.74, alpha: 1).cgColor]
         gradientLayer.frame = contentView.bounds
         contentView.layer.insertSublayer(gradientLayer, at: 0)
+        let redView = UIView.init(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 30))
+        redView.backgroundColor = .red
+        contentView.addSubview(redView)
         scrollView.addSubview(contentView)
     }
 }
