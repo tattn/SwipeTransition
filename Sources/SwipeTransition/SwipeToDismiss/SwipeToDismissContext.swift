@@ -19,6 +19,7 @@ final class SwipeToDismissContext: Context<UIViewController>, ContextType {
         let interval = CGFloat(Date().timeIntervalSince(previousGestureRecordDate))
         return scrollSpeed / interval
     }
+    weak var observedScrollView: UIScrollView?
 
     func allowsTransitionFinish(swipeVelocity: CGFloat) -> Bool {
         let swipeSpeedCheck = SwipeToDismissConfiguration.shared.dismissSwipeSpeed.map { swipeVelocity > $0 } ?? false

@@ -106,7 +106,6 @@ class DismissTopVC: UIViewController {
         vc.view.backgroundColor = .orange
         let nav = UINavigationController(rootViewController: vc)
         nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
-        nav.swipeToDismiss?.observeScrollViews([vc.scrollView])
         present(nav, animated: true, completion: nil)
     }
 
@@ -154,7 +153,6 @@ class DismissScrollVC2: ScrollVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DismissScrollVC2"
-        navigationController?.swipeToDismiss?.observeScrollViews([scrollView])
 
         let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
         button.center = view.center

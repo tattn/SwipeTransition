@@ -46,14 +46,21 @@ public final class SwipeToDismissController: NSObject {
         context.target!.view.addGestureRecognizer(panGestureRecognizer)
     }
 
-    public func observeScrollViews(_ scrollViews: [UIScrollView]) {
-        context.scrollViewDelegateProxies = scrollViews
-            .filter { $0.delegate as? ScrollViewDelegateProxy == nil }
-            .map { ScrollViewDelegateProxy(delegates: [self] + ($0.delegate.map { [$0] } ?? [])) }
-        zip(scrollViews, context.scrollViewDelegateProxies).forEach { $0.delegate = $1 }
-    }
-
     @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
+        if let scrollView = context.observedScrollView {
+            if scrollView.contentOffset.y <= baseY(of: scrollView), panGestureRecognizer.translation(in: context.targetView!).y > 0 {
+                scrollView.panGestureRecognizer.state = .failed
+                scrollView.contentOffset.y = baseY(of: scrollView)
+                context.observedScrollView = nil
+                recognizer.setTranslation(.zero, in: context.targetView!)
+                if recognizer.state != .began {
+                    context.startTransition()
+                }
+            } else {
+                return
+            }
+        }
+
         switch recognizer.state {
         case .began:
             context.startTransition()
@@ -78,6 +85,25 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return context.allowsTransitionStart
     }
+
+    private func baseY(of scrollView: UIScrollView) -> CGFloat {
+        if #available(iOS 11.0, *) {
+            return -scrollView.safeAreaInsets.top
+        } else {
+            return 0
+        }
+    }
+
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let scrollView = otherGestureRecognizer.view as? UIScrollView {
+            if scrollView.contentOffset.y < baseY(of: scrollView), panGestureRecognizer.translation(in: context.targetView!).y > 0 {
+                otherGestureRecognizer.state = .failed
+            } else {
+                context.observedScrollView = scrollView
+            }
+        }
+        return true
+    }
 }
 
 extension SwipeToDismissController: UIViewControllerTransitioningDelegate {
@@ -87,45 +113,5 @@ extension SwipeToDismissController: UIViewControllerTransitioningDelegate {
 
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return context.interactiveTransitionIfNeeded()
-    }
-}
-
-extension SwipeToDismissController: UIScrollViewDelegate {
-    private func baseY(of scrollView: UIScrollView) -> CGFloat {
-        if #available(iOS 11.0, *) {
-            return -scrollView.safeAreaInsets.top
-        } else {
-            return 0
-        }
-    }
-
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.isDragging else { return }
-
-        let baseY = self.baseY(of: scrollView)
-        if context.transitioning {
-            let scrollSpeed = -(scrollView.contentOffset.y - baseY)
-            context.scrollSpeed = round(scrollSpeed) == 0 ? context.scrollSpeed : scrollSpeed
-            context.scrollAmountY += scrollSpeed
-            scrollView.contentOffset.y = baseY
-            context.updateTransition(withTranslationY: context.scrollAmountY - baseY)
-        } else if scrollView.contentOffset.y < baseY, !scrollView.isDecelerating {
-            context.startTransition()
-            context.scrollAmountY = scrollView.contentOffset.y
-            scrollView.contentOffset.y = baseY
-        }
-        context.previousGestureRecordDate = Date()
-    }
-
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if context.transitioning {
-            if context.allowsTransitionFinish(swipeVelocity: context.scrollVelocity) {
-                context.finishTransition()
-            } else {
-                context.cancelTransition()
-            }
-        }
-        context.scrollAmountY = scrollView.contentOffset.y
-        context.scrollSpeed = 0
     }
 }
