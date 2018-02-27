@@ -55,10 +55,11 @@ pod "SwipeTransitionAutoSwipeBack"      # if needed
 pod "SwipeTransitionAutoSwipeToDismiss" # if needed
 ```
 
-## Swipe back
+## Manually set up
 
-*Notes: if you use `AutoSwipeBack.framework`, these are unnecessary.*
-
+<details>
+    <summary><i>Notes: if you use `AutoSwipeBack.framework`, these are unnecessary.</i></summary><br>
+    
 Just use `SwipeBackNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
 ```swift
@@ -76,12 +77,10 @@ class CustomNavigationController: UINavigationController {
     }
 }
 ```
+</details>
 
-## Swipe to dismiss
-
-### Manually setting
-
-*Notes: if you use `AutoSwipeToDismiss.framework`, these are unnecessary.*
+<details>
+    <summary><i>Notes: if you use `AutoSwipeToDismiss.framework`, these are unnecessary.</i></summary><br>
 
 Just use `SwipeToDismissNavigationController` instead of `UINavigationController`. Of course, you can set it with Interface Builder.
 
@@ -101,6 +100,8 @@ class CustomNavigationController: UINavigationController {
     }
 }
 ```
+</details>
+
 
 ## Enable/Disable gestures
 
