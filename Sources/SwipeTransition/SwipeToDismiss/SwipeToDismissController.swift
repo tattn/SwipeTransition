@@ -49,11 +49,11 @@ public final class SwipeToDismissController: NSObject {
     @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
         if let scrollView = context.observedScrollView {
             if scrollView.contentOffset.y <= baseY(of: scrollView), panGestureRecognizer.translation(in: context.targetView!).y > 0 {
-                scrollView.panGestureRecognizer.state = .failed
                 scrollView.contentOffset.y = baseY(of: scrollView)
+                scrollView.panGestureRecognizer.state = .failed
                 context.observedScrollView = nil
-                recognizer.setTranslation(.zero, in: context.targetView!)
-                if recognizer.state != .began {
+                if recognizer.state != .began, !context.transitioning {
+                    recognizer.setTranslation(.zero, in: context.targetView!)
                     context.startTransition()
                 }
             } else {
@@ -96,10 +96,15 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if let scrollView = otherGestureRecognizer.view as? UIScrollView {
-            if scrollView.contentOffset.y < baseY(of: scrollView), panGestureRecognizer.translation(in: context.targetView!).y > 0 {
-                otherGestureRecognizer.state = .failed
-            } else {
-                context.observedScrollView = scrollView
+            let scrollViewType = type(of: scrollView)
+            if scrollViewType === UIScrollView.self // filter UITableViewWrapperView and so on...
+                || scrollViewType === UITableView.self
+                || scrollViewType === UICollectionView.self {
+                if scrollView.contentOffset.y < baseY(of: scrollView), panGestureRecognizer.translation(in: context.targetView!).y > 0 {
+                    otherGestureRecognizer.state = .failed
+                } else {
+                    context.observedScrollView = scrollView
+                }
             }
         }
         return true

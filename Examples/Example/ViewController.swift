@@ -63,8 +63,8 @@ class DismissTopVC: UIViewController {
             #selector(dismissSimpleVC),
             #selector(dismissSimpleNC),
             #selector(swipeableNC),
-            #selector(dismissScrollVC),
-            #selector(scrollViewInSwipeableNC)
+            #selector(dismissTableVC),
+            #selector(dismissScrollVC)
         ]
 
         buttons.enumerated().forEach {
@@ -100,16 +100,16 @@ class DismissTopVC: UIViewController {
         present(nav, animated: true, completion: nil)
     }
 
-    @objc func dismissScrollVC() {
-        let vc = ScrollVC()
-        vc.title = "DismissScrollVC"
+    @objc func dismissTableVC() {
+        let vc = TableVC()
+        vc.title = "TableVC"
         vc.view.backgroundColor = .orange
         let nav = UINavigationController(rootViewController: vc)
         nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
         present(nav, animated: true, completion: nil)
     }
 
-    @objc func scrollViewInSwipeableNC() {
+    @objc func dismissScrollVC() {
         let vc = DismissScrollVC2()
         let nav = SwipeToDismissNavigationController(rootViewController: vc)
         present(nav, animated: true, completion: nil)
@@ -123,6 +123,18 @@ class DismissSimpleVC: UIViewController {
         title = "DismissSimpleVC"
         view.backgroundColor = .orange
         swipeToDismiss = SwipeToDismissController(viewController: self)
+    }
+}
+
+class TableVC: UITableViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = "Cell\(indexPath.row)"
+        return cell
     }
 }
 
