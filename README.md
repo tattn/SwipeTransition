@@ -54,7 +54,7 @@ Just setting these frameworks in the `Linked Frameworks and Libraries`, it works
 
 Notes: these frameworks use Method Swizzling.
 
-When setting manually without Method Swizzling, please use `SwipeTransition.framework` only.
+If you want to set up manually without Method Swizzling, please use `SwipeTransition.framework` only.
 
 ## Manually set up
 
