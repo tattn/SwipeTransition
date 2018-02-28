@@ -8,6 +8,7 @@
 
 import UIKit
 import SwipeTransition
+import WebKit
 
 class PushTopVC: UIViewController {
 
@@ -48,5 +49,30 @@ class ContentVC: UIViewController {
         super.viewDidLoad()
         view.layer.borderColor = UIColor.black.cgColor
         view.layer.borderWidth = 5
+    }
+}
+
+
+class WebVC: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let webView = UIWebView(frame: view.bounds)
+        view.addSubview(webView)
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        webView.loadRequest(.init(url: URL(string: "https://github.com/tattn/SwipeTransition")!))
+    }
+}
+
+class WKWebVC: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let webView = WKWebView(frame: view.bounds)
+        view.addSubview(webView)
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        webView.load(.init(url: URL(string: "https://github.com/tattn/SwipeTransition")!))
     }
 }

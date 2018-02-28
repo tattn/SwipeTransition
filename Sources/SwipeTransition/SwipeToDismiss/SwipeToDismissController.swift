@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WebKit
 
 @objcMembers
 public final class SwipeToDismissController: NSObject {
@@ -15,7 +16,10 @@ public final class SwipeToDismissController: NSObject {
 
     public var isEnabled: Bool {
         get { return context.isEnabled }
-        set { context.isEnabled = newValue }
+        set {
+            context.isEnabled = newValue
+            panGestureRecognizer.isEnabled = newValue
+        }
     }
 
     private lazy var animator = DismissAnimator(parent: self)
@@ -42,17 +46,16 @@ public final class SwipeToDismissController: NSObject {
         context.targetView.unsafelyUnwrapped.addGestureRecognizer(panGestureRecognizer)
     }
 
-    @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
+    @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         if let scrollView = context.observedScrollView, let targetView = context.targetView {
             if scrollView.contentOffset.y <= baseY(of: scrollView), panGestureRecognizer.translation(in: targetView).y > 0 {
                 scrollView.contentOffset.y = baseY(of: scrollView)
                 scrollView.panGestureRecognizer.state = .failed
                 context.observedScrollView = nil
                 if recognizer.state != .began {
-                    recognizer.setTranslation(.zero, in: targetView)
                     context.startTransition()
                 }
-            } else {
+            } else if !context.transitioning {
                 return
             }
         }
@@ -92,14 +95,13 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if let scrollView = otherGestureRecognizer.view as? UIScrollView {
             let scrollViewType = type(of: scrollView)
+            let superViewType = scrollView.superview.map { type(of: $0) }
             if scrollViewType === UIScrollView.self // filter UITableViewWrapperView and so on...
                 || scrollViewType === UITableView.self
-                || scrollViewType === UICollectionView.self {
-                if scrollView.contentOffset.y < baseY(of: scrollView), panGestureRecognizer.translation(in: context.targetView!).y > 0 {
-                    otherGestureRecognizer.state = .failed
-                } else {
+                || scrollViewType === UICollectionView.self
+                || superViewType === WKWebView.self
+                || superViewType === UIWebView.self {
                     context.observedScrollView = scrollView
-                }
             }
         }
         return true

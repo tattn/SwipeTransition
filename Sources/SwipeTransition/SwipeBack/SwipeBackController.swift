@@ -16,7 +16,10 @@ public final class SwipeBackController: NSObject {
 
     public var isEnabled: Bool {
         get { return context.isEnabled }
-        set { context.isEnabled = newValue }
+        set {
+            context.isEnabled = newValue
+            panGestureRecognizer.isEnabled = newValue
+        }
     }
 
     private lazy var animator = SwipeBackAnimator(parent: self)
