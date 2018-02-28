@@ -28,6 +28,7 @@
 		241BA6F01FECDA8A002E8902 /* SwipeTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 241BA6C61FEC271B002E8902 /* SwipeTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		241BA6F91FECF03D002E8902 /* SwipeBackNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6F81FECF03D002E8902 /* SwipeBackNavigationController.swift */; };
 		241BA6FB1FED07F1002E8902 /* SwipeBackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BA6FA1FED07F1002E8902 /* SwipeBackConfiguration.swift */; };
+		2463FF192046914C005C77C4 /* SwipeToDismissTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2463FF182046914C005C77C4 /* SwipeToDismissTests.swift */; };
 		2467A7A11FED4E43007A7AC9 /* DelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */; };
 		2467A7A21FED4EA5007A7AC9 /* DelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2467A7A41FED5967007A7AC9 /* SwipeToDismissExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A7A31FED5967007A7AC9 /* SwipeToDismissExtensions.swift */; };
@@ -158,6 +159,7 @@
 		241BA6ED1FECCDA8002E8902 /* SwipeBackExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackExtensions.swift; sourceTree = "<group>"; };
 		241BA6F81FECF03D002E8902 /* SwipeBackNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackNavigationController.swift; sourceTree = "<group>"; };
 		241BA6FA1FED07F1002E8902 /* SwipeBackConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackConfiguration.swift; sourceTree = "<group>"; };
+		2463FF182046914C005C77C4 /* SwipeToDismissTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissTests.swift; sourceTree = "<group>"; };
 		2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegateProxy.h; sourceTree = "<group>"; };
 		2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelegateProxy.m; sourceTree = "<group>"; };
 		2467A7A31FED5967007A7AC9 /* SwipeToDismissExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissExtensions.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				241A24991FF7375300347055 /* SwipeBackContextTests.swift */,
 				241A249B1FF7375300347055 /* Info.plist */,
 				241A24A41FF7BC8000347055 /* TestablePanGestureRecognizer.swift */,
+				2463FF182046914C005C77C4 /* SwipeToDismissTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				241A249A1FF7375300347055 /* SwipeBackContextTests.swift in Sources */,
+				2463FF192046914C005C77C4 /* SwipeToDismissTests.swift in Sources */,
 				241A24A51FF7BC8000347055 /* TestablePanGestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
