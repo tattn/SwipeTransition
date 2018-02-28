@@ -78,25 +78,25 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 
     if ([self isFirstViewWillAppear]) {
         [self setIsFirstViewWillAppear:NO];
-        if (self.presentedViewController
-            || self.presentingViewController.presentedViewController == self
-            || [self.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]]) {
+        UIViewController* target = self.navigationController == nil ? self : self.navigationController;
+        if (target.presentedViewController
+            || target.presentingViewController.presentedViewController == target
+            || [target.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]]) {
             [self.swipeToDismiss addSwipeGesture];
         }
     }
 }
 
 - (void)setupSwipeToDismiss {
-    if (self.swipeToDismiss || [self isKindOfClass:[UIAlertController class]] || [self isKindOfClass:[UISearchController class]]) {
+    if (self.swipeToDismiss
+        || [self isKindOfClass:[UINavigationController class]]
+        || [self isKindOfClass:[UIAlertController class]]
+        || [self isKindOfClass:[UISearchController class]]) {
         return;
     }
     @try {
         self.modalPresentationStyle = UIModalPresentationFullScreen;
-        if (self.navigationController == nil) {
-            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
-        } else {
-            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self.navigationController];
-        }
+        self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
     } @catch (NSException *exception) {} // for UISearchController and so on...
 }
 

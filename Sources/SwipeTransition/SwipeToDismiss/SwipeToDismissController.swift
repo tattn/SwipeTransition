@@ -27,13 +27,14 @@ public final class SwipeToDismissController: NSObject {
     private lazy var panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .vertical, target: self, action: #selector(handlePanGesture(_:)))
 
     public init(viewController: UIViewController) {
-        context = SwipeToDismissContext(target: viewController.navigationController ?? viewController)
+        let targetViewController = viewController.navigationController ?? viewController
+        context = SwipeToDismissContext(target: targetViewController)
         super.init()
 
         panGestureRecognizer.delegate = self
-        viewController.transitioningDelegate = self
+        targetViewController.transitioningDelegate = self
 
-        if viewController.isViewLoaded {
+        if targetViewController.isViewLoaded {
             addSwipeGesture()
         }
     }
