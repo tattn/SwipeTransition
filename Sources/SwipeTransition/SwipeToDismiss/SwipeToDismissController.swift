@@ -40,10 +40,8 @@ public final class SwipeToDismissController: NSObject {
     }
 
     public convenience init(navigationController: UINavigationController) {
-        if let rootViewController = navigationController.viewControllers.first {
-            rootViewController.swipeToDismiss = nil
-        }
-        self.init(viewController: navigationController)
+        let rootViewController = navigationController.viewControllers.first ?? navigationController
+        self.init(viewController: rootViewController)
     }
 
     deinit {

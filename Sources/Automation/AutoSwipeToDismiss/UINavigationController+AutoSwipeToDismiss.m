@@ -39,7 +39,6 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithCoder:), @selector(autoswipetodismiss_initWithCoder:));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(init), @selector(autoswipetodismiss_init));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithNibName:bundle:), @selector(autoswipetodismiss_initWithNibName:bundle:));
-        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithRootViewController:), @selector(autoswipetodismiss_initWithRootViewController:));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewWillAppear:), @selector(autoswipetodismiss_viewWillAppear:));
     });
 }
@@ -61,13 +60,6 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 - (instancetype)autoswipetodismiss_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     [self autoswipetodismiss_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    [self setupSwipeToDismiss];
-    return self;
-}
-
-- (instancetype)autoswipetodismiss_initWithRootViewController:(nonnull UIViewController*)viewController
-{
-    [self autoswipetodismiss_initWithRootViewController:viewController];
     [self setupSwipeToDismiss];
     return self;
 }
@@ -95,11 +87,12 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     }
     @try {
         self.modalPresentationStyle = UIModalPresentationFullScreen;
+        UIViewController* target = self;
         if ([self isKindOfClass:[UINavigationController class]]) {
-            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithNavigationController:(UINavigationController*)self];
-        } else {
-            self.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:self];
+            UINavigationController* navigationController = (UINavigationController*)self;
+            target = navigationController.viewControllers.firstObject == nil ? self : navigationController.viewControllers.firstObject;
         }
+        target.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:target];
     } @catch (NSException *exception) {} // for UISearchController and so on...
 }
 
@@ -123,4 +116,23 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     return objc_getAssociatedObject(self, @selector(isFirstViewWillAppear)) == nil;
 }
 
+@end
+
+@implementation UINavigationController (AutoSwipeToDismiss)
++ (void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class class = [self class];
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithRootViewController:), @selector(autoswipetodismiss_initWithRootViewController:));
+    });
+}
+
+- (instancetype)autoswipetodismiss_initWithRootViewController:(nonnull UIViewController*)viewController
+{
+    [self autoswipetodismiss_initWithRootViewController:viewController];
+    self.swipeToDismiss = nil;
+    [self setupSwipeToDismiss];
+    return self;
+}
 @end
