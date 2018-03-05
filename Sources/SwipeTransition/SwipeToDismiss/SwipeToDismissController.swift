@@ -108,6 +108,9 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
                 || superViewType === WKWebView.self
                 || superViewType === UIWebView.self {
                     context.observedScrollView = scrollView
+            } else {
+                gestureRecognizer.state = .failed
+                return false
             }
         }
         return true
