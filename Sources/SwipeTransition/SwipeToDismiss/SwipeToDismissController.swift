@@ -39,6 +39,13 @@ public final class SwipeToDismissController: NSObject {
         }
     }
 
+    public convenience init(navigationController: UINavigationController) {
+        if let rootViewController = navigationController.viewControllers.first {
+            rootViewController.swipeToDismiss = nil
+        }
+        self.init(viewController: navigationController)
+    }
+
     deinit {
         panGestureRecognizer.view?.removeGestureRecognizer(panGestureRecognizer)
     }
