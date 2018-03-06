@@ -36,10 +36,8 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
-        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithCoder:), @selector(autoswipetodismiss_initWithCoder:));
-        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(init), @selector(autoswipetodismiss_init));
-        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithNibName:bundle:), @selector(autoswipetodismiss_initWithNibName:bundle:));
-        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewWillAppear:), @selector(autoswipetodismiss_viewWillAppear:));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewDidAppear:), @selector(autoswipetodismiss_viewDidAppear:));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewDidDisappear:), @selector(autoswipetodismiss_viewDidDisappear:));
     });
 }
 
@@ -64,23 +62,28 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     return self;
 }
 
-- (void)autoswipetodismiss_viewWillAppear:(BOOL)animated
+- (void)autoswipetodismiss_viewDidAppear:(BOOL)animated
 {
-    [self autoswipetodismiss_viewWillAppear:animated];
+    [self autoswipetodismiss_viewDidAppear:animated];
 
-    if ([self isFirstViewWillAppear]) {
-        [self setIsFirstViewWillAppear:NO];
-        UIViewController* target = self.navigationController == nil ? self : self.navigationController;
-        if (target.presentedViewController
-            || target.presentingViewController.presentedViewController == target
-            || [target.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]]) {
-            [self.swipeToDismiss addSwipeGesture];
-        }
+    UIViewController* target = self.navigationController == nil ? self : self.navigationController;
+    if (target.presentedViewController
+        || target.presentingViewController.presentedViewController == target
+        || [target.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]]) {
+        [self setupSwipeToDismiss];
     }
 }
 
-- (void)setupSwipeToDismiss {
-    if (self.swipeToDismiss
+-(void)autoswipetodismiss_viewDidDisappear:(BOOL)animated
+{
+    [self autoswipetodismiss_viewDidDisappear:animated];
+    self.swipeToDismiss = nil;
+}
+
+- (void)setupSwipeToDismiss
+{
+    if ([self.parentViewController isKindOfClass:[UINavigationController class]]
+        || [self isKindOfClass:[UINavigationController class]]
         || [self isKindOfClass:[UIAlertController class]]
         || [self isKindOfClass:[UISearchController class]]) {
         return;
@@ -116,23 +119,4 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     return objc_getAssociatedObject(self, @selector(isFirstViewWillAppear)) == nil;
 }
 
-@end
-
-@implementation UINavigationController (AutoSwipeToDismiss)
-+ (void)load
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithRootViewController:), @selector(autoswipetodismiss_initWithRootViewController:));
-    });
-}
-
-- (instancetype)autoswipetodismiss_initWithRootViewController:(nonnull UIViewController*)viewController
-{
-    [self autoswipetodismiss_initWithRootViewController:viewController];
-    self.swipeToDismiss = nil;
-    [self setupSwipeToDismiss];
-    return self;
-}
 @end
