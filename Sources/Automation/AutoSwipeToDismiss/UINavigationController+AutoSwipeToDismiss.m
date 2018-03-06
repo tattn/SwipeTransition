@@ -82,7 +82,7 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 
 - (void)setupSwipeToDismiss
 {
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]]
+    if (![self.parentViewController isKindOfClass:[UINavigationController class]]
         || [self isKindOfClass:[UINavigationController class]]
         || [self isKindOfClass:[UIAlertController class]]
         || [self isKindOfClass:[UISearchController class]]) {
