@@ -36,6 +36,9 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithCoder:), @selector(autoswipetodismiss_initWithCoder:));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(init), @selector(autoswipetodismiss_init));
+        AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(initWithNibName:bundle:), @selector(autoswipetodismiss_initWithNibName:bundle:));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewDidAppear:), @selector(autoswipetodismiss_viewDidAppear:));
         AutoSwipeToDismiss_SwizzleInstanceMethod(class, @selector(viewDidDisappear:), @selector(autoswipetodismiss_viewDidDisappear:));
     });
@@ -66,37 +69,34 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
 {
     [self autoswipetodismiss_viewDidAppear:animated];
 
+    if (self.parentViewController != nil && ![self.parentViewController isKindOfClass:[UINavigationController class]]) { // filter container views
+        return;
+    }
+
     UIViewController* target = self.navigationController == nil ? self : self.navigationController;
     if (target.presentedViewController
         || target.presentingViewController.presentedViewController == target
         || [target.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]]) {
-        [self setupSwipeToDismiss];
+        [self.swipeToDismiss setTargetWithViewController:self];
     }
 }
 
 -(void)autoswipetodismiss_viewDidDisappear:(BOOL)animated
 {
     [self autoswipetodismiss_viewDidDisappear:animated];
-    self.swipeToDismiss = nil;
+    [self.swipeToDismiss removeTargetViewController];
 }
 
 - (void)setupSwipeToDismiss
 {
-    if (![self.parentViewController isKindOfClass:[UINavigationController class]]
-        || [self isKindOfClass:[UINavigationController class]]
+    if ([self isKindOfClass:[UINavigationController class]]
         || [self isKindOfClass:[UIAlertController class]]
         || [self isKindOfClass:[UISearchController class]]) {
         return;
     }
     @try {
-        self.modalPresentationStyle = UIModalPresentationFullScreen;
-        UIViewController* target = self;
-        if ([self isKindOfClass:[UINavigationController class]]) {
-            UINavigationController* navigationController = (UINavigationController*)self;
-            target = navigationController.viewControllers.firstObject == nil ? self : navigationController.viewControllers.firstObject;
-        }
-        target.swipeToDismiss = [[SwipeToDismissController alloc] initWithViewController:target];
-    } @catch (NSException *exception) {} // for UISearchController and so on...
+        self.swipeToDismiss = [SwipeToDismissController new];
+    } @catch (NSException *exception) {} // avoid a crash of modalPresentation for UISearchController and so on...
 }
 
 - (void)setSwipeToDismiss:(nullable SwipeToDismissController*)swipeToDismiss

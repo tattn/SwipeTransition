@@ -12,7 +12,8 @@ open class SwipeToDismissNavigationController: UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         swipeBack = SwipeBackController(navigationController: self)
-        swipeToDismiss = SwipeToDismissController(viewController: self)
+        swipeToDismiss = SwipeToDismissController()
+        swipeToDismiss?.setTarget(viewController: self)
         modalPresentationStyle = .fullScreen
     }
 }

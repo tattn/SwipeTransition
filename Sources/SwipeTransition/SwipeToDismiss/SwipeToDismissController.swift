@@ -14,45 +14,46 @@ public final class SwipeToDismissController: NSObject {
     public var onStartTransition: ((UIViewControllerContextTransitioning) -> Void)?
     public var onFinishTransition: ((UIViewControllerContextTransitioning) -> Void)?
 
-    public var isEnabled: Bool {
-        get { return context.isEnabled }
-        set {
-            context.isEnabled = newValue
-            panGestureRecognizer.isEnabled = newValue
+    public var isEnabled: Bool = true {
+        didSet {
+            context?.isEnabled = isEnabled
+            panGestureRecognizer.isEnabled = isEnabled
         }
     }
 
     private lazy var animator = DismissAnimator(parent: self)
-    private let context: SwipeToDismissContext
-    private lazy var panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .vertical, target: self, action: #selector(handlePanGesture(_:)))
+    private var context: SwipeToDismissContext!
+    private let panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .vertical)
 
-    public init(viewController: UIViewController) {
-        let targetViewController = viewController.navigationController ?? viewController
-        context = SwipeToDismissContext(target: targetViewController)
+    public override init() {
         super.init()
-
-        panGestureRecognizer.delegate = self
-        targetViewController.transitioningDelegate = self
-
-        if targetViewController.isViewLoaded {
-            addSwipeGesture()
-        }
-    }
-
-    public convenience init(navigationController: UINavigationController) {
-        let rootViewController = navigationController.viewControllers.first ?? navigationController
-        self.init(viewController: rootViewController)
+        panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
     }
 
     deinit {
+        removeTargetViewController()
+    }
+
+    public func setTarget(viewController: UIViewController) {
+        let targetViewController = viewController.navigationController ?? viewController
+        context = SwipeToDismissContext(target: targetViewController)
+        context.isEnabled = isEnabled
+
+        targetViewController.transitioningDelegate = self
+        panGestureRecognizer.delegate = self
+
+        targetViewController.view.addGestureRecognizer(panGestureRecognizer)
+    }
+
+    public func removeTargetViewController() {
+        context?.target?.transitioningDelegate = nil
+        context = nil
         panGestureRecognizer.view?.removeGestureRecognizer(panGestureRecognizer)
     }
 
-    public func addSwipeGesture() {
-        context.targetView.unsafelyUnwrapped.addGestureRecognizer(panGestureRecognizer)
-    }
-
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+//        precondition(self === context.target!.transitioningDelegate!)
+
         if let scrollView = context.observedScrollView, let targetView = context.targetView {
             if scrollView.contentOffset.y <= baseY(of: scrollView), panGestureRecognizer.translation(in: targetView).y > 0 {
                 scrollView.contentOffset.y = baseY(of: scrollView)
