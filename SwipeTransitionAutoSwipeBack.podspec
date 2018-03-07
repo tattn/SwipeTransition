@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwipeTransitionAutoSwipeBack'
-  s.version          = '0.2.7'
+  s.version          = '0.2.8'
   s.summary          = 'Allows trendy transitions using swipe gesture such as "swipe back".'
 
   s.description      = <<-DESC
