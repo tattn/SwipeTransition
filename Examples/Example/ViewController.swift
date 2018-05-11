@@ -88,7 +88,8 @@ class DismissTopVC: UIViewController {
         vc.title = "DismissSimpleNC"
         vc.view.backgroundColor = .orange
         let nav = UINavigationController(rootViewController: vc)
-        nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
+        nav.swipeToDismiss = SwipeToDismissController()
+        nav.swipeToDismiss?.setTarget(viewController: nav)
         present(nav, animated: true, completion: nil)
     }
 
@@ -105,7 +106,8 @@ class DismissTopVC: UIViewController {
         vc.title = "TableVC"
         vc.view.backgroundColor = .orange
         let nav = UINavigationController(rootViewController: vc)
-        nav.swipeToDismiss = SwipeToDismissController(viewController: nav)
+        nav.swipeToDismiss = SwipeToDismissController()
+        nav.swipeToDismiss?.setTarget(viewController: nav)
         present(nav, animated: true, completion: nil)
     }
 
@@ -122,7 +124,8 @@ class DismissSimpleVC: UIViewController {
         super.viewDidLoad()
         title = "DismissSimpleVC"
         view.backgroundColor = .orange
-        swipeToDismiss = SwipeToDismissController(viewController: self)
+        swipeToDismiss = SwipeToDismissController()
+        swipeToDismiss?.setTarget(viewController: self)
     }
 }
 
