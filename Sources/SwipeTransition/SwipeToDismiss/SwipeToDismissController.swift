@@ -23,7 +23,7 @@ public final class SwipeToDismissController: NSObject {
 
     private lazy var animator = DismissAnimator(parent: self)
     private var context: SwipeToDismissContext!
-    private let panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .vertical)
+    private let panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .down)
 
     public override init() {
         super.init()
