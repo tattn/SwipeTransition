@@ -39,9 +39,9 @@ github "tattn/SwipeTransition"
 ## CocoaPods
 
 ```ruby
-pod "SwipeTransition"
-pod "SwipeTransitionAutoSwipeBack"      # if needed
-pod "SwipeTransitionAutoSwipeToDismiss" # if needed
+pod 'SwipeTransition'
+pod 'SwipeTransitionAutoSwipeBack'      # if needed
+pod 'SwipeTransitionAutoSwipeToDismiss' # if needed
 ```
 
 # Usage
