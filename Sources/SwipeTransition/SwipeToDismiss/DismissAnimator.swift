@@ -31,7 +31,7 @@ extension DismissAnimator: UIViewControllerAnimatedTransitioning {
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,
-            options: .curveLinear,
+            options: UIView.AnimationOptions.curveLinear,
             animations: {
                 from.view.transform = CGAffineTransform(translationX: 0, y: from.view.frame.height)
         }, completion: { [weak self] _ in

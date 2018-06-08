@@ -41,7 +41,7 @@ extension SwipeBackAnimator: UIViewControllerAnimatedTransitioning {
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,
-            options: .curveLinear,
+            options: UIView.AnimationOptions.curveLinear,
             animations: {
                 to.view.transform = .identity
                 from.view.transform = CGAffineTransform(translationX: to.view.frame.width, y: 0)
