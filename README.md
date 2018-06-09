@@ -34,6 +34,9 @@ Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn
 
 ```ruby
 github "tattn/SwipeTransition"
+
+# Swift 4.2 (Xcode 10)
+github "tattn/SwipeTransition" "swift4.2"
 ```
 
 ## CocoaPods
@@ -42,6 +45,9 @@ github "tattn/SwipeTransition"
 pod "SwipeTransition"
 pod "SwipeTransitionAutoSwipeBack"      # if needed
 pod "SwipeTransitionAutoSwipeToDismiss" # if needed
+
+# Swift 4.2 (Xcode 10)
+pod "SwipeTransition", :git => "https://github.com/tattn/SwipeTransition", :branch => "swift4.2"
 ```
 
 # Usage
