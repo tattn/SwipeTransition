@@ -24,7 +24,7 @@ Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn
 
 # Requirements
 
-- Xcode 9.x
+- Xcode 9.x (or Xcode 10)
 - Swift 4.x
 - iOS 8.0+
 
