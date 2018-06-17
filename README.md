@@ -1,4 +1,4 @@
-SwipeTransition
+![logotype-a](https://github.com/Tobaloidee/SwipeTransition/blob/master/docs/assets/logotype-a.png)
 ===
 
 [![Build Status](https://travis-ci.org/tattn/SwipeTransition.svg?branch=master)](https://travis-ci.org/tattn/SwipeTransition)
