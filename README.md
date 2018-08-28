@@ -154,6 +154,19 @@ See [this wiki](https://github.com/tattn/SwipeTransition/wiki)
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+## Support this project
+
+Donating to help me continue working on this project.
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/tattn/)
+
+
+# ToDo
+- [ ] All `.modalPresentationStyle` support
+- [ ] Animation support (fade / custom)
+- [ ] Some transition styles support (e.g. right to left swipe transition)
+
+
 # License
 
 SwipeTransition is released under the MIT license. See LICENSE for details.
