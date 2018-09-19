@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwipeTransitionAutoSwipeToDismiss'
-  s.version          = '0.2.10'
+  s.version          = '0.3.0'
   s.summary          = 'Allows trendy transitions using swipe gesture such as "swipe back".'
 
   s.description      = <<-DESC
@@ -16,7 +16,7 @@ SwipeTransition allows trendy transitions using swipe gesture such as "swipe bac
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Sources/Automation/AutoSwipeToDismiss/**/*'
+  s.source_files = 'Sources/Automation/AutoSwipeToDismiss/**/*.{swift,h,m}'
   
   s.public_header_files = 'Sources/Automation/AutoSwipeToDismiss/**/*.h'
   s.frameworks = 'UIKit'
