@@ -679,7 +679,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    if which swiftlint >/dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi";
 		};
 		241A24A71FF9236A00347055 /* Run Script - SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -693,7 +693,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    if which swiftlint >/dev/null; then\n    swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi";
 		};
 		241A24A81FF9237B00347055 /* Run Script - SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -707,7 +707,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    if which swiftlint >/dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -18,18 +18,24 @@ public final class SwipeBackController: NSObject {
         get { return context.isEnabled }
         set {
             context.isEnabled = newValue
-            panGestureRecognizer.isEnabled = newValue
+            if newValue, panGestureRecognizer.view == nil {
+                navigationController?.view.addGestureRecognizer(panGestureRecognizer)
+            } else {
+                panGestureRecognizer.view?.removeGestureRecognizer(panGestureRecognizer)
+            }
         }
     }
 
     private lazy var animator = SwipeBackAnimator(parent: self)
     private let context: SwipeBackContext
     private lazy var panGestureRecognizer = OneFingerDirectionalPanGestureRecognizer(direction: .right, target: self, action: #selector(handlePanGesture(_:)))
+    private weak var navigationController: UINavigationController?
 
     public required init(navigationController: UINavigationController) {
         context = SwipeBackContext(target: navigationController)
         super.init()
 
+        self.navigationController = navigationController
         panGestureRecognizer.delegate = self
 
         navigationController.view.addGestureRecognizer(panGestureRecognizer)
@@ -88,6 +94,10 @@ extension SwipeBackController: UIGestureRecognizerDelegate {
             return false
         }
         return context.allowsTransitionStart
+    }
+
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
 

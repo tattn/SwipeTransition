@@ -1,4 +1,4 @@
-SwipeTransition
+![logotype-a](https://github.com/Tobaloidee/SwipeTransition/blob/master/docs/assets/logotype-a.png)
 ===
 
 [![Build Status](https://travis-ci.org/tattn/SwipeTransition.svg?branch=master)](https://travis-ci.org/tattn/SwipeTransition)
@@ -24,7 +24,7 @@ Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn
 
 # Requirements
 
-- Xcode 9.x
+- Xcode 9.x (or Xcode 10)
 - Swift 4.x
 - iOS 8.0+
 
@@ -34,6 +34,9 @@ Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn
 
 ```ruby
 github "tattn/SwipeTransition"
+
+# Swift 4.2 (Xcode 10)
+github "tattn/SwipeTransition" "swift4.2"
 ```
 
 ## CocoaPods
@@ -42,6 +45,9 @@ github "tattn/SwipeTransition"
 pod "SwipeTransition"
 pod "SwipeTransitionAutoSwipeBack"      # if needed
 pod "SwipeTransitionAutoSwipeToDismiss" # if needed
+
+# Swift 4.2 (Xcode 10)
+pod "SwipeTransition", :git => "https://github.com/tattn/SwipeTransition", :branch => "swift4.2"
 ```
 
 # Usage
@@ -147,6 +153,19 @@ See [this wiki](https://github.com/tattn/SwipeTransition/wiki)
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+## Support this project
+
+Donating to help me continue working on this project.
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/tattn/)
+
+
+# ToDo
+- [ ] All `.modalPresentationStyle` support
+- [ ] Animation support (fade / custom)
+- [ ] Some transition styles support (e.g. right to left swipe transition)
+
 
 # License
 
