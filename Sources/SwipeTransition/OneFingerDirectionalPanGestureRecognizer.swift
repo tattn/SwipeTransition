@@ -33,13 +33,13 @@ final class OneFingerDirectionalPanGestureRecognizer: UIPanGestureRecognizer {
         if state == .began {
             let vel = velocity(in: view)
             switch direction {
-            case .up where fabs(vel.x) > fabs(vel.y) || vel.y >= 0:
+            case .up where abs(vel.x) > abs(vel.y) || vel.y >= 0:
                 state = .cancelled
-            case .down where fabs(vel.x) > fabs(vel.y) || vel.y <= 0:
+            case .down where abs(vel.x) > abs(vel.y) || vel.y <= 0:
                 state = .cancelled
-            case .left where fabs(vel.y) > fabs(vel.x) || vel.x >= 0:
+            case .left where abs(vel.y) > abs(vel.x) || vel.x >= 0:
                 state = .cancelled
-            case .right where fabs(vel.y) > fabs(vel.x) || vel.x <= 0:
+            case .right where abs(vel.y) > abs(vel.x) || vel.x <= 0:
                 state = .cancelled
             default:
                 break
