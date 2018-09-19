@@ -12,7 +12,7 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
     let testTarget: AnyObject?
     let testAction: Selector?
 
-    var testState: UIGestureRecognizerState?
+    var testState: UIGestureRecognizer.State?
     var testLocation: CGPoint?
     var testTranslation: CGPoint?
 
@@ -22,7 +22,7 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
         super.init(target: target, action: action)
     }
 
-    func perfomTouch(location: CGPoint?, translation: CGPoint?, state: UIGestureRecognizerState) {
+    func perfomTouch(location: CGPoint?, translation: CGPoint?, state: UIGestureRecognizer.State) {
         testLocation = location
         testTranslation = translation
         testState = state
@@ -45,7 +45,7 @@ class TestablePanGestureRecognizer: UIPanGestureRecognizer {
         return super.translation(in: view)
     }
 
-    override var state: UIGestureRecognizerState {
+    override var state: UIGestureRecognizer.State {
         get {
             if let testState = testState {
                 return testState

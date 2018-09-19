@@ -56,7 +56,7 @@ public final class SwipeBackController: NSObject {
     public func observePageViewController(_ pageViewController: UIPageViewController, isFirstPage: @escaping () -> Bool) {
         let scrollView = pageViewController.view.subviews
             .lazy
-            .flatMap { $0 as? UIScrollView }
+            .compactMap { $0 as? UIScrollView }
             .first
         scrollView?.panGestureRecognizer.require(toFail: panGestureRecognizer)
         context.pageViewControllerPanGestureRecognizer = scrollView?.panGestureRecognizer
@@ -102,7 +102,7 @@ extension SwipeBackController: UIGestureRecognizerDelegate {
 }
 
 extension SwipeBackController: UINavigationControllerDelegate {
-    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return operation == .pop && context.isEnabled && context.interactiveTransition != nil ? animator : nil
     }
 

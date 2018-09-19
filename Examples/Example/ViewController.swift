@@ -17,9 +17,9 @@ class PushableVC: UIViewController {
 
         let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
         button.center = view.center
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        button.setTitle("Push!", for: .normal)
-        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(didTapButton), for: UIControl.Event.touchUpInside)
+        button.setTitle("Push!", for: UIControl.State.normal)
+        button.setTitleColor(.red, for: UIControl.State.normal)
         view.addSubview(button)
     }
 
@@ -71,9 +71,9 @@ class DismissTopVC: UIViewController {
             let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
             button.center.x = view.center.x
             button.frame.origin.y = view.frame.height / CGFloat(buttons.count + 1) * CGFloat($0.offset + 1) - button.frame.height / 2
-            button.addTarget(self, action: $0.element, for: .touchUpInside)
-            button.setTitle($0.element.description, for: .normal)
-            button.setTitleColor(.red, for: .normal)
+            button.addTarget(self, action: $0.element, for: UIControl.Event.touchUpInside)
+            button.setTitle($0.element.description, for: UIControl.State.normal)
+            button.setTitleColor(.red, for: UIControl.State.normal)
             view.addSubview(button)
         }
     }
@@ -174,9 +174,9 @@ class DismissScrollVC2: ScrollVC {
 
         let button = UIButton(frame: .init(x: 0, y: 0, width: 300, height: 50))
         button.center = view.center
-        button.addTarget(self, action: #selector(pushVC), for: .touchUpInside)
-        button.setTitle("Push!", for: .normal)
-        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(pushVC), for: UIControl.Event.touchUpInside)
+        button.setTitle("Push!", for: UIControl.State.normal)
+        button.setTitleColor(.red, for: UIControl.State.normal)
         view.addSubview(button)
     }
 
