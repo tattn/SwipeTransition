@@ -60,6 +60,8 @@
 		247E68B01FF3466300617B12 /* SwipeBackContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E68AF1FF3466300617B12 /* SwipeBackContext.swift */; };
 		24914077203B39B300D3E4CD /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24914076203B39B300D3E4CD /* Context.swift */; };
 		24914079203B475500D3E4CD /* TransitionHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24914078203B475500D3E4CD /* TransitionHandleable.swift */; };
+		24CD1BCD2154E4CC0065244F /* ObjectiveCSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CD1BCC2154E4CC0065244F /* ObjectiveCSupportTests.m */; };
+		24CD1BCE2154E9AC0065244F /* AutoSwipeToDismiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2467A7FB1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +189,8 @@
 		247E68AF1FF3466300617B12 /* SwipeBackContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackContext.swift; sourceTree = "<group>"; };
 		24914076203B39B300D3E4CD /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		24914078203B475500D3E4CD /* TransitionHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHandleable.swift; sourceTree = "<group>"; };
+		24CD1BCB2154E4CC0065244F /* SwipeTransitionTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwipeTransitionTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		24CD1BCC2154E4CC0065244F /* ObjectiveCSupportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveCSupportTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24CD1BCE2154E9AC0065244F /* AutoSwipeToDismiss.framework in Frameworks */,
 				241A249C1FF7375300347055 /* SwipeTransition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +254,8 @@
 				241A249B1FF7375300347055 /* Info.plist */,
 				241A24A41FF7BC8000347055 /* TestablePanGestureRecognizer.swift */,
 				2463FF182046914C005C77C4 /* SwipeToDismissTests.swift */,
+				24CD1BCC2154E4CC0065244F /* ObjectiveCSupportTests.m */,
+				24CD1BCB2154E4CC0065244F /* SwipeTransitionTests-Bridging-Header.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -717,6 +724,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				241A249A1FF7375300347055 /* SwipeBackContextTests.swift in Sources */,
+				24CD1BCD2154E4CC0065244F /* ObjectiveCSupportTests.m in Sources */,
 				2463FF192046914C005C77C4 /* SwipeToDismissTests.swift in Sources */,
 				241A24A51FF7BC8000347055 /* TestablePanGestureRecognizer.swift in Sources */,
 			);
@@ -858,6 +866,7 @@
 		241A249F1FF7375300347055 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN7U9JJPAS;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -865,7 +874,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.SwipeTransitionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/SwipeTransitionTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -873,6 +883,7 @@
 		241A24A01FF7375300347055 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN7U9JJPAS;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -880,7 +891,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.SwipeTransitionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/SwipeTransitionTests-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -942,6 +953,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -996,6 +1008,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1020,7 +1033,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1042,7 +1054,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.SwipeTransition;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1059,7 +1070,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1076,7 +1086,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1098,7 +1107,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoSwipeBack;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1120,7 +1128,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoSwipeBack;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1137,7 +1144,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1154,7 +1160,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1176,7 +1181,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoSwipeToDismiss;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1198,7 +1202,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.tattn.AutoSwipeToDismiss;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
