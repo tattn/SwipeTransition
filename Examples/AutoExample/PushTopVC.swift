@@ -24,7 +24,7 @@ class PushTopVC: UIViewController {
         pageViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         pageViewController.dataSource = self
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         pageViewController.setViewControllers([ContentVC()], direction: .forward, animated: false, completion: nil)
 
         navigationController?.swipeBack?.observePageViewController(pageViewController) { [unowned self] in self.index == 0 }
