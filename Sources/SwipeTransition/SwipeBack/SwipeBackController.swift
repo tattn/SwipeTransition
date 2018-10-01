@@ -95,10 +95,6 @@ extension SwipeBackController: UIGestureRecognizerDelegate {
         }
         return context.allowsTransitionStart
     }
-
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
 }
 
 extension SwipeBackController: UINavigationControllerDelegate {
