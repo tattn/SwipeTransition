@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIKit.UIGestureRecognizerSubclass
 
 final class OneFingerDirectionalPanGestureRecognizer: UIPanGestureRecognizer {
     enum PanDirection {

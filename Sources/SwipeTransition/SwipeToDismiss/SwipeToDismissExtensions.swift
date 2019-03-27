@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIViewController {
-    public var swipeToDismiss: SwipeToDismissController? {
+    var swipeToDismiss: SwipeToDismissController? {
         get {
             return objc_getAssociatedObject(self, &AssocKey.swipeToDismiss) as? SwipeToDismissController
         }
