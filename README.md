@@ -5,7 +5,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![pods](https://img.shields.io/cocoapods/v/SwipeTransition.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwipeTransition.svg)](http://cocoapods.org/pods/SwipeTransition)
-[![Swift Version](https://img.shields.io/badge/Swift-4-F16D39.svg)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg)](https://developer.apple.com/swift)
 [![Objective-C compatible](https://img.shields.io/badge/Objective--C-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 SwipeTransition allows trendy transitions using swipe gesture such as "swipe back".
@@ -24,8 +24,8 @@ Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn
 
 # Requirements
 
-- Xcode 10
-- Swift 4.2+
+- Xcode 10.2 (10.0+)
+- Swift 5 (4.2+)
 - iOS 8.0+
 
 # Installation
