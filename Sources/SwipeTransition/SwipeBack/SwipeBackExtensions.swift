@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UINavigationController {
-    public var swipeBack: SwipeBackController? {
+    var swipeBack: SwipeBackController? {
         get {
             return objc_getAssociatedObject(self, &AssocKey.swipeBack) as? SwipeBackController
         }

@@ -95,7 +95,7 @@ extension SwipeBackController: UIGestureRecognizerDelegate {
         }
         return context.allowsTransitionStart
     }
-    
+
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return !(touch.view is UISlider)
     }
