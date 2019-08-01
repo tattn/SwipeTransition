@@ -95,6 +95,9 @@ void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector,
         return;
     }
     @try {
+        if (@available(iOS 13.0, *)) {
+            if (self.modalPresentationStyle == UIModalPresentationAutomatic || self.modalPresentationStyle == UIModalPresentationPageSheet) { return; }
+        }
         self.swipeToDismiss = [SwipeToDismissController new];
     } @catch (NSException *exception) {} // avoid a crash of modalPresentation for UISearchController and so on...
 }
