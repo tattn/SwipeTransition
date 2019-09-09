@@ -18,9 +18,14 @@ public final class SwipeBackController: NSObject {
         get { return context.isEnabled }
         set {
             context.isEnabled = newValue
-            if newValue, panGestureRecognizer.view == nil {
+            
+            switch newValue {
+            case true where panGestureRecognizer.view == nil:
                 navigationController?.view.addGestureRecognizer(panGestureRecognizer)
-            } else {
+            case true:
+                // If already added gesture, do nothing
+                break
+            case false:
                 panGestureRecognizer.view?.removeGestureRecognizer(panGestureRecognizer)
             }
         }
