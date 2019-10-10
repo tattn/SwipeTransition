@@ -106,8 +106,7 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
             if scrollViewType === UIScrollView.self // filter UITableViewWrapperView and so on...
                 || scrollViewType === UITableView.self
                 || scrollViewType === UICollectionView.self
-                || superViewType === WKWebView.self
-                || superViewType === UIWebView.self {
+                || superViewType === WKWebView.self {
                     context.observedScrollView = scrollView
             } else {
                 gestureRecognizer.state = .failed
