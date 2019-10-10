@@ -30,7 +30,7 @@ matrix:
 
 script:
   - set -o pipefail
-  - xcodebuild $ACTION -project $PROJECT -scheme $SCHEME -sdk $SDK -destination 'name=iPhone XS Max,OS=13.0' -configuration $CONFIG ENABLE_TESTABILITY=YES | xcpretty
+  - xcodebuild $ACTION -project $PROJECT -scheme $SCHEME -sdk $SDK -destination 'name=iPhone 11,OS=13.0' -configuration $CONFIG ENABLE_TESTABILITY=YES | xcpretty
 
 notifications:
   email: false
