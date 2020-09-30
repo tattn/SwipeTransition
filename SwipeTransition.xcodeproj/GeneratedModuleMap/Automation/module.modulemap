@@ -1,0 +1,4 @@
+module Automation {
+    umbrella "/Users/asb/Developer/SwipeTransition/Sources/Automation/include"
+    export *
+}
