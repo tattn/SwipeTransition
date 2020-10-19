@@ -25,7 +25,9 @@ final class SwipeBackContext: Context<UINavigationController>, ContextType {
 
     func allowsTransitionFinish(recognizer: UIPanGestureRecognizer) -> Bool {
         guard let view = targetView else { return false }
-        return recognizer.velocity(in: view).x > 0
+        let percent = max(recognizer.translation(in: view).x, 0) / view.frame.width
+        // Continue if drag more than 50% of screen width or velocity is higher than 1000
+        return percent > 0.5 || recognizer.velocity(in: view).x > 1000
     }
 
     func didStartTransition() {
