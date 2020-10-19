@@ -25,7 +25,7 @@ final class SwipeBackContext: Context<UINavigationController>, ContextType {
 
     func allowsTransitionFinish(recognizer: UIPanGestureRecognizer) -> Bool {
         guard let view = targetView else { return false }
-        return recognizer.velocity(in: view).x > 0
+        return recognizer.velocity(in: view).x > 1000
     }
 
     func didStartTransition() {
