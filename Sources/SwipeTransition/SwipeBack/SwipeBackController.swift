@@ -58,7 +58,7 @@ public final class SwipeBackController: NSObject {
         context.navigationControllerDelegateProxy = NavigationControllerDelegateProxy(delegates: [self] + (delegate.map { [$0] } ?? []) )
     }
 
-    public func observePageViewController(_ pageViewController: UIPageViewController, isFirstPage: @escaping () -> Bool) {
+    public func observePageViewController(_ pageViewController: UIViewController, isFirstPage: @escaping () -> Bool) {
         let scrollView = pageViewController.view.subviews
             .lazy
             .compactMap { $0 as? UIScrollView }
