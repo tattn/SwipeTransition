@@ -67,6 +67,14 @@ public final class SwipeBackController: NSObject {
         context.pageViewControllerPanGestureRecognizer = scrollView?.panGestureRecognizer
         isFirstPageOfPageViewController = isFirstPage
     }
+    
+    public func observeViewController(_ scrollView: UIScrollView?, isFirstPage: @escaping () -> Bool) {
+        if scrollView != nil {
+            scrollView!.panGestureRecognizer.require(toFail: panGestureRecognizer)
+            context.pageViewControllerPanGestureRecognizer = scrollView!.panGestureRecognizer
+            isFirstPageOfPageViewController = isFirstPage
+        }
+    }
 
     @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
         switch recognizer.state {
