@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics.CGBase
 
 open class SwipeBackConfiguration {
     public static var shared = SwipeBackConfiguration()
