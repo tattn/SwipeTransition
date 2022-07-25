@@ -68,20 +68,16 @@ public final class SwipeBackController: NSObject {
         shouldBeginSwipeTransition = shouldBeginSwipe
     }
     
-    public func observeViewController(_ scrollView: UIScrollView?, shouldBeginSwipe: @escaping () -> Bool) {
-        if scrollView != nil {
-            scrollView!.panGestureRecognizer.require(toFail: panGestureRecognizer)
-            context.pageViewControllerGestureRecognizer = scrollView!.panGestureRecognizer
-            shouldBeginSwipeTransition = shouldBeginSwipe
-        }
+    public func observeViewController(_ scrollView: UIScrollView, shouldBeginSwipe: @escaping () -> Bool) {
+        scrollView.panGestureRecognizer.require(toFail: panGestureRecognizer)
+        context.pageViewControllerGestureRecognizer = scrollView.panGestureRecognizer
+        shouldBeginSwipeTransition = shouldBeginSwipe
     }
     
-    public func observeViewController(view: UIView?, shouldBeginSwipe: @escaping () -> Bool) {
-        if view != nil {
-            view!.gestureRecognizers?.first?.require(toFail: panGestureRecognizer)
-            context.pageViewControllerGestureRecognizer = view!.gestureRecognizers?.first
-            shouldBeginSwipeTransition = shouldBeginSwipe
-        }
+    public func observeViewController(view: UIView, shouldBeginSwipe: @escaping () -> Bool) {
+        view.gestureRecognizers?.first?.require(toFail: panGestureRecognizer)
+        context.pageViewControllerGestureRecognizer = view.gestureRecognizers?.first
+        shouldBeginSwipeTransition = shouldBeginSwipe
     }
 
     @objc private func handlePanGesture(_ recognizer: OneFingerDirectionalPanGestureRecognizer) {
