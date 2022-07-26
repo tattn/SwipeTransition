@@ -59,7 +59,7 @@ public final class SwipeBackController: NSObject {
     }
 
     public func observe(viewController: UIViewController, shouldBeginSwipe: @escaping (UIGestureRecognizer) -> Bool) {
-        let scrollView = pageViewController.view.subviews
+        let scrollView = viewController.view.subviews
             .lazy
             .compactMap { $0 as? UIScrollView }
             .first
