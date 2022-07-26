@@ -12,7 +12,7 @@ import UIKit
 public final class SwipeBackController: NSObject {
     public var onStartTransition: ((UIViewControllerContextTransitioning) -> Void)?
     public var onFinishTransition: ((UIViewControllerContextTransitioning) -> Void)?
-    private var shouldBeginSwipeTransition: ((UIGestureRecognizer?) -> Bool)?
+    private var shouldBeginSwipeTransition: ((UIGestureRecognizer) -> Bool)?
 
     public var isEnabled: Bool {
         get { return context.isEnabled }
