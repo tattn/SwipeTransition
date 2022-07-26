@@ -74,7 +74,7 @@ public final class SwipeBackController: NSObject {
         shouldBeginSwipeTransition = shouldBeginSwipe
     }
     
-    public func observeViewController(view: UIView, shouldBeginSwipe: @escaping (UIGestureRecognizer?) -> Bool) {
+    public func observe(view: UIView, shouldBeginSwipe: @escaping (UIGestureRecognizer) -> Bool) {
         view.gestureRecognizers?.first?.require(toFail: panGestureRecognizer)
         context.pageViewControllerGestureRecognizer = view.gestureRecognizers?.first
         shouldBeginSwipeTransition = shouldBeginSwipe
