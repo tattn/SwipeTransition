@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics.CGBase
 
 open class SwipeToDismissConfiguration {
     public static var shared = SwipeToDismissConfiguration()

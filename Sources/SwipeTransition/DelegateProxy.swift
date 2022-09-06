@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import DelegateProxy
 
 class DelegateProxy<T>: STDelegateProxy {
     @nonobjc convenience init(delegates: [T]) {

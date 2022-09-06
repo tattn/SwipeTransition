@@ -30,6 +30,12 @@ Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn
 
 # Installation
 
+## Swift Package Manager
+
+```
+.package(url: "https://github.com/tattn/SwipeTransition.git", from: "0.4.2")
+```
+
 ## Carthage
 
 ```ruby
