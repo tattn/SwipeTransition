@@ -27,7 +27,7 @@ class PushTopVC: UIViewController {
         addChild(pageViewController)
         pageViewController.setViewControllers([ContentVC()], direction: .forward, animated: false, completion: nil)
 
-        navigationController?.swipeBack?.observePageViewController(pageViewController) { [unowned self] in self.index == 0 }
+        navigationController?.swipeBack?.observe(viewController: pageViewController, shouldBeginSwipe: { [unowned self] _ in self.index == 0 })
     }
 }
 
