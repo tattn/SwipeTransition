@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
+#if SWIFT_PACKAGE
+@import SwipeTransition;
+#else
 #import <SwipeTransition/SwipeTransition-Swift.h>
+#endif
 #import "UINavigationController+AutoSwipeBack.h"
 
 @implementation UINavigationController (AutoSwipeBack)

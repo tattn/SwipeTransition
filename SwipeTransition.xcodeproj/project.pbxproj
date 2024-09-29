@@ -245,6 +245,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		066149C32CA92CBF00DFF113 /* DelegateProxy */ = {
+			isa = PBXGroup;
+			children = (
+				066149C42CA92DEE00DFF113 /* include */,
+				2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */,
+			);
+			path = DelegateProxy;
+			sourceTree = "<group>";
+		};
+		066149C42CA92DEE00DFF113 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		066149C52CA92EC200DFF113 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2467A7D81FEF8ABD007A7AC9 /* UINavigationController+AutoSwipeBack.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		066149C62CA92ECA00DFF113 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2467A8111FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		241A24981FF7375300347055 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				246C0B5B1FF55B170040E6BC /* Automation */,
+				066149C32CA92CBF00DFF113 /* DelegateProxy */,
 				246C0B5C1FF55C2A0040E6BC /* SwipeTransition */,
 			);
 			path = Sources;
@@ -329,9 +363,9 @@
 		2467A7B91FEF7E44007A7AC9 /* AutoSwipeBack */ = {
 			isa = PBXGroup;
 			children = (
-				2467A7BA1FEF7E44007A7AC9 /* AutoSwipeBack.h */,
+				066149C52CA92EC200DFF113 /* include */,
 				2467A7BB1FEF7E44007A7AC9 /* Info.plist */,
-				2467A7D81FEF8ABD007A7AC9 /* UINavigationController+AutoSwipeBack.h */,
+				2467A7BA1FEF7E44007A7AC9 /* AutoSwipeBack.h */,
 				2467A7C41FEF7F41007A7AC9 /* UINavigationController+AutoSwipeBack.m */,
 			);
 			path = AutoSwipeBack;
@@ -352,9 +386,9 @@
 		2467A7FC1FEFDA2B007A7AC9 /* AutoSwipeToDismiss */ = {
 			isa = PBXGroup;
 			children = (
-				2467A7FD1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.h */,
+				066149C62CA92ECA00DFF113 /* include */,
 				2467A7FE1FEFDA2B007A7AC9 /* Info.plist */,
-				2467A8111FEFDA64007A7AC9 /* UINavigationController+AutoSwipeToDismiss.h */,
+				2467A7FD1FEFDA2B007A7AC9 /* AutoSwipeToDismiss.h */,
 				2467A8131FEFDA79007A7AC9 /* UINavigationController+AutoSwipeToDismiss.m */,
 			);
 			path = AutoSwipeToDismiss;
@@ -392,8 +426,6 @@
 				24914076203B39B300D3E4CD /* Context.swift */,
 				24914078203B475500D3E4CD /* TransitionHandleable.swift */,
 				241BA6EB1FECC571002E8902 /* InteractiveTransition.swift */,
-				2467A79F1FED4DEF007A7AC9 /* DelegateProxy.h */,
-				2467A7A01FED4E43007A7AC9 /* DelegateProxy.m */,
 				247E68A21FF2348600617B12 /* DelegateProxy.swift */,
 				2467A7C61FEF8938007A7AC9 /* AssocKey.swift */,
 				241A87AB2018367C00009390 /* OneFingerDirectionalPanGestureRecognizer.swift */,

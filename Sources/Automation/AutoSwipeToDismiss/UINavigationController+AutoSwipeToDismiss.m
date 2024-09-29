@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
+#if SWIFT_PACKAGE
+@import SwipeTransition;
+#else
 #import <SwipeTransition/SwipeTransition-Swift.h>
+#endif
 #import "UINavigationController+AutoSwipeToDismiss.h"
 
 void AutoSwipeToDismiss_SwizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
