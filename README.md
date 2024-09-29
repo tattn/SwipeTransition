@@ -1,8 +1,7 @@
-![logotype-a](https://github.com/Tobaloidee/SwipeTransition/blob/master/docs/assets/logotype-a.png)
+![logotype-a](https://github.com/tattn/SwipeTransition/blob/main/docs/assets/logotype-a.png)
 ===
 
-[![Build Status](https://travis-ci.org/tattn/SwipeTransition.svg?branch=master)](https://travis-ci.org/tattn/SwipeTransition)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Build Status](https://travis-ci.org/tattn/SwipeTransition.svg?branch=main)](https://travis-ci.org/tattn/SwipeTransition)
 ![pods](https://img.shields.io/cocoapods/v/SwipeTransition.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwipeTransition.svg)](http://cocoapods.org/pods/SwipeTransition)
 [![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg)](https://developer.apple.com/swift)
@@ -10,7 +9,7 @@
 
 SwipeTransition allows trendy transitions using swipe gesture such as "swipe back".
 
-<img src="https://github.com/tattn/SwipeTransition/raw/master/docs/assets/demo.gif" alt="Demo" width="50%" />
+<img src="https://github.com/tattn/SwipeTransition/raw/main/docs/assets/demo.gif" alt="Demo" width="50%" />
 
 Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn204adn0xu8r
 
@@ -24,17 +23,14 @@ Try the demo on the web (appetize.io):　https://appetize.io/app/pebm8kveqhfj3wn
 
 # Requirements
 
-- Xcode 10.2 (10.0+)
-- Swift 5 (4.2+)
-- iOS 8.0+
+- Xcode 15.0
+- iOS 14.0+
 
 # Installation
 
-## Carthage
+## Swift Package Manager
 
-```ruby
-github "tattn/SwipeTransition"
-```
+You can install this package with Swift Package Manager.
 
 ## CocoaPods
 
@@ -48,13 +44,13 @@ pod "SwipeTransitionAutoSwipeToDismiss" # if needed
 
 ## The easiest way to use
 
-Just setting these frameworks in the `Linked Frameworks and Libraries`, it works. (if you use Carthage)
+Just setting these frameworks in the `Linked Frameworks and Libraries`, it works. (if you use Swift Package Manager)
 
-![Linked Frameworks and Libraries](https://github.com/tattn/SwipeTransition/raw/master/docs/assets/linked_frameworks.png)
+![Linked Frameworks and Libraries](https://github.com/tattn/SwipeTransition/raw/main/docs/assets/linked_frameworks.png)
 
 Notes: these frameworks use Method Swizzling.
 
-If you want to set up manually without Method Swizzling, please use `SwipeTransition.framework` only.
+If you want to set up manually without Method Swizzling, please use `SwipeTransition` only.
 
 ## Manually set up
 
